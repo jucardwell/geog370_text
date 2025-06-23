@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; What is Geographic Data? – GEOG370</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./models.html" rel="next">
+<link href="./core.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">What is Geographic Data?</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">GEOG370</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./politics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Politics and Potentials of GIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./core.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Spatial Concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">What is Geographic Data?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Data Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Attributes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Managing Files</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./learning_qgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatial_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./doing_spatial_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./other_tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Analysis Tools</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./making_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Making Maps</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#defining-geographic-data-and-information" id="toc-defining-geographic-data-and-information" class="nav-link active" data-scroll-target="#defining-geographic-data-and-information"><span class="header-section-number">4.1</span> Defining Geographic Data and Information</a></li>
+  <li><a href="#where-does-geographic-data-come-from" id="toc-where-does-geographic-data-come-from" class="nav-link" data-scroll-target="#where-does-geographic-data-come-from"><span class="header-section-number">4.2</span> Where does geographic data come from?</a></li>
+  <li><a href="#how-is-geographic-data-collected" id="toc-how-is-geographic-data-collected" class="nav-link" data-scroll-target="#how-is-geographic-data-collected"><span class="header-section-number">4.3</span> How is geographic data collected?</a>
+  <ul class="collapse">
+  <li><a href="#remote-sensing" id="toc-remote-sensing" class="nav-link" data-scroll-target="#remote-sensing"><span class="header-section-number">4.3.1</span> Remote sensing</a></li>
+  <li><a href="#land-surveys" id="toc-land-surveys" class="nav-link" data-scroll-target="#land-surveys"><span class="header-section-number">4.3.2</span> Land Surveys</a></li>
+  <li><a href="#sensors" id="toc-sensors" class="nav-link" data-scroll-target="#sensors"><span class="header-section-number">4.3.3</span> Sensors</a></li>
+  <li><a href="#gpsgnss" id="toc-gpsgnss" class="nav-link" data-scroll-target="#gpsgnss"><span class="header-section-number">4.3.4</span> GPS/GNSS</a></li>
+  <li><a href="#aerial-photography" id="toc-aerial-photography" class="nav-link" data-scroll-target="#aerial-photography"><span class="header-section-number">4.3.5</span> Aerial Photography</a></li>
+  <li><a href="#lidar-light-detection-and-ranging" id="toc-lidar-light-detection-and-ranging" class="nav-link" data-scroll-target="#lidar-light-detection-and-ranging"><span class="header-section-number">4.3.6</span> LiDAR (Light Detection and Ranging)</a></li>
+  <li><a href="#photogrammetry" id="toc-photogrammetry" class="nav-link" data-scroll-target="#photogrammetry"><span class="header-section-number">4.3.7</span> Photogrammetry</a></li>
+  <li><a href="#census-and-surveys" id="toc-census-and-surveys" class="nav-link" data-scroll-target="#census-and-surveys"><span class="header-section-number">4.3.8</span> Census and Surveys</a></li>
+  <li><a href="#could-be-spatial-data" id="toc-could-be-spatial-data" class="nav-link" data-scroll-target="#could-be-spatial-data"><span class="header-section-number">4.3.9</span> Could Be Spatial Data</a></li>
+  </ul></li>
+  <li><a href="#new-sources-of-geographic-data" id="toc-new-sources-of-geographic-data" class="nav-link" data-scroll-target="#new-sources-of-geographic-data"><span class="header-section-number">4.4</span> New Sources of Geographic Data</a>
+  <ul class="collapse">
+  <li><a href="#case-study" id="toc-case-study" class="nav-link" data-scroll-target="#case-study"><span class="header-section-number">4.4.1</span> Case Study</a></li>
+  </ul></li>
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata"><span class="header-section-number">4.5</span> Metadata</a></li>
+  <li><a href="#open-data" id="toc-open-data" class="nav-link" data-scroll-target="#open-data"><span class="header-section-number">4.6</span> Open Data</a></li>
+  <li><a href="#cooked-data" id="toc-cooked-data" class="nav-link" data-scroll-target="#cooked-data"><span class="header-section-number">4.7</span> Cooked Data</a>
+  <ul class="collapse">
+  <li><a href="#census-raceethnicity-categories" id="toc-census-raceethnicity-categories" class="nav-link" data-scroll-target="#census-raceethnicity-categories"><span class="header-section-number">4.7.1</span> Census Race/Ethnicity Categories</a></li>
+  <li><a href="#predictive-policing-algorithms" id="toc-predictive-policing-algorithms" class="nav-link" data-scroll-target="#predictive-policing-algorithms"><span class="header-section-number">4.7.2</span> Predictive Policing Algorithms</a></li>
+  <li><a href="#using-social-media-for-disaster-response" id="toc-using-social-media-for-disaster-response" class="nav-link" data-scroll-target="#using-social-media-for-disaster-response"><span class="header-section-number">4.7.3</span> Using Social Media for Disaster Response</a></li>
+  </ul></li>
+  <li><a href="#ethics-and-privacy" id="toc-ethics-and-privacy" class="nav-link" data-scroll-target="#ethics-and-privacy"><span class="header-section-number">4.8</span> Ethics and Privacy</a></li>
+  <li><a href="#critical-questions-to-ask-about-your-data" id="toc-critical-questions-to-ask-about-your-data" class="nav-link" data-scroll-target="#critical-questions-to-ask-about-your-data"><span class="header-section-number">4.9</span> Critical questions to ask about your data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">What is Geographic Data?</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This chapter will introduce geographic data, where it comes from, and how it is produced.</p>
+<section id="defining-geographic-data-and-information" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="defining-geographic-data-and-information"><span class="header-section-number">4.1</span> Defining Geographic Data and Information</h2>
+<p>Geographic data is data that can be tied to a specific location on Earth. In general, geographic data includes both location and attribute components. The location tells us where a feature is in the world and must be represented using a coordinate system, which provides a standardized way of expressing position on the Earth’s surface (hello Cartesian logic!), to be analyzed in a GIS. The attributes provide additional information about what exists or occurs at that location. Geographic data can be stored in a variety of formats, which will be explored in greater detail in Chapter 5, and can represent both physical and human features, such as rivers, roads, buildings, vegetation, population density, pollution levels, or disease clusters. In particular, GIS is used to turn data into information. “Raw” data must be processed, analyzed, and contextualized to become information.</p>
+<p>Data quality is the foundation of any successful analysis. To produce meaningful results, the data you use must be temporally suitable, appropriately detailed, and relevant to your spatial question. If the resolution is too coarse, the data outdated, or the attributes inaccurate, your analysis will be compromised. As the saying goes, “Garbage in, garbage out”- the quality of your output is only as good as the quality of your input.</p>
+</section>
+<section id="where-does-geographic-data-come-from" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="where-does-geographic-data-come-from"><span class="header-section-number">4.2</span> Where does geographic data come from?</h2>
+<p>Historically, geospatial data was collected almost exclusively by state institutions, militaries, and professional surveyors. These data sources were considered “authoritative” because they relied on credentialed experts, standardized tools, and formal methodologies to achieve a high degree of accuracy. Early data collection involved resource-intensive methods like land surveying (using total stations and reference points), aerial photography for photogrammetry, remote sensing, and field data collection during censuses. The tools were expensive, slow, and required specialized training, but they produced high-quality data with thorough documentation (metadata). At the same time, they necessarily represented and re-created the priorities of those funding its acquisition.&nbsp;</p>
+<p>Some of the common sources of “authoritative” spatial data include:&nbsp;</p>
+<ul>
+<li>US Census Bureau
+<ul>
+<li>Population counts and demographics (e.g., race, age, income)</li>
+<li>Housing and economic data</li>
+<li>Geographic boundaries (e.g., census tracts, block groups, ZIP code tabulation areas)</li>
+</ul></li>
+<li>US Geological Survey (USGS)&nbsp;
+<ul>
+<li>Topographic maps</li>
+<li>Elevation and terrain (e.g., DEMs)</li>
+<li>Land cover and land use (e.g., NLCD)</li>
+<li>Hydrography (rivers, lakes, watersheds)</li>
+<li>Geologic and seismic data</li>
+</ul></li>
+<li>NASA
+<ul>
+<li>Weather and climate data</li>
+<li>Coastal and marine mapping (e.g., nautical charts, sea surface temperature)</li>
+<li>Flood zones and storm surge models</li>
+<li>Fisheries and oceanographic data</li>
+</ul></li>
+<li>State and Local Governments
+<ul>
+<li>Parcel and zoning data</li>
+<li>Transportation networks (roads, transit routes)</li>
+<li>Utilities and infrastructure (e.g., water lines, sewer systems)</li>
+<li>Land use plans and municipal boundaries</li>
+</ul></li>
+<li>EPA
+<ul>
+<li>Air and water quality data</li>
+<li>Environmental justice mapping (e.g., EJScreen)</li>
+<li>Regulated facility locations</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-is-geographic-data-collected" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="how-is-geographic-data-collected"><span class="header-section-number">4.3</span> How is geographic data collected?</h2>
+<section id="remote-sensing" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="remote-sensing"><span class="header-section-number">4.3.1</span> Remote sensing</h3>
+<p>Uses satellites or aircraft to capture reflected or emitted energy from the Earth’s surface. Because different surfaces reflect energy at different wavelengths, this method can be used to identify and classify surfaces on earth.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://commons.wikimedia.org/wiki/File:Remote_Sensing_Illustration.jpg"><img src="images/Remote_Sensing_Illustration.jpg" class="img-fluid figure-img" width="449" alt="Remote Sensing, Credit: Arkarjun, CC BY-SA 3.0, via Wikimedia Commons"></a></p>
+<figcaption>Remote Sensing, Credit: Arkarjun, CC BY-SA 3.0, via Wikimedia Commons</figcaption>
+</figure>
+</div>
+</section>
+<section id="land-surveys" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="land-surveys"><span class="header-section-number">4.3.2</span> Land Surveys</h3>
+<p>Surveying is a method of collecting highly accurate location data by measuring distances and angles between known points on the ground. Surveyors often use tools like total stations, which send laser signals to a reflective prism to calculate distance and direction, or survey-grade GPS units that use satellite signals with corrections from nearby base stations to achieve centimeter-level accuracy. By combining these measurements with known reference points (control points), surveyors can calculate the precise coordinates of new locations.&nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://commons.wikimedia.org/wiki/File:Land_Survey_(14000483127).jpg"><img src="images/survey equipment.jpg" class="img-fluid figure-img" width="304" alt="Land Survey Equipment, Credit: Bureau of Land Management Oregon and Washington, Public domain, via Wikimedia Commons"></a></p>
+<figcaption>Land Survey Equipment, Credit: Bureau of Land Management Oregon and Washington, Public domain, via Wikimedia Commons</figcaption>
+</figure>
+</div>
+</section>
+<section id="sensors" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="sensors"><span class="header-section-number">4.3.3</span> Sensors</h3>
+<p>Sensors are placed in fixed locations and are typically used to collect environmental data, such as air pollution, rainfall, or noise levels, over short or extended periods of time. For instance, the national ASOS/AWOS network consists of over 900 stations across the US collecting weather data for over 30 years.&nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://commons.wikimedia.org/wiki/File:2008-07-09_Eureka_Airport_AWOS_viewed_from_the_south.jpg"><img src="images/awos.jpg" class="img-fluid figure-img" width="481" alt="AWOS Station, Credit: Famartin, CC BY-SA 3.0, via Wikimedia Commons"></a></p>
+<figcaption>AWOS Station, Credit: Famartin, CC BY-SA 3.0, via Wikimedia Commons</figcaption>
+</figure>
+</div>
+</section>
+<section id="gpsgnss" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="gpsgnss"><span class="header-section-number">4.3.4</span> GPS/GNSS</h3>
+<p>GPS works through trilateration, which determines location by measuring distances from multiple satellites. Each satellite sends a signal with the time it was sent which allows GPS devices on the ground to calculate how far the satellite is from the device location. With signals from at least four satellites, the GPS receiver can determine your exact position on Earth (latitude, longitude, and elevation). GPS uses only the US satellite network, GNSS uses the global network.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://commons.wikimedia.org/wiki/File:Trilateration-with-3-satellites.svg"><img src="images/trilateratino.png" class="img-fluid figure-img" width="411" alt="Trilateration, Credit: Javiersanp, CC BY-SA 4.0, via Wikimedia Commons"></a></p>
+<figcaption>Trilateration, Credit: Javiersanp, CC BY-SA 4.0, via Wikimedia Commons</figcaption>
+</figure>
+</div>
+</section>
+<section id="aerial-photography" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="aerial-photography"><span class="header-section-number">4.3.5</span> Aerial Photography</h3>
+<p>Images captured from planes or drones are used to document the Earth’s surface</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://storms.ngs.noaa.gov/storms/helene/index.html#10.47/35.5531/-82.5132"><img src="images/Screenshot 2025-06-23 at 12.22.19 PM.png" class="img-fluid figure-img" width="502" alt="Imagery Collected after Hurricane Helene, Credit: NOAA"></a></p>
+<figcaption>Imagery Collected after Hurricane Helene, Credit: NOAA</figcaption>
+</figure>
+</div>
+</section>
+<section id="lidar-light-detection-and-ranging" class="level3" data-number="4.3.6">
+<h3 data-number="4.3.6" class="anchored" data-anchor-id="lidar-light-detection-and-ranging"><span class="header-section-number">4.3.6</span> LiDAR (Light Detection and Ranging)</h3>
+<p>LiDAR uses rapid laser pulses from aircraft or drones to measure the distance to the ground. By calculating how long it takes the light to bounce back, LiDAR can produce highly detailed 3D models.&nbsp;</p>
+</section>
+<section id="photogrammetry" class="level3" data-number="4.3.7">
+<h3 data-number="4.3.7" class="anchored" data-anchor-id="photogrammetry"><span class="header-section-number">4.3.7</span> Photogrammetry</h3>
+<p>Photogrammetry involves taking many overlapping images of the same area, usually from drones or aircraft, and using software to extract depth, shape, and spatial relationships. It’s commonly used for creating orthophotos, elevation models, and 3D reconstructions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://commons.wikimedia.org/wiki/File:Sede_da_Fazenda_do_Pinhal_(53),_N.ELAC.jpg"><img src="images/photogrammatry.jpg" class="img-fluid figure-img" alt="Photogrammetry, Credit: NELAC , CC BY-SA 4.0, via Wikimedia Commons"></a></p>
+<figcaption>Photogrammetry, Credit: NELAC , CC BY-SA 4.0, via Wikimedia Commons</figcaption>
+</figure>
+</div>
+</section>
+<section id="census-and-surveys" class="level3" data-number="4.3.8">
+<h3 data-number="4.3.8" class="anchored" data-anchor-id="census-and-surveys"><span class="header-section-number">4.3.8</span> Census and Surveys</h3>
+<p>These methods gather demographic, social, and economic data directly from people through questionnaires, interviews, or field observations. The U.S. Census, for example, collects data on population, housing, and income and ties this information to geographic areas for mapping and policy use.</p>
+</section>
+<section id="could-be-spatial-data" class="level3" data-number="4.3.9">
+<h3 data-number="4.3.9" class="anchored" data-anchor-id="could-be-spatial-data"><span class="header-section-number">4.3.9</span> Could Be Spatial Data</h3>
+<p>Many data sources contain locational information, even if geography is not their primary focus. For example, health records often include patient zip codes, census tracts, or home addresses; tax documents may list property locations or mailing addresses; school enrollment data might be tied to district boundaries or bus routes. While these datasets are not explicitly spatial in origin, they become spatial when analyzed through the lens of geography.</p>
+</section>
+</section>
+<section id="new-sources-of-geographic-data" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="new-sources-of-geographic-data"><span class="header-section-number">4.4</span> New Sources of Geographic Data</h2>
+<p>Collecting geospatial data is now easier than ever. Almost every smartphone has built-in GPS/GNSS. Instead of the ability to collect geospatial data being relatively restricted, it is now possible for nearly anyone to record geographic data. In addition, the rise of online mapping tools like Google Earth has also made geospatial technologies more accessible to the public. As a result, geospatial data collection is no longer confined to experts or specialized equipment, leading to an explosion in the amount of data being generated. These crowdsourced and citizen-generated datasets are now used to support everything from disaster response to urban planning.</p>
+<p>Some well-known examples include:</p>
+<ul>
+<li>OpenStreetMap: A free, crowdsourced map of the world built by millions of contributors, widely used in humanitarian efforts and mapping underserved areas.</li>
+<li>Mapillary: A platform where users upload street-level imagery to support navigation, urban development, and computer vision training.</li>
+<li>eBird: A citizen science project where birdwatchers record sightings, contributing to biodiversity monitoring and conservation.</li>
+<li>iNaturalist: A platform where people document observations of plants and animals, helping scientists track species distribution and ecological change.</li>
+</ul>
+<p>Crowdsourced or community-collected geospatial data has become an increasingly important way to capture information that is intentionally or unintentionally missed by “authoritative” sources. These grassroots efforts often seek to fill data gaps that disproportionately affect marginalized communities. However, the rise of crowdsourced data has also created tension between official and unofficial sources, which has raised questions about what kinds of data are considered legitimate and who is qualified to collect them.&nbsp;</p>
+<section id="case-study" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="case-study"><span class="header-section-number">4.4.1</span> Case Study</h3>
+<p><a href="https://www.kanw.com/2025-06-04/what-to-know-about-the-new-louisiana-air-pollution-law-that-grassroots-organizations-are-suing-over">Louisiana Bans Community Air Quality Data<br>
+</a>In Louisiana, particularly in the heavily industrialized region known as “Cancer Alley”, residents have been raising concerns about high levels of pollution near industrial facilities. A lack of “authoritative” air pollution data in the area (due to the EPA’s sparse and unevenly distributed monitoring network) meant that community members were unable to validate their concerns. In response, community members began using low-cost air quality sensors to collect their own data.&nbsp;</p>
+<p>However, in May 2023, Louisiana passed legislation banning the use of community-collected air quality data in legal or regulatory processes. Lawmakers justified the ban by citing concerns about the accuracy, calibration, and scientific rigor of the sensors used. This decision effectively invalidated grassroots efforts to document environmental health risks and reinforced institutional control over which data “counts.” It also revealed deeper tensions around participatory data, raising questions about who defines data quality, how metadata and standards are used to include or exclude information.</p>
+</section>
+</section>
+<section id="metadata" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="metadata"><span class="header-section-number">4.5</span> Metadata</h2>
+<p>Metadata adds context to a geographic dataset by providing information on how, why, when, and by whom geographic data were collected. Understanding this context is essential for determining whether a dataset can/should be used in a certain analysis. In particular, metadata should answer the following questions:</p>
+<ul>
+<li>What is this data about?</li>
+<li>Where did it come from?</li>
+<li>When was it gathered?</li>
+<li>How is it organized?</li>
+<li>How is it located on earth?&nbsp;</li>
+<li>What features does this data describe and in how much detail?</li>
+<li>What kind of features does this data set describe and in how much detail?</li>
+<li>Who documented the data?&nbsp;</li>
+</ul>
+<p>Geospatial metadata is often stored using standardized formats that are structured in XML. There are different metadata standards- such as FGDC (Federal Geographic Data Committee) or ISO 19115- which define consistent ways to create metadata. Metadata is typically embedded within the data file itself (like in a GeoTIFF), stored alongside it as an auxiliary XML file, or managed in a separate metadata catalog or database.</p>
+<p>At the same time, metadata often acts as a kind of “gatekeeper” to authoritative spatial data sources, acting as a determining factor to what data is considered trustworthy, usable, or legitimate. A lack of standardized metadata is frequently used as a reason to dismiss crowdsourced or community-collected data, regardless of its relevance or local accuracy. In this way, metadata standards can reinforce institutional control over which data counts and whose knowledge is valued.</p>
+</section>
+<section id="open-data" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="open-data"><span class="header-section-number">4.6</span> Open Data</h2>
+<p>Until recently, most geospatial data was difficult for the public to access. Because it was expensive to produce and typically collected by government agencies or private companies, it was generally restricted to official use or available only at a high cost. However, over the past 15 years, there has been a dramatic shift in the amount of free geospatial data available, from both authoritative institutions and grassroots, academic, crowdsourced, or open-source initiatives.. This shift is due not only to the increase in data being collected, but also a growing public demand for data accessibility. The Open Data movement argues that data, especially data collected by government institutions,&nbsp; should be available for anyone to access, use, and share. The movement promotes transparency, accountability, and innovation by reducing barriers to information.</p>
+<p>As a result of these factors, public geospatial data portals have emerged at the local, state, and federal levels. In North Carolina, for instance, platforms like <a href="https://www.nconemap.gov/">NC OneMap</a> and <a href="https://opendata-townofchapelhill.hub.arcgis.com/">Chapel Hill Open Data Portal</a> make a wide range of GIS data available to the public. These resources have begun to democratize access to spatial information, enabling broader participation in spatial analysis and decision-making.</p>
+<p>For critical GIS work, this shift is especially significant. Open data initiatives have helped broaden who can produce and interpret spatial data. However, critical questions remain. Open data is often unevenly distributed, reflecting the priorities, resources, and biases of those who collect and curate it. Increased access does not automatically translate into equity- issues of power, control, and representation continue to shape the geospatial landscape.</p>
+</section>
+<section id="cooked-data" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="cooked-data"><span class="header-section-number">4.7</span> Cooked Data</h2>
+<p>As <span class="citation" data-cites="D-Ignazio2023-aj">D’Ignazio and Klein (<a href="references.html#ref-D-Ignazio2023-aj" role="doc-biblioref">2023</a>)</span> write in Data Feminism, “data are not neutral or objective. They are the products of unequal social relations.” Contrary to the “god-trick”, which <span class="citation" data-cites="Haraway2013-oy">Haraway (<a href="references.html#ref-Haraway2013-oy" role="doc-biblioref">2013</a>)</span> argues assumes that knowledge can be produced by “seeing everywhere from nowhere”, data is shaped by human decisions. There is no such thing as “raw” data, and recognizing that data is “cooked” means recognizing that data is shaped by the tools, priorities, and power structures of its creators. Data Feminism outlines seven principles for rethinking data practices through a lens of justice and equity. These principles offer a framework for critically engaging with geospatial data:</p>
+<ul>
+<li>Examine power: Consider who has the power to produce data and what data is considered useful/useable</li>
+<li>Challenge power: Use data to confront and dismantle unjust systems, not reinforce them</li>
+<li>Elevate emotion and embodiment: Value lived experience and emotional knowledge</li>
+<li>Rethink binaries and hierarchies: Question categorical simplifications (like male/female, urban/rural)</li>
+<li>Embrace pluralism: Include diverse voices, community knowledge, and multiple ways of knowing</li>
+<li>Consider context: Understand that data never exists outside of the context in which it was created</li>
+<li>Make labor visible: Acknowledge the work that goes into data collection, cleaning, analysis, and maintenance.</li>
+</ul>
+<p>As we’ll see in the examples below, spatial data (and data generally) often carries embedded assumptions that should be foregrounded in analyses using that data.&nbsp;&nbsp;</p>
+<section id="census-raceethnicity-categories" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="census-raceethnicity-categories"><span class="header-section-number">4.7.1</span> Census Race/Ethnicity Categories</h3>
+<p>Racial and ethnic categories in the U.S. Census don’t just reflect reality, they help construct it. These categories aren’t fixed or neutral; they’ve changed over time in response to political, social, and institutional pressures. Once in place, these classifications are used to enforce laws, allocate resources, and shape policy. In GIS and other forms of spatial analysis, census categories often serve as the foundation for mapping demographic patterns, identifying disparities, and informing decisions. But because these categories are treated as fixed units of analysis, the political and historical choices behind them are often overlooked. Over time, they become treated as objective truths rather than socially constructed decisions shaped by specific contexts.</p>
+<p><strong>Read</strong>: Strmic-Pawl, Hephzibah V., Brandon A. Jackson, and Steve Garner. “Race counts: racial and ethnic data on the US Census and the implications for tracking inequality.” <em>Sociology of Race and Ethnicity</em> 4, no. 1 (2018): 1-13.</p>
+</section>
+<section id="predictive-policing-algorithms" class="level3" data-number="4.7.2">
+<h3 data-number="4.7.2" class="anchored" data-anchor-id="predictive-policing-algorithms"><span class="header-section-number">4.7.2</span> Predictive Policing Algorithms</h3>
+<p>Predictive policing algorithms use historical crime data to forecast where future crimes might occur. But this data often reflects biased policing practices, not actual patterns of crime. If certain neighborhoods (often Black or brown, low-income communities) were overpoliced in the past, those same areas are flagged again, leading to further policing. This creates a feedback loop where bias in the input data reinforces and reproduces over-policing, which creates additional data bias.&nbsp;</p>
+<p><strong>Read:</strong> Karppi, Tero. ““The computer said so”: On the ethics, effectiveness, and cultural techniques of predictive policing.” <em>Social media+ society</em> 4, no. 2 (2018): 2056305118768296.</p>
+</section>
+<section id="using-social-media-for-disaster-response" class="level3" data-number="4.7.3">
+<h3 data-number="4.7.3" class="anchored" data-anchor-id="using-social-media-for-disaster-response"><span class="header-section-number">4.7.3</span> Using Social Media for Disaster Response</h3>
+<p>Social media data is often used to analyze how people experience, respond to, and recover from disasters. However, this data is inherently incomplete– not everyone has access to a phone or social media– and biased, as those who do are not representative of the broader population. It is also frequently used without the informed consent of the individuals who shared it.</p>
+<p><strong>Read:</strong> Crawford, Kate, and Megan Finn. “The limits of crisis data: analytical and ethical challenges of using social and mobile data to understand disasters.” <em>GeoJournal</em> 80 (2015): 491-502.</p>
+</section>
+</section>
+<section id="ethics-and-privacy" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="ethics-and-privacy"><span class="header-section-number">4.8</span> Ethics and Privacy</h2>
+<p>The collection and utilization of geospatial data has raised longstanding ethical concerns, particularly around surveillance, privacy, consent, and the uneven distribution of risk. As critical GIS scholars have noted, GIS technologies have their roots in surveillance, and have always been used to serve state and military interests. These origins persist in contemporary applications, where spatial data is often used to track, predict, and regulate human behavior. Scholars (such as <span class="citation" data-cites="Elwood2018-yb">Elwood and Leszczynski (<a href="references.html#ref-Elwood2018-yb" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="Taylor2017-vp">Taylor (<a href="references.html#ref-Taylor2017-vp" role="doc-biblioref">2017</a>)</span>) have emphasized that these practices risk reinforcing structural inequities, as data infrastructures disproportionately expose marginalized communities to surveillance, profiling, or exclusion.</p>
+<p>In the era of big data, privacy concerns have deepened. Vast quantities of location data are now collected passively through smartphones, apps, wearable devices, and social media platforms. These data are often repurposed for uses never disclosed to the individuals they describe and users are often unaware that their data is being collected. Even when anonymized, spatial data can often be de-anonymized, especially when combined with other datasets. Locational data is inherently sensitive because it reveals information about personal movement.</p>
+</section>
+<section id="critical-questions-to-ask-about-your-data" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="critical-questions-to-ask-about-your-data"><span class="header-section-number">4.9</span> Critical questions to ask about your data</h2>
+<ul>
+<li>Who/what is missing from this data?</li>
+<li>Who decided what to measure and how to measure it?</li>
+<li>How were the data collected?</li>
+<li>What assumptions are built into the data structure?</li>
+<li>What is the purpose of this data- and who benefits?</li>
+<li>What impacts might my use of the data have?&nbsp;</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-D-Ignazio2023-aj" class="csl-entry" role="listitem">
+D’Ignazio, Catherine, and Lauren F Klein. 2023. <em>Data Feminism</em>. London, England: MIT Press.
+</div>
+<div id="ref-Elwood2018-yb" class="csl-entry" role="listitem">
+Elwood, Sarah, and Agnieszka Leszczynski. 2018. <span>“Feminist Digital Geographies.”</span> <em>Gender, Place and Culture: A Journal of Feminist Geography</em> 25 (5): 629–44. <a href="https://doi.org/10.1080/0966369x.2018.1465396">https://doi.org/10.1080/0966369x.2018.1465396</a>.
+</div>
+<div id="ref-Haraway2013-oy" class="csl-entry" role="listitem">
+Haraway, Donna. 2013. <span>“Rethinking Cyberfeminism(s): Race, Gender, and Embodiment.”</span> In <em>Women, Science, and Technology</em>, 387–403. Routledge. <a href="https://doi.org/10.4324/9780203427415-33">https://doi.org/10.4324/9780203427415-33</a>.
+</div>
+<div id="ref-Taylor2017-vp" class="csl-entry" role="listitem">
+Taylor, Linnet. 2017. <span>“What Is Data Justice? The Case for Connecting Digital Rights and Freedoms Globally.”</span> <em>Big Data &amp; Society</em> 4 (2): 205395171773633. <a href="https://doi.org/10.1177/2053951717736335">https://doi.org/10.1177/2053951717736335</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./core.html" class="pagination-link" aria-label="Core Spatial Concepts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Spatial Concepts</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./models.html" class="pagination-link" aria-label="Spatial Data Models">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Data Models</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
