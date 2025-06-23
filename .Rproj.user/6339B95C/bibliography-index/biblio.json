@@ -1,0 +1,524 @@
+{
+    "sources": [
+        {
+            "DOI": "10.14714/CP45.497",
+            "author": [
+                {
+                    "family": "Wood",
+                    "given": "D"
+                }
+            ],
+            "container-title": "Cartographic perspectives",
+            "id": "Wood2003-wn",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "4-7",
+            "publisher": "cartographicperspectives.org",
+            "title": "Cartography is dead (thank god!)",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.3138/e635-7827-1757-9t53",
+            "author": [
+                {
+                    "family": "Harley",
+                    "given": "J B"
+                }
+            ],
+            "container-title": "Cartographica The International Journal for Geographic Information and Geovisualization",
+            "id": "Harley1989-cj",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        1989,
+                        6
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "1-20",
+            "publisher": "University of Toronto Press Inc. (UTPress)",
+            "title": "Deconstructing the map",
+            "type": "article-journal",
+            "volume": "26"
+        },
+        {
+            "author": [
+                {
+                    "family": "Lefebvre",
+                    "given": "Henri"
+                }
+            ],
+            "id": "Lefebvre1991-lv",
+            "issued": {
+                "date-parts": [
+                    [
+                        1991
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "publisher": "Blackwell",
+            "publisher-place": "London, England",
+            "title": "The production of space",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1559/152304008783475661",
+            "author": [
+                {
+                    "family": "Pearce",
+                    "given": "Margaret Wickens"
+                }
+            ],
+            "container-title": "Cartography and geographic information science",
+            "id": "Pearce2008-tu",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "17-32",
+            "publisher": "Informa UK Limited",
+            "title": "Framing the days: Place and narrative in cartography",
+            "title-short": "Framing the days",
+            "type": "article-journal",
+            "volume": "35"
+        },
+        {
+            "DOI": "10.1177/2053951717736335",
+            "author": [
+                {
+                    "family": "Taylor",
+                    "given": "Linnet"
+                }
+            ],
+            "container-title": "Big data & society",
+            "id": "Taylor2017-vp",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        12
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "205395171773633",
+            "publisher": "SAGE Publications",
+            "title": "What is data justice? The case for connecting digital rights and freedoms globally",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "DOI": "10.1080/0966369x.2018.1465396",
+            "author": [
+                {
+                    "family": "Elwood",
+                    "given": "Sarah"
+                },
+                {
+                    "family": "Leszczynski",
+                    "given": "Agnieszka"
+                }
+            ],
+            "container-title": "Gender, place and culture: a journal of feminist geography",
+            "id": "Elwood2018-yb",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        5
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "629-644",
+            "publisher": "Informa UK Limited",
+            "title": "Feminist digital geographies",
+            "type": "article-journal",
+            "volume": "25"
+        },
+        {
+            "DOI": "10.4324/9780203427415-33",
+            "author": [
+                {
+                    "family": "Haraway",
+                    "given": "Donna"
+                }
+            ],
+            "container-title": "Women, science, and technology",
+            "id": "Haraway2013-oy",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        9
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "387-403",
+            "publisher": "Routledge",
+            "title": "Rethinking cyberfeminism(s): Race, gender, and embodiment",
+            "title-short": "Rethinking cyberfeminism(s)",
+            "type": "chapter"
+        },
+        {
+            "author": [
+                {
+                    "family": "D’Ignazio",
+                    "given": "Catherine"
+                },
+                {
+                    "family": "Klein",
+                    "given": "Lauren F"
+                }
+            ],
+            "id": "D-Ignazio2023-aj",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023,
+                        10
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "publisher": "MIT Press",
+            "publisher-place": "London, England",
+            "title": "Data feminism",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1111/cag.12521",
+            "author": [
+                {
+                    "family": "Holler",
+                    "given": "Joseph"
+                }
+            ],
+            "container-title": "The Canadian geographer. Geographe canadien",
+            "id": "Holler2020-yu",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        12
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "484-494",
+            "publisher": "Wiley",
+            "title": "Teaching critical open GIS",
+            "type": "article-journal",
+            "volume": "64"
+        },
+        {
+            "DOI": "10.1080/13658816.2017.1334892",
+            "author": [
+                {
+                    "family": "Elwood",
+                    "given": "Sarah"
+                },
+                {
+                    "family": "Wilson",
+                    "given": "Matthew"
+                }
+            ],
+            "container-title": "Geographical Information Systems",
+            "id": "Elwood2017-oa",
+            "issue": "10",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        10
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "2098-2116",
+            "publisher": "Informa UK Limited",
+            "title": "Critical GIS pedagogies beyond “week 10: Ethics”",
+            "type": "article-journal",
+            "volume": "31"
+        },
+        {
+            "DOI": "10.3138/carto.50.1.06",
+            "author": [
+                {
+                    "family": "Crampton",
+                    "given": "Jeremy"
+                },
+                {
+                    "family": "Wilson",
+                    "given": "Matthew W"
+                }
+            ],
+            "container-title": "Cartographica The International Journal for Geographic Information and Geovisualization",
+            "id": "Crampton2015-ad",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015,
+                        3
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "28-36",
+            "publisher": "University of Toronto Press Inc. (UTPress)",
+            "title": "Harley and friday harbor: A conversation with john pickles",
+            "title-short": "Harley and friday harbor",
+            "type": "article-journal",
+            "volume": "50"
+        },
+        {
+            "author": [
+                {
+                    "family": "Pickles",
+                    "given": "J"
+                }
+            ],
+            "container-title": "Geographical information systems",
+            "id": "Pickles1999-sk",
+            "issued": {
+                "date-parts": [
+                    [
+                        1999
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "49-60",
+            "title": "Arguments, debates, and dialogues: The GIS-social theory debate and the concern for alternatives",
+            "title-short": "Arguments, debates, and dialogues",
+            "type": "article-journal",
+            "volume": "1"
+        },
+        {
+            "collection-title": "Mappings",
+            "editor": [
+                {
+                    "family": "Pickles",
+                    "given": "John"
+                }
+            ],
+            "id": "Pickles1995-fr",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "publisher": "Guilford Publications",
+            "publisher-place": "New York, NY",
+            "title": "Ground truth",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1559/152304002782008422",
+            "author": [
+                {
+                    "family": "Cloud",
+                    "given": "John"
+                }
+            ],
+            "container-title": "Cartography and geographic information science",
+            "id": "Cloud2002-xg",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "261-282",
+            "publisher": "Informa UK Limited",
+            "title": "American cartographic transformations during the cold war",
+            "type": "article-journal",
+            "volume": "29"
+        },
+        {
+            "DOI": "10.1559/152304095782540555",
+            "author": [
+                {
+                    "family": "Sheppard",
+                    "given": "Eric"
+                }
+            ],
+            "container-title": "Cartography and geographic information systems",
+            "id": "Sheppard1995-uq",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "5-16",
+            "publisher": "Informa UK Limited",
+            "title": "GIS and society: Towards a research agenda",
+            "title-short": "GIS and society",
+            "type": "article-journal",
+            "volume": "22"
+        },
+        {
+            "DOI": "10.1080/02693799208901893",
+            "author": [
+                {
+                    "family": "Goodchild",
+                    "given": "Michael F"
+                }
+            ],
+            "container-title": "International journal of geographical information systems",
+            "id": "Goodchild1992-nj",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1992,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "31-45",
+            "publisher": "Informa UK Limited",
+            "title": "Geographical information science",
+            "type": "article-journal",
+            "volume": "6"
+        },
+        {
+            "DOI": "10.1111/j.0033-0124.1983.00135.x",
+            "author": [
+                {
+                    "family": "Dobson",
+                    "given": "Jerome E"
+                }
+            ],
+            "container-title": "The Professional geographer: the journal of the Association of American Geographers",
+            "id": "Dobson1983-jx",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        1983,
+                        5
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "135-143",
+            "publisher": "Informa UK Limited",
+            "title": "Automated geography",
+            "type": "article-journal",
+            "volume": "35"
+        },
+        {
+            "author": [
+                {
+                    "family": "Massey",
+                    "given": "Doreen B"
+                }
+            ],
+            "id": "Massey2005-kw",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "publisher": "SAGE Publications",
+            "publisher-place": "Thousand Oaks, CA",
+            "title": "For space",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1559/152304091783805635",
+            "author": [
+                {
+                    "family": "Nyerges",
+                    "given": "Timothy L"
+                }
+            ],
+            "container-title": "Cartography and geographic information systems",
+            "id": "Nyerges1991-nc",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1991,
+                        1
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "11-22",
+            "publisher": "Informa UK Limited",
+            "title": "Analytical map use",
+            "type": "article-journal",
+            "volume": "18"
+        },
+        {
+            "DOI": "10.3138/CARTO.42.3.235",
+            "author": [
+                {
+                    "family": "Martin",
+                    "given": "K"
+                },
+                {
+                    "family": "Wing",
+                    "given": "J"
+                }
+            ],
+            "container-title": "Cartographica The International Journal for Geographic Information and Geovisualization",
+            "id": "Martin2007-jj",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007,
+                        11
+                    ]
+                ]
+            },
+            "keyword": "geog370_text",
+            "page": "235-248",
+            "title": "The discourse and discipline of GIS",
+            "type": "article-journal",
+            "volume": "42"
+        }
+    ],
+    "project_biblios": [
+        "references.bib"
+    ]
+}

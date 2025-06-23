@@ -1,0 +1,201 @@
+# Doing Spatial Analysis in QGIS
+
+This chapter introduces common spatial analysis tools and demonstrates how to use them in QGIS. Spatial questions often require chaining together multiple spatial operations, rather than relying on a single tool. Throughout this course, we will focus on designing spatial workflows that combine these tools effectively to answer geographic questions. Remember that when using most of these spatial analysis tools, your data should be in a projected coordinate system to ensure accurate distance and area calculations.
+
+This chapter will explore the use of vector and raster geoprocessing tools to explore three spatial questions. In addition, it will ask you to critically examine the questions, methods, and data in a critical GIS style. 
+
+## Research Question 1
+
+Where is the intersection between vulnerable populations and existing permitted facilities that require a [Major Air](https://www.epa.gov/title-v-operating-permits/who-has-obtain-title-v-permit#:~:text=A%20major%20source%20has%20actual,are%20in%20non%2Dattainment)) permit in North Carolina? 
+
+### [Download Data](https://drive.google.com/drive/folders/1AiEDyWe4eEemWIknTu1ZwtY4uy7U1vs3?usp=sharing)
+
+-   2010 Census Block Group Median Household Income (from 2013 American Community Survey)
+-   Current (June 2025) Major Air permits from [EPA Geospatial Data](https://www.epa.gov/frs/epa-frs-facilities-state-single-file-csv-download)
+
+### [Adding Data](https://drive.google.com/file/d/1GjghgJYUXyrWKntIAjyrxC7Qfsu3JxeC/view?usp=sharing)
+
+We can add tabular data to QGIS as long as we can execute a table join (so it has a matching key with a geographic data file) or the tabular file includes coordinates. We’ll first add our air permit data. You must know the coordinate system of the data (which should be in the metadata) to add it correctly. We’ll also add our processed census data, which we table joined in a previous exercise. 
+
+### [Select by Attribute](https://drive.google.com/file/d/1P4FnWpslNkCm3dlqCrsoe_PbR2HrI57d/view?usp=sharing)
+
+First, we will want to filter the census block group data to include only block groups that meet our “vulnerable population” classification (median household income \< 4500). We will do this by selecting by attribute, which is an example of querying. 
+
+### [Reproject](https://drive.google.com/file/d/1Ixetgny0S7-egC524YsioCpgb_0rn_rb/view?usp=sharing)
+
+As you may have noticed, the tabular dataset representing locations with major air quality permits is in a Geographic Coordinate System, not a projected one. Given that we are going to be doing distance-based analysis, we must reproject that data. We typically want to make sure that all our datasets are in the same projection, so we will reproject the data to match the projection of our census block group data (EPSG:2264). 
+
+### [Buffer](https://drive.google.com/file/d/1ggshHrtTIbXJmC5VmAIm1ytbNpZwkSpv/view?usp=sharing)
+
+Now we want to identify areas within 1 mile of existing permitted facilities by buffering our facility dataset (which is currently points)
+
+### [Intersect](https://drive.google.com/file/d/1IO9kM_fyRCc-DOCORLI1s_n_mZUAZafY/view?usp=sharing)
+
+To find the intersection between vulnerable populations and areas proximate to high polluting facilities, we will use the intersect tool. Intersects retain the attributes of both of the layers, whereas a clip, which would have visually the same output, retains the attributes only of the input layer, not the overlay layer. 
+
+### Critical Questions to Ask:
+
+-   What assumptions are embedded in defining "vulnerable populations" based solely on median household income?
+-   Why do we choose a 1-mile buffer, and what are the implications of this distance?
+-   What is the source of the EPA permit data, and what might be missing?
+-   This analysis uses 2010 block group data from the 2013 American Community Survey. What are the risks of using outdated demographic data for present-day decision-making?
+-   What are the implications of using the census block group as the unit of analysis?
+
+## Research Question 2
+
+How many addresses are served by each park in Chapel Hill? 
+
+### [Download Data](https://drive.google.com/drive/folders/1ZPdJ9a26eqOSYpm3PIzZOcrgtWFaqJrB?usp=sharing)
+
+-   Address points from [Orange County GIS](https://www.orangecountync.gov/2057/Download-GIS-Data)
+-   Parks from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
+-   Chapel Hill boundaries from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
+
+### Reproject
+
+As always, we want to make sure that our data shares the same coordinate system before beginning spatial analysis. You should notice that the address and Chapel Hill boundary datasets are in EPSG:2264 and the parks dataset is in EPSG:3857. These are both projected coordinate systems, however EPSG:2264 is a local projection built for North Carolina. EPSG:3857 is a more globally focused projection. Since EPSG:2264 would be slightly more accurate for North Carolina, reproject the parks to EPSG:2264
+
+### [Clip](https://drive.google.com/file/d/1hu7CZzJRHemkV4PYUcd1DrR1wOB2Wigo/view?usp=sharing)
+
+We now want to clip the address dataset so that we just have addresses within the Chapel Hill boundary. A clip will just retain the attributes of the address dataset and will not include the attributes of the boundary dataset. 
+
+### [Calculate Service Area](https://drive.google.com/file/d/1FSdIwj-8wy9IkAP2_WfA6c9sBD1rNbiD/view?usp=sharing)
+
+Follow [these instructions](https://www.qgistutorials.com/en/docs/3/service_area_analysis.html) to download the ORS plugin. Then calculate 10 minute isochrones from each park. Note that when you save the data (which is produced in EPSG:2264) you can set the PCS of the output so it reprojects when it saves. 
+
+### [Spatial Join](https://drive.google.com/file/d/1f5sC-stNCu5kVeiGtJLp_KcnUFkuTpdR/view?usp=sharing)
+
+There is not a common “key” field between the service areas and our address data. Instead, the commonality between these two datasets is their spatial location. Therefore, to join these two datasets, we will use a spatial join. In this case, we will do a “join attributes by location (summary)” since we want to summarize the number of address points within each service area polygon. If we were interested in assigning each address point the name of the park whose service area it falls within we would use a regular spatial join (called “Join attributes by location” in QGIS). This type of join appends the attributes of one layer to another based on spatial relationships like intersection, containment, or proximity, but does not summarize counts or statistics.
+
+### Critical Questions to Ask:
+
+-   What assumptions are we making when we define 'served' as being within a 10-minute isochrone from a park?
+-   How does the ORS plugin model pedestrian access, and what does it ignore?
+-   Are addresses a good stand-in for people?
+-   What does “serving” an address mean, physically, socially, or politically?
+-   Does a 10-minute walk on a map mean that it’s safe, comfortable, or desirable to walk there in real life?
+-   What would it take to integrate community knowledge into this analysis?
+
+## Research Question 3
+
+Which areas of Buncombe County are most vulnerable to wildfire? 
+
+### [Download Data](https://drive.google.com/drive/folders/1rwdyyd9IdyjMN0AHoRJJuywjxFafNMOL?usp=sharing)
+
+-   2023 National Land Cover Database [MLRC](https://www.mrlc.gov/data)
+
+-   Buncombe County DEM from [North Carolina Spatial Data Download](https://sdd.nc.gov/)
+
+-   Buncombe County Zip Codes from [Buncombe County Open Data](https://data.buncombecounty.org/datasets/buncombe-county-zip-codes)
+
+### [Calculate Slope](https://drive.google.com/file/d/16hRLJ2XAgy7hGjxSDSBQNkH8lzrontbh/view?usp=sharing)
+
+Use the Buncombe County DEM to calculate slope using the slope tool. The output will be a continuous raster showing degrees of steepness. Areas with steeper slopes are generally more vulnerable to wildfire spread.
+
+The output is in a Projected Coordinate System. However, we will then reproject the slope raster to WGS 84 (EPSG:4326) to match the coordinate system of the NLCD dataset. This may seem like a weird choice (reprojecting data in a projected coordinate system into a geographic coordinate system). However, this approach avoids reprojecting the NLCD data, which is important because the NLCD data is a categorical raster. Reprojecting categorical rasters introduces a higher risk of distortion due to resampling. To preserve the integrity of the land cover classes, we keep the NLCD in its original form and instead reproject the slope raster, which is continuous data and more resilient to interpolation.
+
+#### [Reclassify Rasters](https://drive.google.com/file/d/1-kb_75ikTeXTaToIS8aeudbd8vQvhrMm/view?usp=sharing)
+
+We will reclassify both the slope and land cover rasters onto a common risk scale from 1 (low risk) to 5 (high risk).
+
+-   For slope, use thresholds based on terrain steepness (e.g., 0–5 degrees = 1, 35–65 = 5).
+-   For NLCD, reclassify land cover values based on their flammability (e.g., forest = 5, developed = 1–2).
+
+Use the r.reclass tool and copy-paste the provided reclass rules for each raster. The output of each will be a categorical risk raster.
+
+#### Slope
+
+|                |              |                     |                 |
+|----------------|--------------|---------------------|-----------------|
+| From (degrees) | To (degrees) | Output (Risk Score) | Slope Category  |
+| 0              | 5            | 1                   | Very Low Slope  |
+| 5              | 15           | 2                   | Low Slope       |
+| 15             | 25           | 3                   | Moderate Slope  |
+| 25             | 35           | 4                   | High Slope      |
+| 35             | 65           | 5                   | Very High Slope |
+
+This is what to paste in the “Reclass rules text”:
+
+0 thru 5 = 1
+
+5 thru 15 = 2
+
+15 thru 25 = 3
+
+25 thru 35 = 4
+
+35 thru 65 = 5
+
+\* = NULL
+
+#### NLCD
+
+|       |                     |                              |
+|-------|---------------------|------------------------------|
+| Value | Output (Risk Score) | NLCD Class                   |
+| 11    | 1                   | Open Water                   |
+| 21    | 2                   | Developed, Open Space        |
+| 22    | 2                   | Developed, Low Intensity     |
+| 23    | 2                   | Developed, Medium Intensity  |
+| 24    | 1                   | Developed, High Intensity    |
+| 31    | 3                   | Barren Land                  |
+| 41    | 5                   | Deciduous Forest             |
+| 42    | 5                   | Evergreen Forest             |
+| 43    | 5                   | Mixed Forest                 |
+| 52    | 4                   | Shrub/Scrub                  |
+| 71    | 4                   | Grassland/Herbaceous         |
+| 81    | 3                   | Pasture/Hay                  |
+| 82    | 2                   | Cultivated Crops             |
+| 90    | 2                   | Woody Wetlands               |
+| 95    | 2                   | Emergent Herbaceous Wetlands |
+
+This is what to paste in the “Reclass rules text” 
+
+11 = 1
+
+21 = 2
+
+22 = 2
+
+23 = 2
+
+24 = 1
+
+31 = 3
+
+41 = 5
+
+42 = 5
+
+43 = 5
+
+52 = 4
+
+71 = 4
+
+81 = 3
+
+82 = 2
+
+90 = 2
+
+95 = 2
+
+\* = NULL
+
+### [Raster Math](https://drive.google.com/file/d/11Q2P0skgUM5hooLbDu-lsDGYvTLnGPYf/view?usp=sharing)
+
+Now we combine the two reclassified rasters using the Raster Calculator. This step adds the slope and land cover risk scores, producing a composite vulnerability raster that reflects both terrain and vegetation.This technique is an example of a Multi-Criteria Overlay Analysis (MCOA) which is  a method used to combine multiple spatial layers, each representing a different factor contributing to a phenomenon (in this case, wildfire risk). Each layer is first standardized (here, using a 1–5 risk scale), then combined to create a single index or score. By summing the slope and land cover risk scores, we are weighting them equally (50% each). This assumes that slope and vegetation are equally important in determining wildfire vulnerability. In more complex analyses, different layers might be given different weights to reflect their relative importance.
+
+When performing raster math, QGIS will automatically resample rasters on the fly so that their cell alignments and resolutions match. However, this may introduce interpolation artifacts. If high precision is required, you should explicitly resample the input rasters beforehand using the “Resample” tool. Multiple resampling methods exist (e.g., nearest neighbor, bilinear, cubic), and the appropriate one depends on the input data.
+
+### [Zonal Statistics](https://drive.google.com/file/d/11chHm49JRTpxSGSLR0ElhPMdrEbNJ53y/view?usp=sharing)
+
+To summarize vulnerability by administrative unit, we use zonal statistics (which summarizes raster values based on vector boundaries). Input the ZIP code polygons and the combined wildfire risk raster. Calculate the mean value for each ZIP code. This gives an average vulnerability score (ranging roughly from 2 to 10) that reflects the average risk across each ZIP code.
+
+### Critical Questions to Ask
+
+-   How does the choice of administrative unit (ZIP codes) shape our understanding of vulnerability?
+-   What assumptions are embedded in the risk classification thresholds for slope and land cover?
+-   What important variables are missing from this model of wildfire vulnerability?
+-   What are the limitations of using a strictly biophysical model for a hazard with complex social consequences?

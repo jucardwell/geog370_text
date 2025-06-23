@@ -1,0 +1,9 @@
+# Preface {.unnumbered}
+
+This textbook was developed by Julia Cardwell for GEOG370: Introduction to Geographic Information at UNC Chapel Hill.
+
+![](images/clipboard-3543798704.png){width="84" height="30"}
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
+
+Last Updated: July 2025

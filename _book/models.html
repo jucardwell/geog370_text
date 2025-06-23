@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Spatial Data Models – GEOG370</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./attributes.html" rel="next">
+<link href="./data.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./models.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Data Models</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">GEOG370</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./politics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Politics and Potentials of GIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./core.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Spatial Concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">What is Geographic Data?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./models.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Data Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Attributes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Managing Files</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./learning_qgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spatial_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./doing_spatial_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./other_tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Analysis Tools</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./making_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Making Maps</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#vector-models" id="toc-vector-models" class="nav-link active" data-scroll-target="#vector-models"><span class="header-section-number">5.1</span> Vector Models</a>
+  <ul class="collapse">
+  <li><a href="#resolution-in-vector-data" id="toc-resolution-in-vector-data" class="nav-link" data-scroll-target="#resolution-in-vector-data"><span class="header-section-number">5.1.1</span> Resolution in Vector Data</a></li>
+  <li><a href="#topology" id="toc-topology" class="nav-link" data-scroll-target="#topology"><span class="header-section-number">5.1.2</span> Topology</a></li>
+  <li><a href="#common-vector-data-file-types" id="toc-common-vector-data-file-types" class="nav-link" data-scroll-target="#common-vector-data-file-types"><span class="header-section-number">5.1.3</span> Common Vector Data File Types</a></li>
+  </ul></li>
+  <li><a href="#raster-models" id="toc-raster-models" class="nav-link" data-scroll-target="#raster-models"><span class="header-section-number">5.2</span> Raster Models</a>
+  <ul class="collapse">
+  <li><a href="#resolution-in-raster-data" id="toc-resolution-in-raster-data" class="nav-link" data-scroll-target="#resolution-in-raster-data"><span class="header-section-number">5.2.1</span> Resolution in Raster Data</a></li>
+  <li><a href="#topology-in-raster-data" id="toc-topology-in-raster-data" class="nav-link" data-scroll-target="#topology-in-raster-data"><span class="header-section-number">5.2.2</span> Topology in Raster Data</a></li>
+  <li><a href="#common-raster-data-file-types" id="toc-common-raster-data-file-types" class="nav-link" data-scroll-target="#common-raster-data-file-types"><span class="header-section-number">5.2.3</span> Common Raster Data File Types</a></li>
+  </ul></li>
+  <li><a href="#selecting-a-data-model" id="toc-selecting-a-data-model" class="nav-link" data-scroll-target="#selecting-a-data-model"><span class="header-section-number">5.3</span> Selecting a Data Model</a></li>
+  <li><a href="#coordinate-systems-and-projections" id="toc-coordinate-systems-and-projections" class="nav-link" data-scroll-target="#coordinate-systems-and-projections"><span class="header-section-number">5.4</span> Coordinate Systems and Projections</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Data Models</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>When translating real-world features into geographic data, there are two main “conceptual” views of the world: the field view and the object view. A field view treats the world as a continuous surface, where each location is associated with one or more attributes. In contrast, an object view conceptualizes the world as made up of discrete entities that have clearly defined boundaries and exist in specific locations. Between these objects, there can be empty space with no associated features.&nbsp;</p>
+<p>These conceptual models align with two major data models used in GIS. A vector-based model represents geographic features as sets of points, lines, or polygons. This is well-suited for discrete objects. A raster-based model, on the other hand, represents space as a grid of regularly spaced cells, each containing a value that represents an attribute at that location. This structure is ideal for continuous data, where each cell captures a small piece of a surface.</p>
+<p>Together, these models allow geographers to choose the most appropriate representation depending on the nature of the phenomenon being studied. The selection of data model then impacts what kinds of spatial questions can be asked about the data, what analysis operations are possible on the data, and how patterns and relationships are interpreted across space.&nbsp;</p>
+<section id="vector-models" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="vector-models"><span class="header-section-number">5.1</span> Vector Models</h2>
+<p>Vector data is built around geometries, which are encoded into the file. The most basic geometry type is a point. A point is represented as a single coordinate pair (x, y).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://mgimond.github.io/Spatial/index.html"><img src="images/point.png" class="img-fluid figure-img" alt="Points, Intro to GIS and Spatial Analysis, CC BY-NC 4.0"></a></p>
+<figcaption>Points, Intro to GIS and Spatial Analysis, CC BY-NC 4.0</figcaption>
+</figure>
+</div>
+<p>Points can then be combined to create lines and polygons. To create a line, at least two distinct points must be connected</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://mgimond.github.io/Spatial/index.html"><img src="images/line.png" class="img-fluid figure-img" alt="Line, Intro to GIS and Spatial Analysis, CC BY-NC 4.0"></a></p>
+<figcaption>Line, Intro to GIS and Spatial Analysis, CC BY-NC 4.0</figcaption>
+</figure>
+</div>
+<p>A polygon is created when three or more line segments are connected which means the starting and ending coordinate pairs must be the same. Of the three basic geometric primitives (point, line, polygon), only polygons have an area.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://mgimond.github.io/Spatial/index.html"><img src="images/polygon.png" class="img-fluid figure-img" alt="Polygon, Intro to GIS and Spatial Analysis, CC BY-NC 4.0"></a></p>
+<figcaption>Polygon, Intro to GIS and Spatial Analysis, CC BY-NC 4.0</figcaption>
+</figure>
+</div>
+<section id="resolution-in-vector-data" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="resolution-in-vector-data"><span class="header-section-number">5.1.1</span> Resolution in Vector Data</h3>
+<p>With vector data, resolution is defined by several conditions:&nbsp;</p>
+<ol type="1">
+<li>The precision of the coordinates</li>
+<li>The complexity of the shape (for instance, how many vertices are used to represent the feature)</li>
+<li>The minimum mapping unit (MMU). This represents the smallest feature that would be included in the dataset</li>
+</ol>
+</section>
+<section id="topology" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="topology"><span class="header-section-number">5.1.2</span> Topology</h3>
+<p>Many spatial analysis processes are dependent on topology, which expresses the spatial relationships between connecting or adjacent features. Topology is made up of three separate conditions:</p>
+<ul>
+<li>Adjacency – which vector features are next to each other? This is essential for tasks like neighborhood analysis or identifying shared boundaries, such as zoning districts or land parcels.</li>
+<li>Connectivity – which arcs (lines) connect to each other? This underlies network analysis, such as routing or tracing flows, and is determined through arc-node relationships that define from-nodes and to-nodes.</li>
+<li>Containment – which vector features are within other polygons? This allows GIS to determine spatial inclusion, such as identifying which buildings fall within a flood zone or which parks contain recreational facilities.</li>
+</ul>
+<p>Within vector data representations the topological data model explicitly encodes topological relationships. On the other hand, the spaghetti data model does not encode topology. In this model, each feature is stored independently, as a separate set of coordinates, and spatial relationships must be inferred by comparing coordinates.&nbsp;</p>
+<p>While the spaghetti data model is simpler to store, there is a higher risk of topological errors. Topological errors include:</p>
+<ul>
+<li>Unclosed polygons (boundary does not fully loop)</li>
+<li>Slivers (small gaps or overlaps between polygons that should be adjacent)</li>
+<li>Undershoots (two lines that should meet don’t)</li>
+<li>Overshoots (a line extends beyond the point it should connect to)</li>
+</ul>
+<p>These types of errors can seriously impact spatial analysis. Consider a routing analysis where the lines represent street segments. Undershoots and overshoots would restrict driving access on roads that should be accessible.&nbsp;</p>
+<p>QGIS uses on-the-fly topology to build temporary topological relationships for data stored in a spaghetti model. QGIS can also check for potential topology errors and set topology rules (for example, polygons must not intersect).</p>
+</section>
+<section id="common-vector-data-file-types" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="common-vector-data-file-types"><span class="header-section-number">5.1.3</span> Common Vector Data File Types</h3>
+<p><strong>Shapefile (.shp):</strong> By far, the most common vector data file type you’ll encounter when accessing geospatial data is the Shapefile (.shp). This format, which is semi-proprietary (structured and maintained by ESRI), has become the dominant standard. This is not because it offers superior functionality, but because of ESRI’s early dominance in the GIS software market. Shapefiles are a non-topological format made up of several files, including the .shp (geometry), .shx (shape index), .dbf (attribute table), .prj (projection), and sometimes others. Despite their ubiquity, shapefiles come with serious limitations: a maximum file size of 2 GB, field names limited to 10 characters, and a maximum of 255 fields. Many believe, myself included, that <a href="http://switchfromshapefile.org/">Shapefile must die!</a></p>
+<p><strong>GeoPackage (.gpkg)</strong>: GeoPackage is a relatively modern, open-source format developed by the Open Geospatial Consortium (OGC). Built on SQLite, it allows multiple layers and attribute tables to exist within a single .gpkg file, streamlining data management and reducing file clutter. This structure also supports more advanced querying, similar to what’s possible in a relational database– for example, joining attribute tables, filtering by SQL expressions, or performing spatial queries within the file itself.&nbsp;</p>
+<p><strong>GeoJSON (.geojson):</strong> GeoJSON is a lightweight, text-based format for encoding vector features using JavaScript Object Notation (JSON). It is especially popular in web mapping environments, where its structure is easily parsed by browsers and APIs. GeoJSON is limited to WGS84 coordinates.&nbsp;</p>
+<p><strong>File Geodatabase (.gdb):</strong>The File Geodatabase is a high-capacity, high-performance format developed by ESRI for use with ArcGIS. It stores vector data, rasters, attribute tables, topological rules, subtypes, and more in a structured folder system. This format supports large datasets (into the terabytes), long field names, and complex relationships between layers. While it’s proprietary and not natively supported by all software, it provides powerful data management and analysis capabilities within the ESRI ecosystem.&nbsp;</p>
+</section>
+</section>
+<section id="raster-models" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="raster-models"><span class="header-section-number">5.2</span> Raster Models</h2>
+<p>In a raster model, real-life features are represented as an array of pixels. Instead of distinct geometries, a raster is made up of regularly spaced pixels of identical sizes, and each pixel is associated with a value.&nbsp;</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://mgimond.github.io/Spatial/index.html"><img src="images/raster.png" class="img-fluid figure-img" alt="Raster, Intro to GIS and Spatial Analysis, CC BY-NC 4.0"></a></p>
+<figcaption>Raster, Intro to GIS and Spatial Analysis, CC BY-NC 4.0</figcaption>
+</figure>
+</div>
+<section id="resolution-in-raster-data" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="resolution-in-raster-data"><span class="header-section-number">5.2.1</span> Resolution in Raster Data</h3>
+<p>In raster data, resolution refers to the size of each pixel, typically expressed in ground units (e.g., feet or meters. ). Smaller pixels mean higher resolution, capturing more detail. Most raster sources, such as satellite imagery, have fixed native resolutions determined by the sensor’s capabilities.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.neonscience.org/resources/learning-hub/tutorials/raster-res-extent-pixels-r"><img src="images/raster_multiple_resolutions.png" class="img-fluid figure-img" alt="Raster with Multiple Resolutions, Source: National Ecological Observatory Network (NEON)"></a></p>
+<figcaption>Raster with Multiple Resolutions, Source: National Ecological Observatory Network (NEON)</figcaption>
+</figure>
+</div>
+</section>
+<section id="topology-in-raster-data" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="topology-in-raster-data"><span class="header-section-number">5.2.2</span> Topology in Raster Data</h3>
+<p>In raster data, topology is implied by the pixel positions, which means that it does not need to be formally encoded. Adjacency can be analyzed by identifying neighboring pixels, connectivity by analyzing whether pixels with the same value form a continuous region, and containment is often analyzed by using a mask defined by a vector data feature.&nbsp;</p>
+</section>
+<section id="common-raster-data-file-types" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="common-raster-data-file-types"><span class="header-section-number">5.2.3</span> Common Raster Data File Types</h3>
+<p><strong>GeoTIFF (.tif)</strong>: GeoTIFF is the most widely used raster data format for geospatial applications. It’s a standard TIFF image that includes embedded geographic metadata (like coordinate system, bounds, and resolution), making it easy to georeference. GeoTIFFs are versatile, lossless, and widely supported across GIS platforms. They can store single-band or multi-band imagery, making them suitable for satellite images, elevation data, and classified rasters.</p>
+<p><strong>NetCDF (.nc)</strong>: NetCDF (Network Common Data Form) is a format commonly used for storing multidimensional scientific data, such as climate variables or oceanographic models. It supports time-series rasters, multiple dimensions (e.g., x, y, time, depth), and internal compression. NetCDFs are favored in academic and environmental modeling contexts, but can be complex to manage without specialized tools.</p>
+</section>
+</section>
+<section id="selecting-a-data-model" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="selecting-a-data-model"><span class="header-section-number">5.3</span> Selecting a Data Model</h2>
+<p>In most cases, the type of data being collected or used will determine which data model is most appropriate. Continuous phenomena should be represented as rasters (elevation, climatic variables, etc). Discrete features should be represented with vector models (roads, buildings, property boundaries). Raster data is ideal for surface analysis, remote sensing, and modeling gradual spatial change. It supports powerful cell-by-cell calculations, but can result in large file sizes and less precise feature boundaries. Vector data is more compact and precise, and supports operations like buffering, network analysis, and spatial joins. However, vector files can be more complex to manage when dealing with continuous change or extremely large datasets.</p>
+</section>
+<section id="coordinate-systems-and-projections" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="coordinate-systems-and-projections"><span class="header-section-number">5.4</span> Coordinate Systems and Projections</h2>
+<p>To represent the location of features, both data models rely on coordinate systems. Coordinate systems assign a numerical value to each unique location on Earth. When we import spatial data into our GIS, we use these coordinates to make sure that things are located where they should be on the map. There are two main types of coordinate systems that we use in a GIS: geographic coordinate systems (GCS) and projected coordinate systems (PCS). This <a href="https://mgimond.github.io/Spatial/chp09_0.html">incredibly informative chapter on Coordinate Systems</a> means that I don’t have to write my own.&nbsp;</p>
+<p>Coordinate systems are defined by whoever produced the data. However, they can be reprojected, or translated to a different coordinate system, depending on your mapping needs. There are common reasons that you would want or need to reproject your data. The common reasons are detailed below:</p>
+<ol type="1">
+<li>You are trying to do spatial analysis that relies on distance. If your data is in a GCS, this means that distances are measured in angular degrees, not in a standard distance measurement (like feet, meters, etc.). Angular degrees have different distances depending on how near/far you are from the equator. For example, one degree of longitude is about 111 km at the equator, but much less near the poles. Therefore, for any analysis involving distance, area, or buffering, you should use a projected coordinate system (PCS) with linear units.&nbsp;</li>
+<li>You have data in different coordinate systems. In general, when you are doing analysis across different coordinate systems, you should use a common coordinate system.&nbsp;</li>
+<li>Local accuracy is important. Some projected coordinate systems are designed to minimize distortion in a specific region (e.g., a state plane zone). If you’re doing detailed work in a specific area, using a locally optimized projection will increase accuracy in measurements and reduce spatial errors.</li>
+<li>Your analysis would benefit from limited distortion in one (or several) spatial properties. For instance, an analysis of property parcels might need to limit area distortion to ensure that calculated parcel sizes are accurate. In this case, choosing an equal-area projection would help preserve the integrity of area measurements, even if it introduces distortion in shape or distance.</li>
+</ol>
+<p>QGIS allows you to reproject, as well as change coordinate systems. These are not the same thing! Reprojecting a layer means actually transforming the data from one coordinate system to another, permanently changing the coordinates stored in the file. This creates a new dataset with new X/Y values based on the target projection. You do this when you want to match coordinate systems across layers or prepare for accurate spatial analysis. Changing the coordinate system in QGIS means telling QGIS how to interpret the coordinates—without changing the data itself. This is sometimes called assigning or defining a projection. You do this when a layer was saved without projection information (or with the wrong one), and you need to clarify what system it’s in.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./data.html" class="pagination-link" aria-label="What is Geographic Data?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">What is Geographic Data?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./attributes.html" class="pagination-link" aria-label="Attributes">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Attributes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

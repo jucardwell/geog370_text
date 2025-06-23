@@ -1,0 +1,18 @@
+# Spatial Analysis
+
+Spatial analysis refers to the set of methods and techniques used to answer spatial questions- those that involve the location, arrangement, and relationships of objects or phenomena in space (Chapter 1). It is the process by which we interpret spatial patterns, model spatial processes, and understand spatial relationships. With the growth of GIScience, a distinct spatial analysis toolkit has emerged tha recognizes that “spatial is special.” This idea highlights that spatial data offers unique analytical potential that differs fundamentally from non-spatial data, due to properties like spatial autocorrelation, spatial heterogeneity, and the importance of scale and proximity in shaping outcomes (Chapter 3).
+
+Spatial analysis encompasses a wide variety of techniques. Measurement is the most basic form, allowing users to calculate straight-line (Euclidean) distances between points or along paths. Distance often serves as a foundational variable in understanding interactions between people and places. Topological analysis focuses on spatial relationships such as adjacency, connectivity, and containment. Spatial overlays and geoprocessing techniques like clipping, union, or intersect fall under this category and are especially important for modeling networks or defining shared areas. Network and location analysis investigates flows through networks (such as roads, pipelines, or transit systems) and is often used for routing, service area delineation, and accessibility studies.
+
+Surface analysis is used for working with continuous phenomena such as elevation, temperature, or pollution. These techniques include raster-based filtering, interpolation, and terrain modeling. Finally, statistical spatial analysis involves quantifying spatial relationships, testing spatial patterns, or modeling spatially structured data. Spatial statistics help evaluate clustering, spatial autocorrelation, and relationships between attributes and geography. All of these analytical approaches are grounded in spatial logic and rely on a solid understanding of data structure, measurement, and the inherent limitations of geographic data.
+
+Practicing critical GIS offers us opportunities to critically analyze the questions that we ask, the data we select, and the methods that we use.
+
+**Read**:
+
+-   Shelton, Taylor. "The urban geographical imagination in the age of Big Data." Big Data & Society 4, no. 1 (2017): 2053951716665129.
+-   Goodchild, M. F., & Janelle, D. G. (2010). Toward critical spatial thinking in the social sciences and humanities. GeoJournal, 75, 3-13.
+-   Burg, Marieka Brouwer. "It must be right, GIS told me so! Questioning the infallibility of GIS as a methodological tool." Journal of Archaeological Science 84 (2017): 115-120.
+-   Brunsdon, Chris, and Alexis Comber. "Opening practice: supporting reproducibility and critical spatial data science." Journal of Geographical Systems 23, no. 4 (2021): 477-496.
+-   Goodchild, Michael F. "The validity and usefulness of laws in geographic information science and geography." Annals of the Association of American Geographers 94, no. 2 (2004): 300-303.
+-   [What Does a Critical Data Studies Look Like and Why Do We Care](https://www.societyandspace.org/articles/what-does-a-critical-data-studies-look-like-and-why-do-we-care)

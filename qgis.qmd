@@ -1,0 +1,15 @@
+# Working with Geographic Data in QGIS
+
+QGIS is a GIS software that is free and open-source. It is true that Esri products are often considered the industry standard. I’ve heard concerns from students who worry that they won’t be prepared for a GIS career if they’ve only learned in QGIS. To this, I respond that understanding GIS conceptually– being able to form spatial questions, understanding the limits of data, selecting appropriate analytical tools– is far more important than expertise in a particular software. In reality, although they can look quite different, the most commonly used GIS softwares are extremely similar. Although the initial learning curve is steep, switching from one software to another is easy. Because practicing open science is important to me, I teach in QGIS. However, anything we do in QGIS could be easily translated to ArcGIS Pro. If you want help learning how to do so, I am always available.
+
+We will be using the current Long Term Release version of QGIS (QGIS 3.40 Bratislava), which can be downloaded [here](https://qgis.org/download/).
+
+In the following chapters, I will provide video tutorials for some of the most common QGIS tasks. However, the best way to learn QGIS is through a lot of practice and troubleshooting, beyond what the videos prepare you for. The videos are simply meant as an aid to get you up and running in QGIS, not to solve every problem you might encounter or demonstrate every task.  There is a plethora of excellent online material for learning QGIS. For additional assistance, you can explore the following sources:
+
+-   [A Gentle Introduction to GIS](https://docs.qgis.org/3.40/en/docs/gentle_gis_introduction/index.html)
+
+-   [QGIS 3.4 User Manual](https://docs.qgis.org/3.40/en/docs/user_manual/index.html)
+
+-   [Spatial Thoughts, Introduction to QGIS](https://spatialthoughts.com/courses/introduction-to-qgis/)
+
+-   [Spatial Thoughts, Advanced QGIS](https://spatialthoughts.com/courses/advanced-qgis/)

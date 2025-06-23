@@ -1,0 +1,39 @@
+# QGIS Basics
+
+Before any sort of analysis and visualization can take place, you must be extremely comfortable with creating projects, opening files, working with attributes, loading basemaps, and basic symbolization. The sample data used in this chapter can be found [here](https://drive.google.com/drive/folders/16dvmblS9W8Hi0iaui6jw1vr5OGcWNUiR?usp=sharing).
+
+## [Starting a Project](https://drive.google.com/file/d/1P6NZVndZ65_fkeMN3fcLGhw02F3OBldu/view?usp=sharing)
+
+A project is a way to store the components of a GIS analysis in a way that when you open the project again, everything looks the same. In general, you will create a new project for each practicum/lab. When practicums/labs build on each other, you can continue using the first project you made. 
+
+## [Adding a Basemap](https://drive.google.com/file/d/1anULPv8C_2ShLyzhYE6sbzLzj4AR6SpP/view?usp=sharing)
+
+Once you’ve created a project, you typically want to add a basemap to provide a geographic reference for other data you add. QGIS comes built in with two basemaps, which can be accessed in the XYZ Tiles in your Browser window.
+
+## [Adding Raster or Vector Data](https://drive.google.com/file/d/1A3haHmjDZ74tV-tERAtF7dXQU52iWeuU/view?usp=sharing)
+
+Now that you have your project set up, you are ready to add some vector and raster data. There are multiple ways to add data. The simplest way is to use the Browser panel. [If you are missing your panels, watch this video.](https://drive.google.com/file/d/10be1iGWf4RApnKoFf3pflPVn_L_7NDBR/view?usp=sharing) 
+
+Note on coordinate systems: In the “Adding Data” video, you may have noticed a pop-up asking you to “Select Transformation.” This happens when the Coordinate Reference System (CRS) of the map canvas is different from the CRS of the data you’re adding. For example, in the video, the bottom right corner shows that the map canvas is using EPSG:3857 (your project might use a different one). This is because the basemap I added at the start of the project is in EPSG:3857. This is NOT reprojecting the data and it is NOT changing the CRS of the base data. We will cover that later on. In general, I just select the first transformation option. 
+
+## Working with Attributes 
+
+When you read in vector data, one of the first things that you should do is [explore the properties of the data, including looking at the data type of each of the fields and exploring the attribute table (including looking at selected features).](https://drive.google.com/file/d/1TnRS1U5XKcbFMu33MfqS4w6S_n5rUqSL/view?usp=sharing) You might also want [to add a field](https://drive.google.com/file/d/14I1QCvfXSisWaGZC5hojAQJao837aeAV/view?usp=sharing) using the field calculator (note that you must always save edits and toggle editing off when done. 
+
+With raster data, there is typically no separate attribute table. [To explore values, you will typically use symbology or the information tab](https://drive.google.com/file/d/19wNUsrbDnoJ5O4KnC5nmhVldOcXdkyaI/view?usp=sharing) (note that the layer must be selected in the browser for the information tab to select the correct feature). 
+
+## Basic Symbolization
+
+Chances are, the symbolization that is automatically applied when you add your data into QGIS is not going to be sufficient. Symbology choices are some of the most important choices that you will make when creating maps. There are many symbology choices available in QGIS. Explore these resources for more information:
+
+-   [Lesson: Changing Raster Symbology](https://docs.qgis.org/3.40/en/docs/training_manual/rasters/changing_symbology.html)
+
+-   [Lesson: Symbology](https://docs.qgis.org/3.40/en/docs/training_manual/basic_map/symbology.html)
+
+Here are the basics of [changing vector](https://drive.google.com/file/d/1peIgBviXjJ_uX7EArwakNs4wJZrEXhRN/view?usp=sharing) and [raster symbology](https://drive.google.com/file/d/12GRmKnz2n01E2t6M9sDUNxyhAazprJfG/view?usp=sharing)
+
+## Adding Tabular Data and Executing Table Joins
+
+As discussed in Chapter 6, sometimes geospatial data comes in a tabular format.[You can easily add tabular data that has a lat, lon fields by using the Data Source Manager. ](https://drive.google.com/file/d/1X9-JFEb9z6txAGXnSLLY48Wq-S5TBaM7/view?usp=sharing)
+
+Finally, [table joins](https://drive.google.com/file/d/1tzhxP4imRrFqmzpMqDJ2BaAMKlBv9993/view?usp=sharing) are an absolutely essential pre-processing step for many spatial analyses. A table join involves joining tabular data and spatial data based on a matching key. For this to work in QGIS, it is required that the matching keys are exactly the same (which is often a problem) and are set as the same data type in QGIS. 

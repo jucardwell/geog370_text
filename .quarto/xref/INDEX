@@ -1,0 +1,50 @@
+{
+  "index.qmd": {
+    "index.html": "0fb2811a"
+  },
+  "intro.qmd": {
+    "intro.html": "ee68f7a6"
+  },
+  "summary.qmd": {
+    "summary.html": "2db4d1f5"
+  },
+  "references.qmd": {
+    "references.html": "273cc18d"
+  },
+  "politics.qmd": {
+    "politics.html": "d3e2d0fe"
+  },
+  "core.qmd": {
+    "core.html": "600e5ebd"
+  },
+  "data.qmd": {
+    "data.html": "ddd59550"
+  },
+  "models.qmd": {
+    "models.html": "e4fcc8da"
+  },
+  "making_maps.qmd": {
+    "making_maps.html": "bf2d0498"
+  },
+  "attributes.qmd": {
+    "attributes.html": "aab31388"
+  },
+  "qgis.qmd": {
+    "qgis.html": "ebd6146a"
+  },
+  "files.qmd": {
+    "files.html": "952b0972"
+  },
+  "learning_qgis.qmd": {
+    "learning_qgis.html": "c3187b51"
+  },
+  "spatial_analysis.qmd": {
+    "spatial_analysis.html": "b5aa4acf"
+  },
+  "doing_spatial_analysis.qmd": {
+    "doing_spatial_analysis.html": "8790db05"
+  },
+  "other_tools.qmd": {
+    "other_tools.html": "beffde1f"
+  }
+}

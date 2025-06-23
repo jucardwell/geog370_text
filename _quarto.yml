@@ -1,0 +1,36 @@
+project:
+  type: book
+
+book:
+  title: "GEOG370"
+  author: "Julia Cardwell"
+  date: "7/1/2025"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - politics.qmd
+    - core.qmd
+    - data.qmd
+    - models.qmd
+    - attributes.qmd
+    - qgis.qmd
+    - files.qmd
+    - learning_qgis.qmd
+    - spatial_analysis.qmd
+    - doing_spatial_analysis.qmd
+    - other_tools.qmd
+    - making_maps.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
