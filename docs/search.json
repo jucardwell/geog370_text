@@ -2,41 +2,41 @@
   {
     "objectID": "attributes.html",
     "href": "attributes.html",
-    "title": "6  quarto::quarto_render()Attributes",
+    "title": "6  Understanding Attributes",
     "section": "",
     "text": "6.1 Field Types\nSpatial data generally includes two components:\nFor vector datasets, attribute information is stored in the attribute table (for instance, the .dbf in a shapefile). An attribute table is a tabular dataset, meaning it’s made up of rows and columns. Each row corresponds to a feature and every feature gets exactly one row. Each column contains information (an attribute) about that feature.\nLet’s look at an example of vector data showing pharmacies in North Carolina. In QGIS, you’d see the location of each pharmacy displayed on the map- that’s how we know where they are. But if you open the attribute table, you’ll see all the other information we have about these locations. These attributes might include the name of the pharmacy, its hours, services offered, or other descriptive details.\nFor vector data, each feature is assigned a unique ID by the GIS software. This identifier helps keep the dataset organized and is essential for tasks like joining tables, running queries, or performing spatial analysis.\nAttributes can take many forms- some are numbers, some are words, some might be dates. Understanding how this data is represented is essential for doing analysis correctly.\nEach attribute has:\nWhen you open a dataset, QGIS automatically detects the field type. Common types include:",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>quarto::quarto_render()Attributes</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Understanding Attributes</span>"
     ]
   },
   {
     "objectID": "attributes.html#field-types",
     "href": "attributes.html#field-types",
-    "title": "6  quarto::quarto_render()Attributes",
+    "title": "6  Understanding Attributes",
     "section": "",
     "text": "Boolean – Yes/No, True/False, 1/0, etc.\nWhole Number (Integer)\nWhole Number (Integer - 64 bit)\nDecimal Number – Double precision (i.e., numbers with decimals)\nDate\nTime\nDate and Time\nText",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>quarto::quarto_render()Attributes</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Understanding Attributes</span>"
     ]
   },
   {
     "objectID": "attributes.html#levels-of-measurement",
     "href": "attributes.html#levels-of-measurement",
-    "title": "6  quarto::quarto_render()Attributes",
+    "title": "6  Understanding Attributes",
     "section": "6.2 Levels of Measurement",
     "text": "6.2 Levels of Measurement\nThis describes how the data can be used or interpreted:\n\nNominal - Categories that can’t be ranked (e.g., pharmacy name)\nOrdinal - Categories that can be ranked (e.g., small/medium/large)\nInterval - Numbers with an arbitrary zero (e.g., temperature)\nRatio - Numbers with a true zero (e.g., number of employees)\n\nLevels of measurement and field types are connected, but they are not the same thing. Confusing them can lead to major problems when analyzing your data. The field type tells QGIS how to store and read the data (as text, numbers, dates, etc.), while the level of measurement tells you how the data should be interpreted and what kinds of analysis are appropriate. \nThe level of measurement determines what types of analysis you can do on the data. \n\nNominal- Frequencies, Mode\nOrdinal- Frequencies, Median, Mode, Ranking\nInterval- Addition, Subtraction, Mean, Median, Mode, Standard Deviation\nRatio- All arithmetic operations, mean, median, mode, percent change, normalization. \n\nThe field type controls what QGIS can do, but the level of measurement determines what you should do. Sometimes, the two don’t match, which can cause problems.\nFor example, numbers stored as text won’t behave like numbers. Even if a column looks numeric, QGIS won’t let you sort, filter, or calculate with it unless the field type is numeric. A column of income values stored as text won’t sum correctly and might sort alphabetically (e.g., 100, 1000, 200).\nOther times, the field type allows operations that don’t make sense. Categorical data is often stored as numbers- like 1 for pharmacy, 2 for clinic, 3 for hospital. QGIS will let you average or sum those values, but that’s meaningless. The numbers are labels, not quantities.\nThat’s why it’s essential to check both how the data is stored and what the data represents.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>quarto::quarto_render()Attributes</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Understanding Attributes</span>"
     ]
   },
   {
     "objectID": "attributes.html#raster-attributes",
     "href": "attributes.html#raster-attributes",
-    "title": "6  quarto::quarto_render()Attributes",
+    "title": "6  Understanding Attributes",
     "section": "6.3 Raster Attributes",
     "text": "6.3 Raster Attributes\nFor raster data, each pixel represents one or more values that correspond to an attribute or measurement for that location. Most raster data is single-band, meaning each pixel stores a single value representing an attribute. However, some raster datasets, particularly those from remote sensing, are multiband, which means each pixel stores multiple values corresponding to a different spectral band (e.g., red, green, blue, near-infrared).\nRaster attributes can be stored as either integers or floating-point numbers. Even rasters representing categorical data (for instance, land cover) are encoded using numeric values. In these cases, you need a legend or a value lookup table to interpret what each pixel value represents. This is another good example of categorical data being stored as numeric values, reinforcing the importance of knowing your level of measurement as well as your data type.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>quarto::quarto_render()Attributes</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Understanding Attributes</span>"
     ]
   },
   {
