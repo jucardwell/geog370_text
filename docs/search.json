@@ -2,41 +2,41 @@
   {
     "objectID": "attributes.html",
     "href": "attributes.html",
-    "title": "6  Attributes",
+    "title": "6  quarto::quarto_render()Attributes",
     "section": "",
     "text": "6.1 Field Types\nSpatial data generally includes two components:\nFor vector datasets, attribute information is stored in the attribute table (for instance, the .dbf in a shapefile). An attribute table is a tabular dataset, meaning it’s made up of rows and columns. Each row corresponds to a feature and every feature gets exactly one row. Each column contains information (an attribute) about that feature.\nLet’s look at an example of vector data showing pharmacies in North Carolina. In QGIS, you’d see the location of each pharmacy displayed on the map- that’s how we know where they are. But if you open the attribute table, you’ll see all the other information we have about these locations. These attributes might include the name of the pharmacy, its hours, services offered, or other descriptive details.\nFor vector data, each feature is assigned a unique ID by the GIS software. This identifier helps keep the dataset organized and is essential for tasks like joining tables, running queries, or performing spatial analysis.\nAttributes can take many forms- some are numbers, some are words, some might be dates. Understanding how this data is represented is essential for doing analysis correctly.\nEach attribute has:\nWhen you open a dataset, QGIS automatically detects the field type. Common types include:",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Attributes</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>quarto::quarto_render()Attributes</span>"
     ]
   },
   {
     "objectID": "attributes.html#field-types",
     "href": "attributes.html#field-types",
-    "title": "6  Attributes",
+    "title": "6  quarto::quarto_render()Attributes",
     "section": "",
     "text": "Boolean – Yes/No, True/False, 1/0, etc.\nWhole Number (Integer)\nWhole Number (Integer - 64 bit)\nDecimal Number – Double precision (i.e., numbers with decimals)\nDate\nTime\nDate and Time\nText",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Attributes</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>quarto::quarto_render()Attributes</span>"
     ]
   },
   {
     "objectID": "attributes.html#levels-of-measurement",
     "href": "attributes.html#levels-of-measurement",
-    "title": "6  Attributes",
+    "title": "6  quarto::quarto_render()Attributes",
     "section": "6.2 Levels of Measurement",
     "text": "6.2 Levels of Measurement\nThis describes how the data can be used or interpreted:\n\nNominal - Categories that can’t be ranked (e.g., pharmacy name)\nOrdinal - Categories that can be ranked (e.g., small/medium/large)\nInterval - Numbers with an arbitrary zero (e.g., temperature)\nRatio - Numbers with a true zero (e.g., number of employees)\n\nLevels of measurement and field types are connected, but they are not the same thing. Confusing them can lead to major problems when analyzing your data. The field type tells QGIS how to store and read the data (as text, numbers, dates, etc.), while the level of measurement tells you how the data should be interpreted and what kinds of analysis are appropriate. \nThe level of measurement determines what types of analysis you can do on the data. \n\nNominal- Frequencies, Mode\nOrdinal- Frequencies, Median, Mode, Ranking\nInterval- Addition, Subtraction, Mean, Median, Mode, Standard Deviation\nRatio- All arithmetic operations, mean, median, mode, percent change, normalization. \n\nThe field type controls what QGIS can do, but the level of measurement determines what you should do. Sometimes, the two don’t match, which can cause problems.\nFor example, numbers stored as text won’t behave like numbers. Even if a column looks numeric, QGIS won’t let you sort, filter, or calculate with it unless the field type is numeric. A column of income values stored as text won’t sum correctly and might sort alphabetically (e.g., 100, 1000, 200).\nOther times, the field type allows operations that don’t make sense. Categorical data is often stored as numbers- like 1 for pharmacy, 2 for clinic, 3 for hospital. QGIS will let you average or sum those values, but that’s meaningless. The numbers are labels, not quantities.\nThat’s why it’s essential to check both how the data is stored and what the data represents.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Attributes</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>quarto::quarto_render()Attributes</span>"
     ]
   },
   {
     "objectID": "attributes.html#raster-attributes",
     "href": "attributes.html#raster-attributes",
-    "title": "6  Attributes",
+    "title": "6  quarto::quarto_render()Attributes",
     "section": "6.3 Raster Attributes",
     "text": "6.3 Raster Attributes\nFor raster data, each pixel represents one or more values that correspond to an attribute or measurement for that location. Most raster data is single-band, meaning each pixel stores a single value representing an attribute. However, some raster datasets, particularly those from remote sensing, are multiband, which means each pixel stores multiple values corresponding to a different spectral band (e.g., red, green, blue, near-infrared).\nRaster attributes can be stored as either integers or floating-point numbers. Even rasters representing categorical data (for instance, land cover) are encoded using numeric values. In these cases, you need a legend or a value lookup table to interpret what each pixel value represents. This is another good example of categorical data being stored as numeric values, reinforcing the importance of knowing your level of measurement as well as your data type.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Attributes</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>quarto::quarto_render()Attributes</span>"
     ]
   },
   {
@@ -697,6 +697,16 @@
     "text": "Cloud, John. 2002. “American Cartographic Transformations During\nthe Cold War.” Cartography and Geographic Information\nScience 29 (3): 261–82. https://doi.org/10.1559/152304002782008422.\n\n\nCrampton, Jeremy, and Matthew W Wilson. 2015. “Harley and Friday\nHarbor: A Conversation with John Pickles.” Cartographica The\nInternational Journal for Geographic Information and\nGeovisualization 50 (1): 28–36. https://doi.org/10.3138/carto.50.1.06.\n\n\nD’Ignazio, Catherine, and Lauren F Klein. 2023. Data Feminism.\nLondon, England: MIT Press.\n\n\nDobson, Jerome E. 1983. “Automated Geography.” The\nProfessional Geographer: The Journal of the Association of American\nGeographers 35 (2): 135–43. https://doi.org/10.1111/j.0033-0124.1983.00135.x.\n\n\nElwood, Sarah, and Agnieszka Leszczynski. 2018. “Feminist Digital\nGeographies.” Gender, Place and Culture: A Journal of\nFeminist Geography 25 (5): 629–44. https://doi.org/10.1080/0966369x.2018.1465396.\n\n\nElwood, Sarah, and Matthew Wilson. 2017. “Critical\nGIS Pedagogies Beyond ‘Week 10:\nEthics’.” Geographical Information Systems 31\n(10): 2098–2116. https://doi.org/10.1080/13658816.2017.1334892.\n\n\nGoodchild, Michael F. 1992. “Geographical Information\nScience.” International Journal of Geographical Information\nSystems 6 (1): 31–45. https://doi.org/10.1080/02693799208901893.\n\n\nHaraway, Donna. 2013. “Rethinking Cyberfeminism(s): Race, Gender,\nand Embodiment.” In Women, Science, and Technology,\n387–403. Routledge. https://doi.org/10.4324/9780203427415-33.\n\n\nHarley, J B. 1989. “Deconstructing the Map.”\nCartographica The International Journal for Geographic Information\nand Geovisualization 26 (2): 1–20. https://doi.org/10.3138/e635-7827-1757-9t53.\n\n\nHoller, Joseph. 2020. “Teaching Critical Open\nGIS.” The Canadian Geographer. Geographe\nCanadien 64 (4): 484–94. https://doi.org/10.1111/cag.12521.\n\n\nLefebvre, Henri. 1991. The Production of Space. London,\nEngland: Blackwell.\n\n\nMartin, K, and J Wing. 2007. “The Discourse and Discipline of\nGIS.” Cartographica The International Journal\nfor Geographic Information and Geovisualization 42 (November):\n235–48. https://doi.org/10.3138/CARTO.42.3.235.\n\n\nMassey, Doreen B. 2005. For Space. Thousand Oaks, CA: SAGE\nPublications.\n\n\nNyerges, Timothy L. 1991. “Analytical Map Use.”\nCartography and Geographic Information Systems 18 (1): 11–22.\nhttps://doi.org/10.1559/152304091783805635.\n\n\nPickles, J. 1999. “Arguments, Debates, and Dialogues: The\nGIS-Social Theory Debate and the Concern for\nAlternatives.” Geographical Information Systems 1:\n49–60.\n\n\nPickles, John, ed. 1995. Ground Truth. Mappings. New York, NY:\nGuilford Publications.\n\n\nSheppard, Eric. 1995. “GIS and Society: Towards a\nResearch Agenda.” Cartography and Geographic Information\nSystems 22 (1): 5–16. https://doi.org/10.1559/152304095782540555.\n\n\nTaylor, Linnet. 2017. “What Is Data Justice? The Case for\nConnecting Digital Rights and Freedoms Globally.” Big Data\n& Society 4 (2): 205395171773633. https://doi.org/10.1177/2053951717736335.\n\n\nWood, D. 2003. “Cartography Is Dead (Thank God!).”\nCartographic Perspectives, January, 4–7. https://doi.org/10.14714/CP45.497.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "GEOG370",
+    "section": "",
+    "text": "Preface\nThis textbook was developed by Julia Cardwell for GEOG370: Introduction to Geographic Information at UNC Chapel Hill.\n\nThis work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\nLast Updated: July 2025",
+    "crumbs": [
+      "Preface"
     ]
   }
 ]
