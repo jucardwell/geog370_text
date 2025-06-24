@@ -13,7 +13,7 @@ Where is the intersection between vulnerable populations and existing permitted 
 -   2010 Census Block Group Median Household Income (from 2013 American Community Survey)
 -   Current (June 2025) Major Air permits from [EPA Geospatial Data](https://www.epa.gov/frs/epa-frs-facilities-state-single-file-csv-download)
 
-### [Adding Data](https://drive.google.com/file/d/1GjghgJYUXyrWKntIAjyrxC7Qfsu3JxeC/view?usp=sharing)
+### [Add Data](https://drive.google.com/file/d/1GjghgJYUXyrWKntIAjyrxC7Qfsu3JxeC/view?usp=sharing)
 
 We can add tabular data to QGIS as long as we can execute a table join (so it has a matching key with a geographic data file) or the tabular file includes coordinates. We’ll first add our air permit data. You must know the coordinate system of the data (which should be in the metadata) to add it correctly. We’ll also add our processed census data, which we table joined in a previous exercise. 
 
@@ -94,7 +94,7 @@ Use the Buncombe County DEM to calculate slope using the slope tool. The output 
 
 The output is in a Projected Coordinate System. However, we will then reproject the slope raster to WGS 84 (EPSG:4326) to match the coordinate system of the NLCD dataset. This may seem like a weird choice (reprojecting data in a projected coordinate system into a geographic coordinate system). However, this approach avoids reprojecting the NLCD data, which is important because the NLCD data is a categorical raster. Reprojecting categorical rasters introduces a higher risk of distortion due to resampling. To preserve the integrity of the land cover classes, we keep the NLCD in its original form and instead reproject the slope raster, which is continuous data and more resilient to interpolation.
 
-#### [Reclassify Rasters](https://drive.google.com/file/d/1-kb_75ikTeXTaToIS8aeudbd8vQvhrMm/view?usp=sharing)
+### [Reclassify Rasters](https://drive.google.com/file/d/1-kb_75ikTeXTaToIS8aeudbd8vQvhrMm/view?usp=sharing)
 
 We will reclassify both the slope and land cover rasters onto a common risk scale from 1 (low risk) to 5 (high risk).
 

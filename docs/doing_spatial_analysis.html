@@ -145,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Understanding Attributes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -209,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#research-question-1" id="toc-research-question-1" class="nav-link active" data-scroll-target="#research-question-1"><span class="header-section-number">11.1</span> Research Question 1</a>
   <ul class="collapse">
   <li><a href="#download-data" id="toc-download-data" class="nav-link" data-scroll-target="#download-data"><span class="header-section-number">11.1.1</span> Download Data</a></li>
-  <li><a href="#adding-data" id="toc-adding-data" class="nav-link" data-scroll-target="#adding-data"><span class="header-section-number">11.1.2</span> Adding Data</a></li>
+  <li><a href="#add-data" id="toc-add-data" class="nav-link" data-scroll-target="#add-data"><span class="header-section-number">11.1.2</span> Add Data</a></li>
   <li><a href="#select-by-attribute" id="toc-select-by-attribute" class="nav-link" data-scroll-target="#select-by-attribute"><span class="header-section-number">11.1.3</span> Select by Attribute</a></li>
   <li><a href="#reproject" id="toc-reproject" class="nav-link" data-scroll-target="#reproject"><span class="header-section-number">11.1.4</span> Reproject</a></li>
   <li><a href="#buffer" id="toc-buffer" class="nav-link" data-scroll-target="#buffer"><span class="header-section-number">11.1.5</span> Buffer</a></li>
@@ -229,9 +229,10 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#download-data-2" id="toc-download-data-2" class="nav-link" data-scroll-target="#download-data-2"><span class="header-section-number">11.3.1</span> Download Data</a></li>
   <li><a href="#calculate-slope" id="toc-calculate-slope" class="nav-link" data-scroll-target="#calculate-slope"><span class="header-section-number">11.3.2</span> Calculate Slope</a></li>
-  <li><a href="#raster-math" id="toc-raster-math" class="nav-link" data-scroll-target="#raster-math"><span class="header-section-number">11.3.3</span> Raster Math</a></li>
-  <li><a href="#zonal-statistics" id="toc-zonal-statistics" class="nav-link" data-scroll-target="#zonal-statistics"><span class="header-section-number">11.3.4</span> Zonal Statistics</a></li>
-  <li><a href="#critical-questions-to-ask-2" id="toc-critical-questions-to-ask-2" class="nav-link" data-scroll-target="#critical-questions-to-ask-2"><span class="header-section-number">11.3.5</span> Critical Questions to Ask</a></li>
+  <li><a href="#reclassify-rasters" id="toc-reclassify-rasters" class="nav-link" data-scroll-target="#reclassify-rasters"><span class="header-section-number">11.3.3</span> Reclassify Rasters</a></li>
+  <li><a href="#raster-math" id="toc-raster-math" class="nav-link" data-scroll-target="#raster-math"><span class="header-section-number">11.3.4</span> Raster Math</a></li>
+  <li><a href="#zonal-statistics" id="toc-zonal-statistics" class="nav-link" data-scroll-target="#zonal-statistics"><span class="header-section-number">11.3.5</span> Zonal Statistics</a></li>
+  <li><a href="#critical-questions-to-ask-2" id="toc-critical-questions-to-ask-2" class="nav-link" data-scroll-target="#critical-questions-to-ask-2"><span class="header-section-number">11.3.6</span> Critical Questions to Ask</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -270,8 +271,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Current (June 2025) Major Air permits from <a href="https://www.epa.gov/frs/epa-frs-facilities-state-single-file-csv-download">EPA Geospatial Data</a></li>
 </ul>
 </section>
-<section id="adding-data" class="level3" data-number="11.1.2">
-<h3 data-number="11.1.2" class="anchored" data-anchor-id="adding-data"><span class="header-section-number">11.1.2</span> <a href="https://drive.google.com/file/d/1GjghgJYUXyrWKntIAjyrxC7Qfsu3JxeC/view?usp=sharing">Adding Data</a></h3>
+<section id="add-data" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="add-data"><span class="header-section-number">11.1.2</span> <a href="https://drive.google.com/file/d/1GjghgJYUXyrWKntIAjyrxC7Qfsu3JxeC/view?usp=sharing">Add Data</a></h3>
 <p>We can add tabular data to QGIS as long as we can execute a table join (so it has a matching key with a geographic data file) or the tabular file includes coordinates. We’ll first add our air permit data. You must know the coordinate system of the data (which should be in the metadata) to add it correctly. We’ll also add our processed census data, which we table joined in a previous exercise.&nbsp;</p>
 </section>
 <section id="select-by-attribute" class="level3" data-number="11.1.3">
@@ -355,17 +356,17 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="11.3.2" class="anchored" data-anchor-id="calculate-slope"><span class="header-section-number">11.3.2</span> <a href="https://drive.google.com/file/d/16hRLJ2XAgy7hGjxSDSBQNkH8lzrontbh/view?usp=sharing">Calculate Slope</a></h3>
 <p>Use the Buncombe County DEM to calculate slope using the slope tool. The output will be a continuous raster showing degrees of steepness. Areas with steeper slopes are generally more vulnerable to wildfire spread.</p>
 <p>The output is in a Projected Coordinate System. However, we will then reproject the slope raster to WGS 84 (EPSG:4326) to match the coordinate system of the NLCD dataset. This may seem like a weird choice (reprojecting data in a projected coordinate system into a geographic coordinate system). However, this approach avoids reprojecting the NLCD data, which is important because the NLCD data is a categorical raster. Reprojecting categorical rasters introduces a higher risk of distortion due to resampling. To preserve the integrity of the land cover classes, we keep the NLCD in its original form and instead reproject the slope raster, which is continuous data and more resilient to interpolation.</p>
-<section id="reclassify-rasters" class="level4" data-number="11.3.2.1">
-<h4 data-number="11.3.2.1" class="anchored" data-anchor-id="reclassify-rasters"><span class="header-section-number">11.3.2.1</span> <a href="https://drive.google.com/file/d/1-kb_75ikTeXTaToIS8aeudbd8vQvhrMm/view?usp=sharing">Reclassify Rasters</a></h4>
+</section>
+<section id="reclassify-rasters" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="reclassify-rasters"><span class="header-section-number">11.3.3</span> <a href="https://drive.google.com/file/d/1-kb_75ikTeXTaToIS8aeudbd8vQvhrMm/view?usp=sharing">Reclassify Rasters</a></h3>
 <p>We will reclassify both the slope and land cover rasters onto a common risk scale from 1 (low risk) to 5 (high risk).</p>
 <ul>
 <li>For slope, use thresholds based on terrain steepness (e.g., 0–5 degrees = 1, 35–65 = 5).</li>
 <li>For NLCD, reclassify land cover values based on their flammability (e.g., forest = 5, developed = 1–2).</li>
 </ul>
 <p>Use the r.reclass tool and copy-paste the provided reclass rules for each raster. The output of each will be a categorical risk raster.</p>
-</section>
-<section id="slope" class="level4" data-number="11.3.2.2">
-<h4 data-number="11.3.2.2" class="anchored" data-anchor-id="slope"><span class="header-section-number">11.3.2.2</span> Slope</h4>
+<section id="slope" class="level4" data-number="11.3.3.1">
+<h4 data-number="11.3.3.1" class="anchored" data-anchor-id="slope"><span class="header-section-number">11.3.3.1</span> Slope</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -420,8 +421,8 @@ ul.task-list li input[type="checkbox"] {
 <p>35 thru 65 = 5</p>
 <p>* = NULL</p>
 </section>
-<section id="nlcd" class="level4" data-number="11.3.2.3">
-<h4 data-number="11.3.2.3" class="anchored" data-anchor-id="nlcd"><span class="header-section-number">11.3.2.3</span> NLCD</h4>
+<section id="nlcd" class="level4" data-number="11.3.3.2">
+<h4 data-number="11.3.3.2" class="anchored" data-anchor-id="nlcd"><span class="header-section-number">11.3.3.2</span> NLCD</h4>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -525,17 +526,17 @@ ul.task-list li input[type="checkbox"] {
 <p>* = NULL</p>
 </section>
 </section>
-<section id="raster-math" class="level3" data-number="11.3.3">
-<h3 data-number="11.3.3" class="anchored" data-anchor-id="raster-math"><span class="header-section-number">11.3.3</span> <a href="https://drive.google.com/file/d/11Q2P0skgUM5hooLbDu-lsDGYvTLnGPYf/view?usp=sharing">Raster Math</a></h3>
+<section id="raster-math" class="level3" data-number="11.3.4">
+<h3 data-number="11.3.4" class="anchored" data-anchor-id="raster-math"><span class="header-section-number">11.3.4</span> <a href="https://drive.google.com/file/d/11Q2P0skgUM5hooLbDu-lsDGYvTLnGPYf/view?usp=sharing">Raster Math</a></h3>
 <p>Now we combine the two reclassified rasters using the Raster Calculator. This step adds the slope and land cover risk scores, producing a composite vulnerability raster that reflects both terrain and vegetation.This technique is an example of a Multi-Criteria Overlay Analysis (MCOA) which is&nbsp; a method used to combine multiple spatial layers, each representing a different factor contributing to a phenomenon (in this case, wildfire risk). Each layer is first standardized (here, using a 1–5 risk scale), then combined to create a single index or score. By summing the slope and land cover risk scores, we are weighting them equally (50% each). This assumes that slope and vegetation are equally important in determining wildfire vulnerability. In more complex analyses, different layers might be given different weights to reflect their relative importance.</p>
 <p>When performing raster math, QGIS will automatically resample rasters on the fly so that their cell alignments and resolutions match. However, this may introduce interpolation artifacts. If high precision is required, you should explicitly resample the input rasters beforehand using the “Resample” tool. Multiple resampling methods exist (e.g., nearest neighbor, bilinear, cubic), and the appropriate one depends on the input data.</p>
 </section>
-<section id="zonal-statistics" class="level3" data-number="11.3.4">
-<h3 data-number="11.3.4" class="anchored" data-anchor-id="zonal-statistics"><span class="header-section-number">11.3.4</span> <a href="https://drive.google.com/file/d/11chHm49JRTpxSGSLR0ElhPMdrEbNJ53y/view?usp=sharing">Zonal Statistics</a></h3>
+<section id="zonal-statistics" class="level3" data-number="11.3.5">
+<h3 data-number="11.3.5" class="anchored" data-anchor-id="zonal-statistics"><span class="header-section-number">11.3.5</span> <a href="https://drive.google.com/file/d/11chHm49JRTpxSGSLR0ElhPMdrEbNJ53y/view?usp=sharing">Zonal Statistics</a></h3>
 <p>To summarize vulnerability by administrative unit, we use zonal statistics (which summarizes raster values based on vector boundaries). Input the ZIP code polygons and the combined wildfire risk raster. Calculate the mean value for each ZIP code. This gives an average vulnerability score (ranging roughly from 2 to 10) that reflects the average risk across each ZIP code.</p>
 </section>
-<section id="critical-questions-to-ask-2" class="level3" data-number="11.3.5">
-<h3 data-number="11.3.5" class="anchored" data-anchor-id="critical-questions-to-ask-2"><span class="header-section-number">11.3.5</span> Critical Questions to Ask</h3>
+<section id="critical-questions-to-ask-2" class="level3" data-number="11.3.6">
+<h3 data-number="11.3.6" class="anchored" data-anchor-id="critical-questions-to-ask-2"><span class="header-section-number">11.3.6</span> Critical Questions to Ask</h3>
 <ul>
 <li>How does the choice of administrative unit (ZIP codes) shape our understanding of vulnerability?</li>
 <li>What assumptions are embedded in the risk classification thresholds for slope and land cover?</li>
