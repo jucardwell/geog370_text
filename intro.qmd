@@ -1,20 +1,20 @@
 # Introduction
 
-This text is designed as a primer in introductory GIS concepts for GEOG370 (Introduction to Geographic Information) at the University of North Carolina. It is designed as part GIS textbook, part user manual for QGIS, and part introduction to critical GIS.
+This text is a primer on geographic thinking and spatial data, designed for GEOG370: Introduction to Geographic Information at the University of North Carolina. It blends foundational concepts in Geographic Information Science with opportunities to apply geographic concepts using QGIS, an open-source Geographic Information System software.
 
-## How did we get here? 
+## How did we get here?
 
-Humans, as a species, have always had to orient ourselves to our environment and use our brains and bodies to move through and interpret space. We have always “thought spatially” about where things are, why they are there, and what it means that those things are there. Our spatial ability is a major part of our cognition, and the ability to navigate and remember places has allowed us to evolve as a species. As our societies became more complex, so did our need to externalize spatial knowledge. As a social species we have always needed ways to take what we know about space and communicate it to others. Externalizing spatial knowledge can come in many forms- words, gestures, songs, stories, physical markers, maps. 
+Humans, as a species, have always had to orient ourselves to our environment and use our brains and bodies to move through and interpret space. We have always “thought spatially” about where things are, why they are there, and what it means that those things are there. Our spatial ability is a major part of our cognition, and the ability to navigate and analyze space has allowed us to evolve as a species. As our societies became more complex and our social networks grew, so did our need to externalize spatial knowledge. This process of externalizing spatial knowledge, or making our understanding of space visible and communicable, has taken many forms over time, such as oral storytelling, physical markers, gestures, and maps. Today, a major way that we externalize spatial knowledge is collecting and sharing spatial data. This course focuses especially on geographic information: how knowledge about space is created, represented, stored, analyzed, and interpreted. 
 
-We experience space through our bodies: by moving through it, feeling it, and sensing it. This means that every person experiences space differently. At the same time, throughout history, there has also been a strong desire to own, control, and analyze space. Doing so has required a shared “spatial language”: a way to describe, divide, and represent space in consistent terms.
+We experience space through our bodies: by moving through it, feeling it, and sensing it. This means that every person experiences space differently. At the same time, throughout history, there has also been a desire to own and control space. Doing so has required a shared “spatial language”: a way to describe, divide, and represent space in consistent terms.
 
-Over time, a dominant, institutionalized way of externalizing and analyzing space emerged: Cartesian spatial logic. This is the idea that space can be abstracted into something measurable, gridded, uniform, and detached from lived experience. This logic, in general, has served those in power by enabling forms of standardization and control over space, which became important for statebuilding, population management, and surveillance. It is out of this logic that Geographic Information Systems (GIS) emerged. GIS is not a neutral tool, but has developed as an outgrowth of a certain way of knowing, organizing, analyzing, and externalizing space. 
+Over time, a dominant, institutionalized way of externalizing and analyzing space emerged: Cartesian spatial logic. This is the idea that space can be abstracted into something measurable, gridded, uniform, and detached from lived experience. This logic, in general, has served those in power by enabling forms of standardization and control over space, which became important for statebuilding, population management, and surveillance. It is out of this logic that dominant forms of collecting, organizing, and analyzing geographic data emerged. This process is not neutral, but, instead, has developed as an outgrowth of a certain way of organizing space.
 
-Other ways of understanding and representing space have always existed. This text will ask students to critically interrogate the assumptions built into GIS and the Cartesian spatial logic that informs it. What kinds of spatial knowledge are emphasized, and what gets left out? How are data, analysis, and outputs shaped by political, social, and historical forces? 
+Other ways of understanding and representing space have always existed. This course will ask students to critically interrogate the assumptions built into dominant forms of spatial representation and analysis. What kinds of spatial knowledge are emphasized, and what gets left out? How are data, analysis, and outputs shaped by political, social, and historical forces?
 
 ## Asking spatial questions
 
-GIS is designed as one way to answer spatial questions. A spatial question is concerned about the role of space in influencing how our world works. For instance:
+A spatial question is concerned about the role of space in influencing how our world works. For instance:
 
 -   Are there a disproportionate number of landfills in minority communities?
 -   Which streams are most at risk from polluting facilities?
@@ -51,11 +51,11 @@ Spatial questions can ask about (from @Nyerges1991-nc):
     -   How has it changed over time and space?
     -   What causes its diffusion or contraction?
 
-Not every spatial question can be answered using a GIS. As we will learn throughout this course, a GIS is traditionally best suited for asking questions that allow for space to be represented in measurable, mappable terms. It can struggle to encode the emotional, relational, and lived aspects of space that shape our everyday experience.
+Answering spatial questions requires analyzing geographic data- information that is tied to location. This data can come in many forms (for instance, satellite imagery, census records, land use maps, environmental sensor data, GPS data), some of which will be explored in this class. Some geographic data is created through government surveys and remote sensing technologies; other data may be generated by communities, researchers, or individuals using mobile devices, field observations, or participatory mapping methods.
 
 ## What is a GIS? 
 
-A Geographic Information System (GIS) is an integrated framework for exploring spatial questions. It is built around combining hardware, software, data, people, and methodologies to analyze space.
+One common method for exploring spatial questions (using geographic data) is a Geographic Information System (GIS). A GIS is an integrated framework for exploring spatial questions. It is built around combining hardware, software, data, people, and methodologies to analyze space.
 
 |  |  |
 |------------------------------------|------------------------------------|
@@ -68,20 +68,20 @@ A Geographic Information System (GIS) is an integrated framework for exploring s
 
 ## The Layer Model
 
-In a GIS, spatial features are thought of as a set of layers. In the layer model, the world can be represented by translating real-world phenomena into a model composed of separate, stackable layers. For instance, a layer model representing the ecology of North Carolina might have a layer representing rivers, one representing forests, and one representing species ranges. 
+In a GIS, spatial features are thought of as a set of layers. In the layer model, the world can be represented by translating real-world phenomena into a model composed of separate, stackable layers. For instance, a layer model representing the ecology of North Carolina might have a layer representing rivers, one representing forests, and one representing species ranges.
 
 ![The Layer Model (from Essentials of Geographic Information Fig 1.8, CC BY-NC-SA 3.0)](images/layer_model.jpg){width="396"}
 
 The layer approach necessarily relies on abstraction: the process of simplifying complex real-world features into layer representations that GIS software can manage and analyze. Trying to represent every feature with complete accuracy is impossible from a data storage, collection, and analysis perspective
 
-Abstraction always involves decisions, and those decisions will impact the outcome of any GIS analysis using the data. Abstraction is guided by the original purpose of the dataset. The purpose allows data creators to determine what aspects of the real-life feature are important (and therefore should be collected and represented with high accuracy) and which aspects are less important (and can be generalized or omitted). A mismatch between your purpose for using the data and the abstraction decisions made in the data creation process can be a serious issue for the reliability of your results. 
+Abstraction always involves decisions, and those decisions will impact the outcome of any GIS analysis using the data. Abstraction is guided by the original purpose of the dataset. The purpose allows data creators to determine what aspects of the real-life feature are important (and therefore should be collected and represented with high accuracy) and which aspects are less important (and can be generalized or omitted). A mismatch between your purpose for using the data and the abstraction decisions made in the data creation process can be a serious issue for the reliability of your results.
 
 Consider the following example of different uses for the same dataset- hospitals in North Carolina:
 
 -   An engineer assessing flood risk at hospitals in North Carolina
 -   A public health analyst investigating disease outbreaks across hospitals in North Carolina
 
-What is considered important to these two users differ greatly. The engineer may require detailed building footprints to evaluate structural exposure. The public health analyst may want detailed information on the number of beds and the infectious disease protocols, but just need a rough location for the hospital. If these users were creating the datasets themselves, they would likely look very different. However, most of the time, users aren’t collecting or creating the data themselves, they’re working with data that already exists. As a result, it’s crucial for users to critically evaluate the dataset’s underlying abstraction decisions regarding: 
+What is considered important to these two users differ greatly. The engineer may require detailed building footprints to evaluate structural exposure. The public health analyst may want detailed information on the number of beds and the infectious disease protocols, but just need a rough location for the hospital. If these users were creating the datasets themselves, they would likely look very different. However, most of the time, users aren’t collecting or creating the data themselves, they’re working with data that already exists. As a result, it’s crucial for users to critically evaluate the dataset’s underlying abstraction decisions regarding:
 
 -   Selection - What features are included or excluded?
 -   Classification - How are features grouped?
