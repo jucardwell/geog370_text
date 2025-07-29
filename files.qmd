@@ -8,7 +8,7 @@ Completing an analysis in GIS usually takes place over the course of several day
 
 “/Users/juliacardwell/Documents/GEOG370/geog370_text.doc”
 
-Disorganized folder structures increase the risk of losing data or breaking file paths in your QGIS project. Therefore, in this class, everyone will use the same folder structure. You should create a “GEOG370” folder on a location on your computer that IS NOT your “Downloads” folder. Within that folder, you will have two subfolders “Labs” and “Practicums”. Within each subfolder, you will continue to build substructures. Each QGIS project will have its own folder. It is best practice to not use spaces in folders or file names. My example GEOG370 folder structure is below:
+Disorganized folder structures increase the risk of losing data or breaking file paths in your QGIS project. Therefore, in this class, everyone will use the same folder structure. You should create a “GEOG370” folder on a location on your computer that IS NOT your “Downloads” folder. Within that folder, you will start with one subfolder named "labs" Within each subfolder, you will continue to build substructures. Each lab will have its own folder. It is best practice to not use spaces in folders or file names. My example GEOG370 folder structure is below:
 
 ![GEOG370 File Structure Example](images/file_structure.png)
 
