@@ -1,6 +1,8 @@
 # Core Spatial Concepts
 
-The following core spatial concepts are considered assumptions in most spatial analysis methods. Practicing critical GIS means we should examine these assumptions. When are they not true? How do they shape the output of our analysis? For each of the following concepts, consider when they might not hold up- when space doesn’t behave the way our models expect, and when people's experiences of space diverge from what GIS can represent. Understanding these moments of mismatch helps us become more thoughtful and responsible spatial analysts.
+The following core spatial concepts are considered assumptions in most spatial analysis methods. They provide a useful framework for thinking about how geographic data works and how spatial relationships are modeled in GIS.
+
+In many cases, these assumptions hold up. However, practicing critical GIS also means we should interrogate these assumptions. When are they not true? How do they shape the output of our analysis? For each of the following concepts, consider when they might not hold up. Understanding these moments of mismatch helps us become more thoughtful and responsible spatial analysts.
 
 ## Tobler’s First Law of Geography
 
@@ -10,7 +12,7 @@ This “law”, coined by geographer Waldo Tobler in 1970, states that “everyt
 
 ## Distance decay
 
- Distance decay is the concept that underpins Tobler’s First Law of Geography. Distance decay describes the tendency for interaction between two things to decrease as the distance between them increases. This pattern is driven by the friction of distance (the idea that distance imposes a cost) whether in time, money, or effort, which in turn reduces the likelihood of interaction. For example, consider how you choose a grocery store. If two stores are similar in price and quality, you are more likely to visit the one that is closer, because it costs less time and fuel to reach. However, this example also highlights that friction of distance can be modified. You might willingly travel farther to visit a store that has a product that you can’t get at your local store, which illustrates that the strength of distance decay depends on context and motivation.
+Distance decay is the concept that underpins Tobler’s First Law of Geography. Distance decay describes the tendency for interaction between two things to decrease as the distance between them increases. This pattern is driven by the friction of distance (the idea that distance imposes a cost) whether in time, money, or effort, which in turn reduces the likelihood of interaction. For example, consider how you choose a grocery store. If two stores are similar in price and quality, you are more likely to visit the one that is closer, because it costs less time and fuel to reach. However, this example also highlights that friction of distance can be modified. You might willingly travel farther to visit a store that has a product that you can’t get at your local store, which illustrates that the strength of distance decay depends on context and motivation.
 
 ## Spatial autocorrelation
 
@@ -41,11 +43,11 @@ The MAUP matters because most spatial data analysis relies on aggregated units, 
 
 ## Spatial hierarchies
 
-Spatial hierarchies refer to the idea that we can often organize geographies within nested levels. For instance, city blocks within a neighborhood within a city within a state. These hierarchies often shape how spatial processes operate across space/scale- some phenomena are localized, while others operate at broader scales. 
+Spatial hierarchies refer to the idea that we can often organize geographies within nested levels. For instance, city blocks within a neighborhood within a city within a state. These hierarchies often shape how spatial processes operate across space/scale- some phenomena are localized, while others operate at broader scales.
 
 ## Ecological fallacy
 
-The ecological fallacy occurs when analyses draw conclusions about individuals based on aggregate data for a group or area.  For instance, knowing that a neighborhood has a high unemployment rate does not mean everyone who lives there is unemployed. 
+The ecological fallacy occurs when analyses draw conclusions about individuals based on aggregate data for a group or area. For instance, knowing that a neighborhood has a high unemployment rate does not mean everyone who lives there is unemployed.
 
 ## Edge effects
 
@@ -53,8 +55,8 @@ Edge effects refer to the distortions or inaccuracies that occur at the boundari
 
 ## Spatial non-stationarity
 
-Spatial non-stationarity means that the relationship between variables changes over space. For example, the relationship between income and education may be strong in one North Carolina county and weak in another. Traditional statistical methods assume consistent relationships, but since spatial data often violate this assumption there are techniques like Geographically Weighted Regression (GWR) that are designed to account for spatial non-stationarity by allowing coefficients to vary across space.
+Spatial non-stationarity means that the relationship between variables changes over space. For example, the relationship between income and education may be strong in one North Carolina county and weak in another. Traditional statistical methods assume consistent relationships, but since spatial data often violate this assumption there are techniques like Geographically Weighted Regression (GWR) that are designed to explore spatial non-stationarity by allowing coefficients to vary across space.
 
 ## Location, place, and territory
 
-Location refers to the position of something on the Earth's surface, either in absolute terms (e.g., coordinates) or relative to other features (e.g., "north of here"). Place goes beyond location to include the meanings, experiences, and emotional attachments people associate with a space. Territory refers to a bounded area that is claimed, governed, controlled, or contested. 
+Location refers to the position of something on the Earth's surface, either in absolute terms (e.g., coordinates) or relative to other features (e.g., "north of here"). Place goes beyond location to include the meanings, experiences, and emotional attachments people associate with a space. Territory refers to a bounded area that is claimed, governed, controlled, or contested.

@@ -1,14 +1,12 @@
 # Introduction
 
-This text is a primer on geographic thinking and spatial data, designed for GEOG370: Introduction to Geographic Information at the University of North Carolina. It blends foundational concepts in Geographic Information Science with opportunities to apply geographic concepts using QGIS, an open-source Geographic Information System software.
+This text is a primer on geographic thinking and spatial data, designed for GEOG370: Introduction to Geographic Information at the University of North Carolina, Chapel Hill. It blends foundational concepts in Geographic Information Science with opportunities to apply geographic concepts using QGIS, an open-source Geographic Information System software.
 
 ## How did we get here?
 
-Humans, as a species, have always had to orient ourselves to our environment and use our brains and bodies to move through and interpret space. We have always “thought spatially” about where things are, why they are there, and what it means that those things are there. Our spatial ability is a major part of our cognition, and the ability to navigate and analyze space has allowed us to evolve as a species. As our societies became more complex and our social networks grew, so did our need to externalize spatial knowledge. This process of externalizing spatial knowledge, or making our understanding of space visible and communicable, has taken many forms over time, such as oral storytelling, physical markers, gestures, and maps. Today, a major way that we externalize spatial knowledge is collecting and sharing spatial data. This course focuses especially on geographic information: how knowledge about space is created, represented, stored, analyzed, and interpreted. 
+Humans, as a species, have always had to orient ourselves to our environment and use our brains and bodies to move through and interpret space. We have always “thought spatially” about where things are, why they are there, and what it means that those things are there. Our spatial ability is a major part of our cognition, and the ability to navigate and analyze space has allowed us to evolve as a species. As our societies became more complex and our social networks grew, so did our need to externalize spatial knowledge. This process of externalizing spatial knowledge, or making our understanding of space visible and communicable, has taken many forms over time. Today, a major way that we externalize spatial knowledge is by collecting, analyzing, and sharing spatial data. This course focuses on geographic information: how knowledge about space is created, represented, and stored. It also explores Geographic Information Systems (GIS), the most common tool used today to analyze and visualize that information.
 
-We experience space through our bodies: by moving through it, feeling it, and sensing it. This means that every person experiences space differently. At the same time, throughout history, there has also been a desire to own and control space. Doing so has required a shared “spatial language”: a way to describe, divide, and represent space in consistent terms.
-
-Over time, a dominant, institutionalized way of externalizing and analyzing space emerged: Cartesian spatial logic. This is the idea that space can be abstracted into something measurable, gridded, uniform, and detached from lived experience. This logic, in general, has served those in power by enabling forms of standardization and control over space, which became important for statebuilding, population management, and surveillance. It is out of this logic that dominant forms of collecting, organizing, and analyzing geographic data emerged. This process is not neutral, but, instead, has developed as an outgrowth of a certain way of organizing space.
+Over time, a dominant, institutionalized way of externalizing and analyzing space emerged: Cartesian spatial logic. This is the idea that space can be abstracted into something measurable, gridded, uniform, and detached from lived experience. This logic became foundational for activities like statebuilding, infrastructure planning, and population management—projects that benefit from standardizing and controlling space. As a result, many of the systems we use to collect, organize, and analyze geographic data today are rooted in this way of thinking. These systems are not neutral; they reflect particular assumptions about how space should be known and used.
 
 Other ways of understanding and representing space have always existed. This course will ask students to critically interrogate the assumptions built into dominant forms of spatial representation and analysis. What kinds of spatial knowledge are emphasized, and what gets left out? How are data, analysis, and outputs shaped by political, social, and historical forces?
 
@@ -51,16 +49,16 @@ Spatial questions can ask about (from @Nyerges1991-nc):
     -   How has it changed over time and space?
     -   What causes its diffusion or contraction?
 
-Answering spatial questions requires analyzing geographic data- information that is tied to location. This data can come in many forms (for instance, satellite imagery, census records, land use maps, environmental sensor data, GPS data), some of which will be explored in this class. Some geographic data is created through government surveys and remote sensing technologies; other data may be generated by communities, researchers, or individuals using mobile devices, field observations, or participatory mapping methods.
+Answering spatial questions requires analyzing geographic data- information that is tied to a location on Earth's surface. This data can come in many forms (e.g. satellite imagery, census records, land use maps, environmental sensor data, GPS data), many of which will be explored in this class.
 
-## What is a GIS? 
+## What is a Geographic Information System?
 
-One common method for exploring spatial questions (using geographic data) is a Geographic Information System (GIS). A GIS is an integrated framework for exploring spatial questions. It is built around combining hardware, software, data, people, and methodologies to analyze space.
+One common method for exploring spatial questions (using geographic data) is a Geographic Information System (GIS). A GIS is an integrated framework for exploring spatial questions. It is built around combining hardware, software, data, people, and methodologies to analyze space. In this course, we’ll use GIS as a tool to help us examine geographic data, but the focus is not on learning GIS software in depth. Rather, we’ll use it to support broader learning about geographic information and spatial thinking.
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | Component | Description |
-| Hardware | Physical infrastructure used for GIS. This includes local computers, servers, data collection devices, etc.   |
+| Hardware | Physical infrastructure used for GIS. This includes local computers, servers, data collection devices, etc. |
 | Software | Applications and platforms used to analyze, visualize, and manage geographic data.  |
 | Data | Data suitable for analysis in a GIS requires a locational component |
 | People | Users, developers, analysts, and decision-makers who interact with GIS. |

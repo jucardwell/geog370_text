@@ -228,7 +228,7 @@ div.csl-indent {
   <ul>
   <li><a href="#how-did-we-get-here" id="toc-how-did-we-get-here" class="nav-link active" data-scroll-target="#how-did-we-get-here"><span class="header-section-number">1.1</span> How did we get here?</a></li>
   <li><a href="#asking-spatial-questions" id="toc-asking-spatial-questions" class="nav-link" data-scroll-target="#asking-spatial-questions"><span class="header-section-number">1.2</span> Asking spatial questions</a></li>
-  <li><a href="#what-is-a-gis" id="toc-what-is-a-gis" class="nav-link" data-scroll-target="#what-is-a-gis"><span class="header-section-number">1.3</span> What is a GIS?&nbsp;</a></li>
+  <li><a href="#what-is-a-geographic-information-system" id="toc-what-is-a-geographic-information-system" class="nav-link" data-scroll-target="#what-is-a-geographic-information-system"><span class="header-section-number">1.3</span> What is a Geographic Information System?</a></li>
   <li><a href="#the-layer-model" id="toc-the-layer-model" class="nav-link" data-scroll-target="#the-layer-model"><span class="header-section-number">1.4</span> The Layer Model</a></li>
   <li><a href="#limits-of-the-layer-model" id="toc-limits-of-the-layer-model" class="nav-link" data-scroll-target="#limits-of-the-layer-model"><span class="header-section-number">1.5</span> Limits of the Layer Model</a></li>
   <li><a href="#what-is-critical-gis" id="toc-what-is-critical-gis" class="nav-link" data-scroll-target="#what-is-critical-gis"><span class="header-section-number">1.6</span> What is Critical GIS?&nbsp;</a></li>
@@ -257,12 +257,11 @@ div.csl-indent {
 </header>
 
 
-<p>This text is a primer on geographic thinking and spatial data, designed for GEOG370: Introduction to Geographic Information at the University of North Carolina. It blends foundational concepts in Geographic Information Science with opportunities to apply geographic concepts using QGIS, an open-source Geographic Information System software.</p>
+<p>This text is a primer on geographic thinking and spatial data, designed for GEOG370: Introduction to Geographic Information at the University of North Carolina, Chapel Hill. It blends foundational concepts in Geographic Information Science with opportunities to apply geographic concepts using QGIS, an open-source Geographic Information System software.</p>
 <section id="how-did-we-get-here" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="how-did-we-get-here"><span class="header-section-number">1.1</span> How did we get here?</h2>
-<p>Humans, as a species, have always had to orient ourselves to our environment and use our brains and bodies to move through and interpret space. We have always “thought spatially” about where things are, why they are there, and what it means that those things are there. Our spatial ability is a major part of our cognition, and the ability to navigate and analyze space has allowed us to evolve as a species. As our societies became more complex and our social networks grew, so did our need to externalize spatial knowledge. This process of externalizing spatial knowledge, or making our understanding of space visible and communicable, has taken many forms over time, such as oral storytelling, physical markers, gestures, and maps. Today, a major way that we externalize spatial knowledge is collecting and sharing spatial data. This course focuses especially on geographic information: how knowledge about space is created, represented, stored, analyzed, and interpreted.</p>
-<p>We experience space through our bodies: by moving through it, feeling it, and sensing it. This means that every person experiences space differently. At the same time, throughout history, there has also been a desire to own and control space. Doing so has required a shared “spatial language”: a way to describe, divide, and represent space in consistent terms.</p>
-<p>Over time, a dominant, institutionalized way of externalizing and analyzing space emerged: Cartesian spatial logic. This is the idea that space can be abstracted into something measurable, gridded, uniform, and detached from lived experience. This logic, in general, has served those in power by enabling forms of standardization and control over space, which became important for statebuilding, population management, and surveillance. It is out of this logic that dominant forms of collecting, organizing, and analyzing geographic data emerged. This process is not neutral, but, instead, has developed as an outgrowth of a certain way of organizing space.</p>
+<p>Humans, as a species, have always had to orient ourselves to our environment and use our brains and bodies to move through and interpret space. We have always “thought spatially” about where things are, why they are there, and what it means that those things are there. Our spatial ability is a major part of our cognition, and the ability to navigate and analyze space has allowed us to evolve as a species. As our societies became more complex and our social networks grew, so did our need to externalize spatial knowledge. This process of externalizing spatial knowledge, or making our understanding of space visible and communicable, has taken many forms over time. Today, a major way that we externalize spatial knowledge is by collecting, analyzing, and sharing spatial data. This course focuses on geographic information: how knowledge about space is created, represented, and stored. It also explores Geographic Information Systems (GIS), the most common tool used today to analyze and visualize that information.</p>
+<p>Over time, a dominant, institutionalized way of externalizing and analyzing space emerged: Cartesian spatial logic. This is the idea that space can be abstracted into something measurable, gridded, uniform, and detached from lived experience. This logic became foundational for activities like statebuilding, infrastructure planning, and population management—projects that benefit from standardizing and controlling space. As a result, many of the systems we use to collect, organize, and analyze geographic data today are rooted in this way of thinking. These systems are not neutral; they reflect particular assumptions about how space should be known and used.</p>
 <p>Other ways of understanding and representing space have always existed. This course will ask students to critically interrogate the assumptions built into dominant forms of spatial representation and analysis. What kinds of spatial knowledge are emphasized, and what gets left out? How are data, analysis, and outputs shaped by political, social, and historical forces?</p>
 </section>
 <section id="asking-spatial-questions" class="level2" data-number="1.2">
@@ -314,11 +313,11 @@ div.csl-indent {
 <li>What causes its diffusion or contraction?</li>
 </ul></li>
 </ul>
-<p>Answering spatial questions requires analyzing geographic data- information that is tied to location. This data can come in many forms (for instance, satellite imagery, census records, land use maps, environmental sensor data, GPS data), some of which will be explored in this class. Some geographic data is created through government surveys and remote sensing technologies; other data may be generated by communities, researchers, or individuals using mobile devices, field observations, or participatory mapping methods.</p>
+<p>Answering spatial questions requires analyzing geographic data- information that is tied to a location on Earth’s surface. This data can come in many forms (e.g.&nbsp;satellite imagery, census records, land use maps, environmental sensor data, GPS data), many of which will be explored in this class.</p>
 </section>
-<section id="what-is-a-gis" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="what-is-a-gis"><span class="header-section-number">1.3</span> What is a GIS?&nbsp;</h2>
-<p>One common method for exploring spatial questions (using geographic data) is a Geographic Information System (GIS). A GIS is an integrated framework for exploring spatial questions. It is built around combining hardware, software, data, people, and methodologies to analyze space.</p>
+<section id="what-is-a-geographic-information-system" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="what-is-a-geographic-information-system"><span class="header-section-number">1.3</span> What is a Geographic Information System?</h2>
+<p>One common method for exploring spatial questions (using geographic data) is a Geographic Information System (GIS). A GIS is an integrated framework for exploring spatial questions. It is built around combining hardware, software, data, people, and methodologies to analyze space. In this course, we’ll use GIS as a tool to help us examine geographic data, but the focus is not on learning GIS software in depth. Rather, we’ll use it to support broader learning about geographic information and spatial thinking.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -331,7 +330,7 @@ div.csl-indent {
 </tr>
 <tr class="even">
 <td>Hardware</td>
-<td>Physical infrastructure used for GIS. This includes local computers, servers, data collection devices, etc.&nbsp;&nbsp;</td>
+<td>Physical infrastructure used for GIS. This includes local computers, servers, data collection devices, etc.</td>
 </tr>
 <tr class="odd">
 <td>Software</td>
