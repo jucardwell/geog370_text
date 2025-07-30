@@ -1,12 +1,33 @@
 # Doing Spatial Analysis in QGIS
 
-This chapter introduces common spatial analysis tools and demonstrates how to use them in QGIS. While spatial questions often require combining multiple tools in sequence, you are not expected to design these workflows from scratch. Instead, the focus here is on learning to apply specific tools to explore data, interpret results, and better understand geographic patterns.
+This chapter introduces some of the most common tools used in spatial analysis and demonstrates how to apply them in QGIS. Spatial analysis often involves combining multiple tools in sequence to answer complex geographic questions. In this chapter, however, you are not expected to design those workflows yourself. Instead, you’ll follow structured steps to learn how individual tools work, what kinds of questions they help answer, and how to interpret the results they produce.
 
-This chapter will explore the use of vector and raster geoprocessing tools to explore three spatial questions. In addition, it will ask you to critically examine the questions, methods, and data in a critical GIS style.
+## Setting up Folder Structure
+
+You should use the following folder structure for Lab #2. Each research question should have its own project.
+
+![Lab 2 Folder Setup](images/folder_structure_lab2.png)
 
 ## Research Question 1
 
-Where is the intersection between vulnerable populations and existing permitted facilities that require a [Major Air](https://www.epa.gov/title-v-operating-permits/who-has-obtain-title-v-permit#:~:text=A%20major%20source%20has%20actual,are%20in%20non%2Dattainment)) permit in North Carolina? 
+Where is the intersection between vulnerable populations and existing permitted facilities that require a [Major Air](https://www.epa.gov/title-v-operating-permits/who-has-obtain-title-v-permit#:~:text=A%20major%20source%20has%20actual,are%20in%20non%2Dattainment)) permit in North Carolina?
+
+### Plain Language Summary
+
+For this research question, we're looking for where two things overlap
+
+1.  Low-income communities (which we’re using as a stand-in for vulnerability)
+2.  Major air-polluting facilities (which require a special EPA permit)
+
+When we look at where polluting facilities and low-income communities are located together, we’re trying to understand whether some populations are more exposed to environmental risks than others.This kind of overlap can signal patterns of environmental injustice- situations where communities that already face social or economic challenges also have to deal with higher levels of pollution or health risks.
+
+To analyze this research question, we will use the following steps:
+
+1.  *Download and add the data:* We first need to load our census data and the locations of major air-polluting facilities
+2.  *Find low-income areas:* We will use a **select by attribute** query to find only those census block groups that have a low median income
+3.  *Prepare air quality data for analysis:* The air quality data begins in a GCS. Remember that for analysis purposes you generally want your data in a PCS. We will use the **reproject** tool to change the coordinate system.
+4.  *Create zones around facilities:* The effects of pollution often extend beyond the boundaries of the facility itself. To identify nearby areas that could also be impacted, we’ll use a **buffer** to create a zone around each facility based on distance. This helps us include surrounding communities in our analysis.
+5.  *Find overlap:* We want to find out which low-income communities are within the air pollution buffer zone. To do this, we will use the **intersect** tool.
 
 ### [Download Data](https://drive.google.com/drive/folders/1AiEDyWe4eEemWIknTu1ZwtY4uy7U1vs3?usp=sharing)
 
@@ -15,33 +36,39 @@ Where is the intersection between vulnerable populations and existing permitted 
 
 ### [Add Data](https://drive.google.com/file/d/1GjghgJYUXyrWKntIAjyrxC7Qfsu3JxeC/view?usp=sharing)
 
-We can add tabular data to QGIS as long as we can execute a table join (so it has a matching key with a geographic data file) or the tabular file includes coordinates. We’ll first add our air permit data. You must know the coordinate system of the data (which should be in the metadata) to add it correctly. We’ll also add our processed census data, which we table joined in a previous exercise. 
+The polluting facilities data starts as a tabular file (rows and columns), so we will need to turn that into a spatial dataset using the latitude and longitude fields.
+
+We’ll also need to add our processed census data, which we table joined in Lab #1. Remember to start a new project for this research question and save it to "lab_2/air_quality/"
 
 ### [Select by Attribute](https://drive.google.com/file/d/1P4FnWpslNkCm3dlqCrsoe_PbR2HrI57d/view?usp=sharing)
 
-**Selecting by attribute allows you to filter all of the records in a dataset based on the values in one of the variables. Features that meet the criteria will become "selected"**
-
-First, we will want to filter the census block group data to include only block groups that meet our “vulnerable population” classification (median household income \< 4500). We will do this by selecting by attribute, which is an example of querying. 
+We will then filter the census block group data so that we can identify only those that fulfill our low-income classification (median household income \< 4500). Export this selection as a new file into your "lab_2/air_quality/processed_data" folder.
 
 ### [Reproject](https://drive.google.com/file/d/1Ixetgny0S7-egC524YsioCpgb_0rn_rb/view?usp=sharing)
 
-**Reprojecting data allows you to convert a GCS or PCS to a different GCS or PCS. You would do this to o match the coordinate system used by other datasets in your project, or to enable specific types of spatial analysis that require a projected coordinate system (such as calculating area or distance).**
-
-As you may have noticed, the tabular dataset representing locations with major air quality permits is in a Geographic Coordinate System, not a projected one. Given that we are going to be doing distance-based analysis, we must reproject that data. We typically want to make sure that all our datasets are in the same projection, so we will reproject the data to match the projection of our census block group data (EPSG:2264). 
+The tabular dataset representing locations with major air quality permits is in a Geographic Coordinate System, not a projected one. Given that we are going to be doing distance-based analysis, we must reproject that data. We typically want to make sure that all our datasets are in the same projection, so we will reproject the data to match the projection of our census block group data (EPSG:2264). Export this reprojection as a new file into your "lab_2/air_quality/processed_data" folder.
 
 ### [Buffer](https://drive.google.com/file/d/1ggshHrtTIbXJmC5VmAIm1ytbNpZwkSpv/view?usp=sharing)
 
-**A buffer is a new area generated around a point, line, or polygon feature to identify everything within a certain distance**
-
-Now we want to identify areas within 1 mile of existing permitted facilities by buffering our facility dataset (which is currently points)
+A buffer will add a polygon around our facility points. This will allow us to identify areas that are within 1 mile of the facilities. Export this buffer as a new file into your "lab_2/air_quality/processed_data" folder.
 
 ### [Intersect](https://drive.google.com/file/d/1IO9kM_fyRCc-DOCORLI1s_n_mZUAZafY/view?usp=sharing)
 
-**An intersect identifies the spatial overlap between two or more layers, creating a new dataset that contains only the features or portions of features where the layers intersect.** 
+To find the intersection between vulnerable populations and areas proximate to high polluting facilities, we will use the intersect tool. Intersects retain the attributes of both of the layers. Export this intersect as new file into your "lab_2/air_quality/processed_data" folder.
 
-To find the intersection between vulnerable populations and areas proximate to high polluting facilities, we will use the intersect tool. Intersects retain the attributes of both of the layers, whereas a clip, which would have visually the same output, retains the attributes only of the input layer, not the overlay layer. 
+### Analyze Results
 
-### Critical Questions to Ask:
+Now that you’ve completed the spatial analysis, take time to explore what your map shows.
+
+-   What patterns do you see in the overlap between low-income areas and major air-polluting facilities?
+
+-   Are there clusters, gaps, or surprises?
+
+-   How did the tools you used (selection, buffering, intersect) help reveal those patterns?
+
+-   Would you have been able to see the same information just by looking at the original data?
+
+#### Critical Questions to Ask about the Data and Methods:
 
 -   What assumptions are embedded in defining "vulnerable populations" based solely on median household income?
 -   Why do we choose a 1-mile buffer, and what are the implications of this distance?
@@ -51,7 +78,21 @@ To find the intersection between vulnerable populations and areas proximate to h
 
 ## Research Question 2
 
-How many addresses are served by each park in Chapel Hill? 
+How many addresses are served by each park in Chapel Hill?
+
+### Plain Language Summary
+
+In this research question, we're exploring how accessible Chapel Hill's parks are by looking at how many addresses fall within walking distance of each park. Access to parks is one part of understanding how well public amenities are distributed across the down. By analyzing the number of nearby addresses, we can see which parks are available to the highest number of people. This type of analysis also creates opportunity for further research on which areas *are not* served by existing parks and where new infrastructure might be needed.
+
+To analyze this research question, we will use the following steps:
+
+-   *Download, add, and prepare the data*: We'll load datasets for parks, addresses, and Chapel Hill boundaries. We'll then **reproject** the parks layer to match the others.
+
+-   *Limit the area of focus:* The address dataset includes all addresses in Orange County. To isolate only the addresses that fall within Chapel Hill we will use the **clip** tool
+
+-   *Measure access to parks:* We will use a plug-in to create a **service area** around each park. This will show which areas are within a 10-minute walk from the park
+
+-   *Count addresses within each park's service area*: We will use a **spatial join** to summarize how many addresses fall inside each service area.
 
 ### [Download Data](https://drive.google.com/drive/folders/1ZPdJ9a26eqOSYpm3PIzZOcrgtWFaqJrB?usp=sharing)
 
@@ -59,94 +100,77 @@ How many addresses are served by each park in Chapel Hill? 
 -   Parks from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
 -   Chapel Hill boundaries from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
 
+### Add Data
+
+Create a new project, saved in your "lab_2/park_access" folder. Add a basemap and the data to this project.
+
 ### Reproject
 
-As always, we want to make sure that our data shares the same coordinate system before beginning spatial analysis. You should notice that the address and Chapel Hill boundary datasets are in EPSG:2264 and the parks dataset is in EPSG:3857. These are both projected coordinate systems, however EPSG:2264 is a local projection built for North Carolina. EPSG:3857 is a more globally focused projection. Since EPSG:2264 would be slightly more accurate for North Carolina, reproject the parks to EPSG:2264
+As always, we want to make sure that our data shares the same coordinate system before beginning spatial analysis. You should notice that the address and Chapel Hill boundary datasets are in EPSG:2264 and the parks dataset is in EPSG:3857. These are both projected coordinate systems, however EPSG:2264 is a local projection built for North Carolina. EPSG:3857 is a more globally focused projection. Since EPSG:2264 would be slightly more accurate for North Carolina, reproject the parks to EPSG:2264. Make sure to save this reprojected file into your "lab_2/park_access/processed_data" folder.
 
 ### [Clip](https://drive.google.com/file/d/1hu7CZzJRHemkV4PYUcd1DrR1wOB2Wigo/view?usp=sharing)
 
-**A clip trims one layer using the boundaries of another, keeping only the features (or parts of features) that fall within the clip layer’s extent.** 
-
-We now want to clip the address dataset so that we just have addresses within the Chapel Hill boundary. A clip will just retain the attributes of the address dataset and will not include the attributes of the boundary dataset. 
+A clip will allow us to isolate only those addresses in Chapel Hill. Clip the addresses to the Chapel Hill boundary file. Save your output as a new file in your "lab_2/park_access/processed_data" folder.
 
 ### [Calculate Service Area](https://drive.google.com/file/d/1FSdIwj-8wy9IkAP2_WfA6c9sBD1rNbiD/view?usp=sharing)
 
-**A service area represents the geographic region that can be reached from a location within a given travel distance or time, often used to model accessibility.**
-
-Follow [these instructions](https://www.qgistutorials.com/en/docs/3/service_area_analysis.html) to download the ORS plugin. Then calculate 10 minute isochrones from each park. Note that when you save the data (which is produced in EPSG:2264) you can set the PCS of the output so it reprojects when it saves. 
+A service area represents the geographic region that can be reached from a location within a given travel distance or time, often used to model accessibility. Follow [these instructions](https://www.qgistutorials.com/en/docs/3/service_area_analysis.html) to download the ORS plugin. Then calculate 10 minute isochrones from each park. Note that when you save the data (which is not in EPSG:2264), you can set the PCS of the output so it reprojects when it saves. 
 
 ### [Spatial Join](https://drive.google.com/file/d/1f5sC-stNCu5kVeiGtJLp_KcnUFkuTpdR/view?usp=sharing)
 
-**A spatial join transfers attribute data from one layer to another based on their spatial relationship (like containment, intersection, or proximity).**
-
 There is not a common “key” field between the service areas and our address data. Instead, the commonality between these two datasets is their spatial location. Therefore, to join these two datasets, we will use a spatial join. In this case, we will do a “join attributes by location (summary)” since we want to summarize the number of address points within each service area polygon. If we were interested in assigning each address point the name of the park whose service area it falls within we would use a regular spatial join (called “Join attributes by location” in QGIS). This type of join appends the attributes of one layer to another based on spatial relationships like intersection, containment, or proximity, but does not summarize counts or statistics.
 
-### Critical Questions to Ask:
+### Analyze Results
+
+Now that you’ve completed the spatial analysis, take time to explore what your map shows.
+
+-   Which parks across Chapel Hill are serving the most people?
+
+-   Are there any surprises?
+
+-   How did the spatial analysis tools you used help reveal those patterns?
+
+-   Would you have been able to see the same information just by looking at the original data?
+
+#### Critical Questions to Ask about the Data and Methods:
 
 -   What assumptions are we making when we define 'served' as being within a 10-minute isochrone from a park?
--   How does the ORS plugin model pedestrian access, and what does it ignore?
 -   Are addresses a good stand-in for people?
--   What does “serving” an address mean, physically, socially, or politically?
 -   Does a 10-minute walk on a map mean that it’s safe, comfortable, or desirable to walk there in real life?
--   What would it take to integrate community knowledge into this analysis?
 
 ## Research Question 3
 
-Which areas of Buncombe County are most vulnerable to wildfire? 
+Which parts of Buncombe County face greater wildfire risk based on land cover patterns?
+
+### Plain Language Summary
+
+In this research question, we're exploring how wildfire risk varies across Buncombe County zip codes based on the types of land cover (from a raster) in each area. Some land cover classes (like forest) are more likely to burn than others (like wetlands). By analyzing these patterns, we can better understand where wildfire vulnerability may be highest across the county.
+
+To analyze this research question, we will use the following steps:
+
+-   *Download and add data*: We will add the land cover and zip code data to a new project
+
+-   *Assign risk to land cover classes:* The land cover raster has many different values. The values are numeric, but are actually representing categories of land cover. To look at risk, we will use the **reclassify raster** tool to translate each land cover class to a risk scale from 1 (low risk) to 5 (highest risk). This tool will create a new raster that changes each pixel value from its landcover class to its wildfire risk.
+
+-   *Summarize risk across zip codes*: The **zonal statistics** tool will allow us to summarize the raster across zones defined by a vector dataset (the zip code dataset). This means that we can calculate an average wildfire risk in each zip code.
 
 ### [Download Data](https://drive.google.com/drive/folders/1rwdyyd9IdyjMN0AHoRJJuywjxFafNMOL?usp=sharing)
 
 -   2023 National Land Cover Database [MLRC](https://www.mrlc.gov/data)
 
--   Buncombe County DEM from [North Carolina Spatial Data Download](https://sdd.nc.gov/)
-
 -   Buncombe County Zip Codes from [Buncombe County Open Data](https://data.buncombecounty.org/datasets/buncombe-county-zip-codes)
 
-### [Calculate Slope](https://drive.google.com/file/d/16hRLJ2XAgy7hGjxSDSBQNkH8lzrontbh/view?usp=sharing)
+### Add Data
 
-**Calculate slope determines the steepness or incline of a surface, usually from a digital elevation model (DEM), expressed in degrees or percent rise.** 
+Create a new project, saved in your "lab_2/wildfire_risk" folder. Add a basemap and the data to this project. Change the symbology of the NLCD data to "Paletted/Unique values" and spend some time exploring the raster.
 
-Use the Buncombe County DEM to calculate slope using the slope tool. The output will be a continuous raster showing degrees of steepness. Areas with steeper slopes are generally more vulnerable to wildfire spread.
+### [Reclassify Raster](https://drive.google.com/file/d/1-kb_75ikTeXTaToIS8aeudbd8vQvhrMm/view?usp=sharing)
 
-The output is in a Projected Coordinate System. However, we will then reproject the slope raster to WGS 84 (EPSG:4326) to match the coordinate system of the NLCD dataset. This may seem like a weird choice (reprojecting data in a projected coordinate system into a geographic coordinate system). However, this approach avoids reprojecting the NLCD data, which is important because the NLCD data is a categorical raster. Reprojecting categorical rasters introduces a higher risk of distortion due to resampling. To preserve the integrity of the land cover classes, we keep the NLCD in its original form and instead reproject the slope raster, which is continuous data and more resilient to interpolation.
+We will now reclassify the land cover raster onto a common risk scale from 1 (low risk) to 5 (highest risk). Reclassifying a raster means allows us to assign new values to ranges or categories of existing raster cell values.
 
-### [Reclassify Rasters](https://drive.google.com/file/d/1-kb_75ikTeXTaToIS8aeudbd8vQvhrMm/view?usp=sharing)
+**Note on coordinate system:** The NLCD data is currently in a GCS, not a PCS. However, we will not reproject it. Reprojecting categorical rasters introduces a higher risk of distortion due to resampling. Since these rasters represent land *types* rather than continuous values, preserving the original cell values is most important.
 
-**Reclassifying a raster means assigning new values to ranges or categories of existing raster cell values. It is often used to simplify data, group values into categories, or prepare a raster for analysis like suitability modeling.**
-
-We will reclassify both the slope and land cover rasters onto a common risk scale from 1 (low risk) to 5 (high risk).
-
--   For slope, use thresholds based on terrain steepness (e.g., 0–5 degrees = 1, 35–65 = 5).
--   For NLCD, reclassify land cover values based on their flammability (e.g., forest = 5, developed = 1–2).
-
-Use the r.reclass tool and copy-paste the provided reclass rules for each raster. The output of each will be a categorical risk raster.
-
-#### Slope
-
-|                |              |                     |                 |
-|----------------|--------------|---------------------|-----------------|
-| From (degrees) | To (degrees) | Output (Risk Score) | Slope Category  |
-| 0              | 5            | 1                   | Very Low Slope  |
-| 5              | 15           | 2                   | Low Slope       |
-| 15             | 25           | 3                   | Moderate Slope  |
-| 25             | 35           | 4                   | High Slope      |
-| 35             | 65           | 5                   | Very High Slope |
-
-This is what to paste in the “Reclass rules text”:
-
-0 thru 5 = 1
-
-5 thru 15 = 2
-
-15 thru 25 = 3
-
-25 thru 35 = 4
-
-35 thru 65 = 5
-
-\* = NULL
-
-#### NLCD
+Use the r.reclass tool and copy-paste the provided reclass rules for each raster. The output of each will be a numeric risk raster. Make sure you save this raster to "lab_2/wildfire_risk/processed_data"
 
 |       |                     |                              |
 |-------|---------------------|------------------------------|
@@ -201,23 +225,24 @@ This is what to paste in the “Reclass rules text” 
 
 \* = NULL
 
-### [Raster Math](https://drive.google.com/file/d/11Q2P0skgUM5hooLbDu-lsDGYvTLnGPYf/view?usp=sharing)
-
-**Raster math refers to performing mathematical operations on raster layers, cell-by-cell. It allows you to combine, compare, or transform raster datasets using arithmetic expressions (e.g., addition, subtraction, multiplication, division).**
-
-Now we combine the two reclassified rasters using the Raster Calculator. This step adds the slope and land cover risk scores, producing a composite vulnerability raster that reflects both terrain and vegetation.This technique is an example of a Multi-Criteria Overlay Analysis (MCOA) which is  a method used to combine multiple spatial layers, each representing a different factor contributing to a phenomenon (in this case, wildfire risk). Each layer is first standardized (here, using a 1–5 risk scale), then combined to create a single index or score. By summing the slope and land cover risk scores, we are weighting them equally (50% each). This assumes that slope and vegetation are equally important in determining wildfire vulnerability. In more complex analyses, different layers might be given different weights to reflect their relative importance.
-
-When performing raster math, QGIS will automatically resample rasters on the fly so that their cell alignments and resolutions match. However, this may introduce interpolation artifacts. If high precision is required, you should explicitly resample the input rasters beforehand using the “Resample” tool. Multiple resampling methods exist (e.g., nearest neighbor, bilinear, cubic), and the appropriate one depends on the input data.
-
 ### [Zonal Statistics](https://drive.google.com/file/d/11chHm49JRTpxSGSLR0ElhPMdrEbNJ53y/view?usp=sharing)
 
-**Zonal statistics calculates summary statistics (like mean, sum, max, or standard deviation) for raster values within the boundaries of defined zones from another dataset—typically a polygon layer.**
+To summarize wildfire risk by ZIP code, we will use zonal statistics, which summarizes raster values (wildfire risk) based on vector boundaries (zip code boundaries). Calculate the mean value for each ZIP code. This gives an average vulnerability score (ranging roughly from 2 to 10) that reflects the average risk across each ZIP code. Make sure to save your zonal statistics output to "lab_2/wildfire_risk/processed_data"
 
-To summarize vulnerability by administrative unit, we use zonal statistics (which summarizes raster values based on vector boundaries). Input the ZIP code polygons and the combined wildfire risk raster. Calculate the mean value for each ZIP code. This gives an average vulnerability score (ranging roughly from 2 to 10) that reflects the average risk across each ZIP code.
+### Analyze Results
 
-### Critical Questions to Ask
+Now that you’ve completed the spatial analysis, take time to explore what your map shows.
+
+-   Which zip codes across Buncombe County have the highest land cover risk?
+
+-   Are these any surprises?
+
+-   How did the spatial analysis tools you used help reveal those patterns?
+
+-   Would you have been able to see the same information just by looking at the original data?
+
+#### Critical Questions to Ask about the Data and Methods:
 
 -   How does the choice of administrative unit (ZIP codes) shape our understanding of vulnerability?
--   What assumptions are embedded in the risk classification thresholds for slope and land cover?
 -   What important variables are missing from this model of wildfire vulnerability?
--   What are the limitations of using a strictly biophysical model for a hazard with complex social consequences?
+-   What are the limitations of using a strictly physical model for a hazard with complex social consequences?
