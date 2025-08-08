@@ -97,3 +97,142 @@ Coordinate systems are defined by whoever produced the data. However, they can b
 4.  Your analysis would benefit from limited distortion in one (or several) spatial properties. For instance, an analysis of property parcels might need to limit area distortion to ensure that calculated parcel sizes are accurate. In this case, choosing an equal-area projection would help preserve the integrity of area measurements, even if it introduces distortion in shape or distance.
 
 QGIS allows you to reproject, as well as change coordinate systems. These are not the same thing! Reprojecting a layer means actually transforming the data from one coordinate system to another, permanently changing the coordinates stored in the file. This creates a new dataset with new X/Y values based on the target projection. You do this when you want to match coordinate systems across layers or prepare for accurate spatial analysis. Changing the coordinate system in QGIS means telling QGIS how to interpret the coordinates—without changing the data itself. This is sometimes called assigning or defining a projection. You do this when a layer was saved without projection information (or with the wrong one), and you need to clarify what system it’s in.
+
+## Case Studies
+
+### Floodplain Management in Chapel Hill
+
+The Town of Chapel Hill is interested in analyzing flood risk to buildings across town. They produce two different interactive maps to present to the town council. Look at the maps below and answer the following questions:
+
+-   These maps both show buildings across town as well as the floodplain (flood risk areas). How do the maps differ?
+-   How would these differences impact the outcome of an analysis of building flood risk?
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(leaflet)
+library(sf)
+library(htmltools)
+
+# Load spatial data
+fp_detailed <- st_read("data/floodplain.geojson", quiet = TRUE)
+fp_simple <- st_read("data/simplified_floodplain.geojson", quiet = TRUE)
+bldg_polys <- st_read("data/building_footprints.geojson", quiet = TRUE)
+bldg_pts <- st_read("data/building_centroids.geojson", quiet = TRUE)
+
+# Map 1a: Detailed
+map1_right <- leaflet() |>
+  addProviderTiles("CartoDB.Positron") |>
+  addPolygons(data = fp_detailed, color = "blue", weight = 1.5, fillOpacity = 0.3) |>
+  addPolygons(data = bldg_polys, color = "black", weight = 0.5) |>
+  setView(lng = -79.05, lat = 35.91, zoom = 14)
+
+# Map 1b: Simplified
+map1_left <- leaflet() |>
+  addProviderTiles("CartoDB.Positron") |>
+  addPolygons(data = fp_simple, color = "blue", weight = 1.5, fillOpacity = 0.3) |>
+  addCircleMarkers(data = bldg_pts, radius = 1, color = "black", stroke = FALSE) |>
+  setView(lng = -79.05, lat = 35.91, zoom = 14)
+
+library(leafsync)
+browsable(sync(map1_left, map1_right, sync.cursor = TRUE))
+
+```
+
+### Building Age 
+
+The North Carolina Department of Environmental Quality is considering doing outreach for the Energy Saver NC program. They want to target areas in Orange County that may have aging infrastructure and have data on the average year that homes were built in different census enumeration units. Explore the maps below and ask yourself the following questions:
+
+-   These maps both show maximum heat. How do the maps differ?
+-   How would these differences impact the outcome of an analysis of average home age?
+-   What key geographic concept is this case study displaying?
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Read and prep data
+bg <- st_read("data/bg_building_age.geojson", quiet = TRUE)
+tract <- st_read("data/tract_building_age.geojson", quiet = TRUE)
+
+bg$SE_A10057_ <- as.numeric(bg$SE_A10057_)
+tract$SE_A10057_ <- as.numeric(tract$SE_A10057_)
+
+# Shared color scale
+pal <- colorNumeric("YlOrRd", domain = c(1950, 2015), na.color = "#cccccc")
+
+# Map 2a: Block Group
+map2_left <- leaflet() |>
+  addProviderTiles("CartoDB.Positron") |>
+  addPolygons(
+    data = bg,
+    fillColor = ~pal(SE_A10057_),
+    fillOpacity = 0.6,
+    color = "#444", weight = 0.5,
+    label = ~paste("BG Year:", SE_A10057_)
+  ) |>
+  addLegend(pal = pal, values = bg$SE_A10057_, title = "Avg. Year Built") |>
+  setView(lng = -79.05, lat = 35.91, zoom = 12)
+
+# Map 2b: Tract
+map2_right <- leaflet() |>
+  addProviderTiles("CartoDB.Positron") |>
+  addPolygons(
+    data = tract,
+    fillColor = ~pal(SE_A10057_),
+    fillOpacity = 0.6,
+    color = "#444", weight = 0.5,
+    label = ~paste("Tract Year:", SE_A10057_)
+  ) |>
+  addLegend(pal = pal, values = tract$SE_A10057_, title = "Avg. Year Built") |>
+  setView(lng = -79.05, lat = 35.91, zoom = 12)
+
+# Display synced maps
+browsable(sync(map2_left, map2_right, sync.cursor = TRUE))
+
+```
+
+### July Heat Wave
+
+In July 2025 there was a heat wave across the southeast US. A nonprofit group that is focused on planting trees in areas impacted by the urban heat island affect is given two raster datasets that display maximum land surface temperature (LST) on the hottest day of the heatwave. The nonprofit plans to use this data to identify specific streets across Orange County where more trees should be planted. Explore the maps below and ask yourself the following questions
+
+-   These maps both show maximum heat. How do the maps differ?
+-   How would these differences impact the outcome of an analysis identifying tree planting priority areas?
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(terra)
+
+library(leaflet)
+library(terra)
+library(leafsync)
+library(htmltools)
+
+# Load rasters
+high_res <- rast("data/high_res_temp.tif")
+low_res <- rast("data/low_res_temp.tif")
+
+# Force min/max calculation
+high_range <- range(values(high_res), na.rm = TRUE)
+low_range <- range(values(low_res), na.rm = TRUE)
+
+# Use combined range for color palette
+combined_range <- range(c(high_range, low_range))
+
+pal <- colorNumeric(
+  palette = "inferno",  # requires viridisLite
+  domain = combined_range,
+  na.color = "transparent"
+)
+
+# Map 3a: High-res
+map3_left <- leaflet() |>
+  addProviderTiles("CartoDB.Positron") |>
+  addRasterImage(high_res, colors = pal, opacity = 0.6, project = TRUE) |>
+  addLegend(pal = pal, values = high_range, title = "Temperature") |>
+  setView(lng = -79.05, lat = 35.91, zoom = 9)
+
+# Map 3b: Low-res
+map3_right <- leaflet() |>
+  addProviderTiles("CartoDB.Positron") |>
+  addRasterImage(low_res, colors = pal, opacity = 0.6, project = TRUE) |>
+  addLegend(pal = pal, values = low_range, title = "Temperature") |>
+  setView(lng = -79.05, lat = 35.91, zoom = 9)
+
+browsable(sync(map3_left, map3_right, sync.cursor = TRUE))
+
+```
