@@ -14,6 +14,7 @@ book:
     - data.qmd
     - models.qmd
     - attributes.qmd
+    - error.qmd
     - qgis.qmd
     - files.qmd
     - learning_qgis.qmd

@@ -758,5 +758,45 @@
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Spatial Data Models</span>"
     ]
+  },
+  {
+    "objectID": "error.html",
+    "href": "error.html",
+    "title": "7  Accuracy, Error, and Precision",
+    "section": "",
+    "text": "7.1 Accuracy and Precision\nSo far, we have discussed many different data-related limitations to using geographic information for spatial analysis, such as resolution, abstraction (and other limits of the layer model), data bias, and the impacts of “cooked” data.\nWe also need to examine how the processes of measurement and representation introduce accuracy issues, errors, and varying levels of precision into our datasets.\nAccuracy can be defined as the degree to which our data matches “true” values. Precision refers to the level of measurement and exactness of our data. A dataset can be:\nFor example, let’s consider temperature data collected at the RDU ASOS station. In this dataset, accuracy would be defined by how close the value measured at the station is to the actual temperature outside. Precision would be, essentially, how many decimal places there are. For instance, is the station measuring to the degree, the half degree, the tenth of a degree?",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Accuracy, Error, and Precision</span>"
+    ]
+  },
+  {
+    "objectID": "error.html#accuracy-and-precision",
+    "href": "error.html#accuracy-and-precision",
+    "title": "7  Accuracy, Error, and Precision",
+    "section": "",
+    "text": "Accurate but not precise- the measurements are close to the “true” value, but recorded at coarse increments\nPrecise but not accurate- the measurements are highly detailed but consistently off from the true value.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Accuracy, Error, and Precision</span>"
+    ]
+  },
+  {
+    "objectID": "error.html#data-quality-and-error",
+    "href": "error.html#data-quality-and-error",
+    "title": "7  Accuracy, Error, and Precision",
+    "section": "7.2 Data Quality and Error",
+    "text": "7.2 Data Quality and Error\nAccuracy and precision then inform data quality– which is the relative accuracy and precision of a particular dataset. Error refers to the combined effects of inaccuracies and imprecision\nError in a geographic dataset can take several different forms:\n\nPositional error- inaccuracies or imprecision in location. Can be caused by:\n\nMeasurement limitations- GPS inaccuracy, sensor resolution limits, survey instrument errors\nMap scale- smaller scales generalize more, reducing positional detail\nProjection and transformation- coordinate system changed introduce displacement\nTopological errors\n\nAttribute error- inaccuracies or imprecision in the non-spatial data associated with features. Can be caused by:\n\nData entry or transcription mistakes\nOutdated data- attributes no longer represent current conditions\nSensor/device errors- faulty readings from measurement device\nSensor/device limitations- precision or range of measurement is inherently restricted\n\nConceptual error- Mismatches between the data’s abstraction and the actual characteristics of what it represents. Can be caused by:\n\nInappropriate classification- categories too broad or narrow\nOvergeneralization- simplifying complex features beyond what’s appropriate for analysis\nTemporal mismatch- datasets from different dates are combined\nModeling assumptions\n\n\n\n7.2.1 When do issues become errors:\nSome problems are always errors– for example, a malfunctioning GPS unit or broken temperature sensor will always produce inaccurate data regardless of how the data is used.\nOther potential issues only become errors in certain contexts. For instance:\n\nImprecise data is not inherently “wrong”, but if your analysis requires high precision, that imprecision becomes an error\nLow resolution is not automatically an error, it just limits the detail of the data. However, if your research question demands final spatial detail, low resolution would be a source of error.\n\nThese are examples of context-dependent error, which are situations where the data’s characteristics (precision, resolution, scale) are mismatched with the requirements of the analysis and, therefore, become error.\n\n\n7.2.2 Error vs. Uncertainty\nUncertainty describes the estimated amount of error that might be present in a dataset. It allows users to judge whether the data is suitable for a specific purpose. When potential error can be quantified, it can often be accounted for in analysis. The bigger problem arises when error cannot be measured (or when we don’t even know it exists), because it cannot be corrected or factored into decision-making.\nExample: If a GPS is accurate within ±5 m, that’s uncertainty you can plan for. If the GPS occasionally drifts 30 m without warning, that’s unknown error.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Accuracy, Error, and Precision</span>"
+    ]
+  },
+  {
+    "objectID": "error.html#case-studies-why-does-accuracy-and-precision-matter",
+    "href": "error.html#case-studies-why-does-accuracy-and-precision-matter",
+    "title": "7  Accuracy, Error, and Precision",
+    "section": "7.3 Case Studies: Why Does Accuracy and Precision Matter",
+    "text": "7.3 Case Studies: Why Does Accuracy and Precision Matter\n\n7.3.1 Warming trends in the Southeast US\nEvidence generally points to warming in the Southeast US. Researchers are using long-term temperature records from a network of weather stations to analyze trends. However, the stations vary in how often their sensors are calibrated, the precision of their measurements, and the completeness of their historical records. Consider the following questions\n\nWhich issues here relate to accuracy? Which relate to precision?\nImagine a research question where the dataset limits here might not be a problem. What would that question look like?\nImagine a research question where the same limits might cause a problem. What would that question look like?\n\n\n\n7.3.2 Landslide Risk\nYou are tasked with assessing landslide risk for a mountainous county: Your available data includes:\n\nA digital elevation model\nA soil type map\nRainfall records from a local station network\n\nConsider the following questions:\n\nWhich parts of the dataset could lead to positional error, attribute error, or conceptual error?\nImagine a research question where the dataset limits here might not be a problem. What would that question look like?\nImagine a research question where the same dataset limits might cause a problem. What would that question look like?",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Accuracy, Error, and Precision</span>"
+    ]
   }
 ]

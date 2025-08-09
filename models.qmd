@@ -137,7 +137,7 @@ browsable(sync(map1_left, map1_right, sync.cursor = TRUE))
 
 ```
 
-### Building Age 
+### Building Age
 
 The North Carolina Department of Environmental Quality is considering doing outreach for the Energy Saver NC program. They want to target areas in Orange County that may have aging infrastructure and have data on the average year that homes were built in different census enumeration units. Explore the maps below and ask yourself the following questions:
 
