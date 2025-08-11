@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; QGIS Basics – GEOG370</title>
+<title>10&nbsp; QGIS Basics – GEOG370</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./learning_qgis.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">QGIS Basics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./learning_qgis.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">QGIS Basics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,44 +150,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./error.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Accuracy, Error, and Precision</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./qgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Managing Files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Managing Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./learning_qgis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_spatial_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./other_tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Analysis Tools</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Analysis Tools</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./making_maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Making Maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Making Maps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -206,12 +212,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#starting-a-project" id="toc-starting-a-project" class="nav-link active" data-scroll-target="#starting-a-project"><span class="header-section-number">9.1</span> Starting a Project</a></li>
-  <li><a href="#adding-a-basemap" id="toc-adding-a-basemap" class="nav-link" data-scroll-target="#adding-a-basemap"><span class="header-section-number">9.2</span> Adding a Basemap</a></li>
-  <li><a href="#adding-raster-or-vector-data" id="toc-adding-raster-or-vector-data" class="nav-link" data-scroll-target="#adding-raster-or-vector-data"><span class="header-section-number">9.3</span> Adding Raster or Vector Data</a></li>
-  <li><a href="#working-with-attributes" id="toc-working-with-attributes" class="nav-link" data-scroll-target="#working-with-attributes"><span class="header-section-number">9.4</span> Working with Attributes&nbsp;</a></li>
-  <li><a href="#basic-symbolization" id="toc-basic-symbolization" class="nav-link" data-scroll-target="#basic-symbolization"><span class="header-section-number">9.5</span> Basic Symbolization</a></li>
-  <li><a href="#adding-tabular-data-and-executing-table-joins" id="toc-adding-tabular-data-and-executing-table-joins" class="nav-link" data-scroll-target="#adding-tabular-data-and-executing-table-joins"><span class="header-section-number">9.6</span> Adding Tabular Data and Executing Table Joins</a></li>
+  <li><a href="#starting-a-project" id="toc-starting-a-project" class="nav-link active" data-scroll-target="#starting-a-project"><span class="header-section-number">10.1</span> Starting a Project</a></li>
+  <li><a href="#adding-a-basemap" id="toc-adding-a-basemap" class="nav-link" data-scroll-target="#adding-a-basemap"><span class="header-section-number">10.2</span> Adding a Basemap</a></li>
+  <li><a href="#adding-raster-or-vector-data" id="toc-adding-raster-or-vector-data" class="nav-link" data-scroll-target="#adding-raster-or-vector-data"><span class="header-section-number">10.3</span> Adding Raster or Vector Data</a></li>
+  <li><a href="#working-with-attributes" id="toc-working-with-attributes" class="nav-link" data-scroll-target="#working-with-attributes"><span class="header-section-number">10.4</span> Working with Attributes&nbsp;</a></li>
+  <li><a href="#basic-symbolization" id="toc-basic-symbolization" class="nav-link" data-scroll-target="#basic-symbolization"><span class="header-section-number">10.5</span> Basic Symbolization</a></li>
+  <li><a href="#adding-tabular-data-and-executing-table-joins" id="toc-adding-tabular-data-and-executing-table-joins" class="nav-link" data-scroll-target="#adding-tabular-data-and-executing-table-joins"><span class="header-section-number">10.6</span> Adding Tabular Data and Executing Table Joins</a></li>
   </ul>
 </nav>
     </div>
@@ -220,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">QGIS Basics</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">QGIS Basics</span></h1>
 </div>
 
 
@@ -238,27 +244,27 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Before any sort of analysis and visualization can take place, you must be extremely comfortable with creating projects, opening files, working with attributes, loading basemaps, and basic symbolization. Think of this chapter as your hands-on introduction to the essential building blocks of working with spatial data in QGIS. The sample data used in this chapter can be found <a href="https://drive.google.com/drive/folders/16dvmblS9W8Hi0iaui6jw1vr5OGcWNUiR?usp=sharing">here</a>. Download the folder, unzip it, and add the contents to your GEOG370/lab/lab_1/raw_data folder.</p>
-<section id="starting-a-project" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="starting-a-project"><span class="header-section-number">9.1</span> <a href="https://drive.google.com/file/d/1HNCQfpApcvT_bYCXq5HrpwuO0BR8_seL/view?usp=sharing">Starting a Project</a></h2>
+<section id="starting-a-project" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="starting-a-project"><span class="header-section-number">10.1</span> <a href="https://drive.google.com/file/d/1HNCQfpApcvT_bYCXq5HrpwuO0BR8_seL/view?usp=sharing">Starting a Project</a></h2>
 <p>Every time you begin a new lab or analysis, you’ll create a new QGIS project file. This .qgz file stores the structure of your work: which layers you loaded, how you symbolized them, and what your map looked like when you last saved it. It’s like a snapshot of your workspace.QGIS projects do not store the data itself—they store file paths. If you move, rename, or delete your data after you’ve added it to a project, QGIS won’t be able to find it anymore. Always keep your data organized in a consistent folder structure (introduced in Chapter 8).</p>
 </section>
-<section id="adding-a-basemap" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="adding-a-basemap"><span class="header-section-number">9.2</span> <a href="https://drive.google.com/file/d/1anULPv8C_2ShLyzhYE6sbzLzj4AR6SpP/view?usp=sharing">Adding a Basemap</a></h2>
+<section id="adding-a-basemap" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="adding-a-basemap"><span class="header-section-number">10.2</span> <a href="https://drive.google.com/file/d/1anULPv8C_2ShLyzhYE6sbzLzj4AR6SpP/view?usp=sharing">Adding a Basemap</a></h2>
 <p>Once you’ve created a project, you typically want to add a basemap. <strong>A basemap is a foundational map that provides geographic context for other data</strong>. It is often a satellite image, topographic map, or streetmap. QGIS comes built in with two basemaps, which can be accessed in the XYZ Tiles in your Browser window. You can also add additional basemaps using the QMS plug-in (plug-ins add additional functionality to QGIS)</p>
 </section>
-<section id="adding-raster-or-vector-data" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="adding-raster-or-vector-data"><span class="header-section-number">9.3</span> <a href="https://drive.google.com/file/d/1t1D3TCC4VfkbhJ_UFFwH17vSut04w30A/view?usp=sharing">Adding Raster or Vector Data</a></h2>
+<section id="adding-raster-or-vector-data" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="adding-raster-or-vector-data"><span class="header-section-number">10.3</span> <a href="https://drive.google.com/file/d/1t1D3TCC4VfkbhJ_UFFwH17vSut04w30A/view?usp=sharing">Adding Raster or Vector Data</a></h2>
 <p>Now that you have your project set up, you are ready to add some vector and raster data. You will add two datasets: a raster representing elevation in Orange County, and a vector representing census block groups across North Carolina. There are multiple ways to add data, but the simplest way is to use the Browser panel. <a href="https://drive.google.com/file/d/10be1iGWf4RApnKoFf3pflPVn_L_7NDBR/view?usp=sharing">If you are missing your panels, watch this video.</a>&nbsp;</p>
 <p>Note on coordinate systems: In the “Adding Data” video, you may have noticed a pop-up asking you to “Select Transformation.” This happens when the Coordinate Reference System (CRS) of the map canvas is different from the CRS of the data you’re adding. For example, in the video, the bottom right corner shows that the map canvas is using EPSG:3857 (your project might use a different one). This is because the basemap I added at the start of the project is in EPSG:3857. This is NOT reprojecting the data and it is NOT changing the CRS of the base data. We will cover that later on. In general, I just select the first transformation option.&nbsp;</p>
 </section>
-<section id="working-with-attributes" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="working-with-attributes"><span class="header-section-number">9.4</span> Working with Attributes&nbsp;</h2>
+<section id="working-with-attributes" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="working-with-attributes"><span class="header-section-number">10.4</span> Working with Attributes&nbsp;</h2>
 <p>When you read in vector data (census block groups), one of the first things that you should do is <a href="https://drive.google.com/file/d/1TnRS1U5XKcbFMu33MfqS4w6S_n5rUqSL/view?usp=sharing">explore the properties of the data, including looking at the data type of each of the fields and exploring the attribute table (including looking at selected features).</a> One of the most powerful parts of GIS is connecting spatial features to tabular data. In vector files, each feature (a polygon, for example) is linked to a row in an attribute table that provides additional (non-spatial) information about the geographical feature.</p>
 <p>You can add additional attributes in QGIS using the field calculator. For this lab, you should <a href="https://drive.google.com/file/d/14I1QCvfXSisWaGZC5hojAQJao837aeAV/view?usp=sharing">to add a field</a> representing the population (in thousands) using the field calculator (note that you must always save edits and toggle editing off when done).</p>
 <p>With raster data (elevation data), there is typically no separate attribute table. <a href="https://drive.google.com/file/d/19wNUsrbDnoJ5O4KnC5nmhVldOcXdkyaI/view?usp=sharing">To explore values, you will typically use symbology or the information tab</a> (note that the layer must be selected in the browser for the information tab to select the correct feature).</p>
 </section>
-<section id="basic-symbolization" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="basic-symbolization"><span class="header-section-number">9.5</span> Basic Symbolization</h2>
+<section id="basic-symbolization" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="basic-symbolization"><span class="header-section-number">10.5</span> Basic Symbolization</h2>
 <p>Chances are, the symbolization that is automatically applied when you add your data into QGIS is not going to be sufficient. Symbology choices are some of the most important choices that you will make when creating maps. There are many symbology choices available in QGIS. You should symbolize your elevation and census data. Explore these resources for more information:</p>
 <ul>
 <li><p><a href="https://docs.qgis.org/3.40/en/docs/training_manual/rasters/changing_symbology.html">Lesson: Changing Raster Symbology</a></p></li>
@@ -266,8 +272,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Here are the basics of <a href="https://drive.google.com/file/d/1peIgBviXjJ_uX7EArwakNs4wJZrEXhRN/view?usp=sharing">changing vector</a> and <a href="https://drive.google.com/file/d/12GRmKnz2n01E2t6M9sDUNxyhAazprJfG/view?usp=sharing">raster symbology</a></p>
 </section>
-<section id="adding-tabular-data-and-executing-table-joins" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="adding-tabular-data-and-executing-table-joins"><span class="header-section-number">9.6</span> Adding Tabular Data and Executing Table Joins</h2>
+<section id="adding-tabular-data-and-executing-table-joins" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="adding-tabular-data-and-executing-table-joins"><span class="header-section-number">10.6</span> Adding Tabular Data and Executing Table Joins</h2>
 <p>As discussed in Chapter 6, sometimes geospatial data comes in a tabular format. <a href="https://drive.google.com/file/d/1FC5gqPed8LDbQr8q8MlVn1SwMJ-fsXhX/view?usp=sharing">You can easily add tabular data that has a lat, lon fields by using the Data Source Manager.</a> For this project, you will add in tabular data representing the maximum temperature at North Carolina ASOS stations (weather stations) during a June 2024 heatwave.</p>
 <p>Finally, <a href="https://drive.google.com/file/d/1FC5gqPed8LDbQr8q8MlVn1SwMJ-fsXhX/view?usp=sharing">table joins</a> are an absolutely essential pre-processing step for many spatial analyses. A table join involves joining tabular data and spatial data based on a matching key. For instance, you might have data about geographical locations (for instance, census block groups) but the data doesn’t actually have the geometry information. In this case, you could match census data to the census block group boundary file using a shared key (GEOID). For this to work in QGIS, it is required that the matching keys are exactly the same (which is often a problem) and are set as the same data type in QGIS. For this project, you will add census block group data that represents median income and join this to your census block group boundary file.</p>
 
@@ -695,12 +701,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./files.html" class="pagination-link" aria-label="Managing Files">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Managing Files</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Managing Files</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./spatial_analysis.html" class="pagination-link" aria-label="Spatial Analysis">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -150,44 +150,50 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./error.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Accuracy, Error, and Precision</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./qgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Managing Files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Managing Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./learning_qgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./spatial_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_spatial_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./other_tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Analysis Tools</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Analysis Tools</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./making_maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Making Maps</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Making Maps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -241,8 +247,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The following core spatial concepts are considered assumptions in most spatial analysis methods. They provide a useful framework for thinking about how geographic data works and how spatial relationships are modeled in GIS. In many cases, these assumptions hold up well—they allow us to make sense of patterns, identify trends, and support decision-making.</p>
-<p>However, practicing critical GIS also means we should interrogate these assumptions. When are they not true? How do they shape the output of our analysis? For each of the following concepts, consider when they might not hold up- when space doesn’t behave the way our models expect, and when people’s experiences of space diverge from what GIS can represent. Understanding these moments of mismatch helps us become more thoughtful and responsible spatial analysts.</p>
+<p>The following core spatial concepts are considered assumptions in most spatial analysis methods. They provide a useful framework for thinking about how geographic data works and how spatial relationships are modeled in GIS.</p>
+<p>In many cases, these assumptions hold up. However, practicing critical GIS also means we should interrogate these assumptions. When are they not true? How do they shape the output of our analysis? For each of the following concepts, consider when they might not hold up. Understanding these moments of mismatch helps us become more thoughtful and responsible spatial analysts.</p>
 <section id="toblers-first-law-of-geography" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="toblers-first-law-of-geography"><span class="header-section-number">3.1</span> Tobler’s First Law of Geography</h2>
 <p>This “law”, coined by geographer Waldo Tobler in 1970, states that “everything is related to everything else, but near things are more related than distant things.” This principle captures a foundational idea in spatial analysis: spatial relationships tend to weaken with distance. As a result, places that are closer together tend to have stronger influence on one another than those farther apart. This assumption underlies most geographic models and spatial analysis methods. For example, consider the spread of an infectious disease like the flu. When the flu begins spreading in a city, nearby neighborhoods would tend to see more outbreaks than distant areas. This pattern occurs because people are more likely to come into contact with others in close proximity.</p>
@@ -255,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="distance-decay" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="distance-decay"><span class="header-section-number">3.2</span> Distance decay</h2>
-<p>&nbsp;Distance decay is the concept that underpins Tobler’s First Law of Geography. Distance decay describes the tendency for interaction between two things to decrease as the distance between them increases. This pattern is driven by the friction of distance (the idea that distance imposes a cost) whether in time, money, or effort, which in turn reduces the likelihood of interaction. For example, consider how you choose a grocery store. If two stores are similar in price and quality, you are more likely to visit the one that is closer, because it costs less time and fuel to reach. However, this example also highlights that friction of distance can be modified. You might willingly travel farther to visit a store that has a product that you can’t get at your local store, which illustrates that the strength of distance decay depends on context and motivation.</p>
+<p>Distance decay is the concept that underpins Tobler’s First Law of Geography. Distance decay describes the tendency for interaction between two things to decrease as the distance between them increases. This pattern is driven by the friction of distance (the idea that distance imposes a cost) whether in time, money, or effort, which in turn reduces the likelihood of interaction. For example, consider how you choose a grocery store. If two stores are similar in price and quality, you are more likely to visit the one that is closer, because it costs less time and fuel to reach. However, this example also highlights that friction of distance can be modified. You might willingly travel farther to visit a store that has a product that you can’t get at your local store, which illustrates that the strength of distance decay depends on context and motivation.</p>
 </section>
 <section id="spatial-autocorrelation" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="spatial-autocorrelation"><span class="header-section-number">3.3</span> Spatial autocorrelation</h2>
@@ -324,11 +330,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="spatial-hierarchies" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="spatial-hierarchies"><span class="header-section-number">3.6</span> Spatial hierarchies</h2>
-<p>Spatial hierarchies refer to the idea that we can often organize geographies within nested levels. For instance, city blocks within a neighborhood within a city within a state. These hierarchies often shape how spatial processes operate across space/scale- some phenomena are localized, while others operate at broader scales.&nbsp;</p>
+<p>Spatial hierarchies refer to the idea that we can often organize geographies within nested levels. For instance, city blocks within a neighborhood within a city within a state. These hierarchies often shape how spatial processes operate across space/scale- some phenomena are localized, while others operate at broader scales.</p>
 </section>
 <section id="ecological-fallacy" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="ecological-fallacy"><span class="header-section-number">3.7</span> Ecological fallacy</h2>
-<p>The ecological fallacy occurs when analyses draw conclusions about individuals based on aggregate data for a group or area.&nbsp; For instance, knowing that a neighborhood has a high unemployment rate does not mean everyone who lives there is unemployed.&nbsp;</p>
+<p>The ecological fallacy occurs when analyses draw conclusions about individuals based on aggregate data for a group or area. For instance, knowing that a neighborhood has a high unemployment rate does not mean everyone who lives there is unemployed.</p>
 </section>
 <section id="edge-effects" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="edge-effects"><span class="header-section-number">3.8</span> Edge effects</h2>
@@ -336,11 +342,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="spatial-non-stationarity" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="spatial-non-stationarity"><span class="header-section-number">3.9</span> Spatial non-stationarity</h2>
-<p>Spatial non-stationarity means that the relationship between variables changes over space. For example, the relationship between income and education may be strong in one North Carolina county and weak in another. Traditional statistical methods assume consistent relationships, but since spatial data often violate this assumption there are techniques like Geographically Weighted Regression (GWR) that are designed to account for spatial non-stationarity by allowing coefficients to vary across space.</p>
+<p>Spatial non-stationarity means that the relationship between variables changes over space. For example, the relationship between income and education may be strong in one North Carolina county and weak in another. Traditional statistical methods assume consistent relationships, but since spatial data often violate this assumption there are techniques like Geographically Weighted Regression (GWR) that are designed to explore spatial non-stationarity by allowing coefficients to vary across space.</p>
 </section>
 <section id="location-place-and-territory" class="level2" data-number="3.10">
 <h2 data-number="3.10" class="anchored" data-anchor-id="location-place-and-territory"><span class="header-section-number">3.10</span> Location, place, and territory</h2>
-<p>Location refers to the position of something on the Earth’s surface, either in absolute terms (e.g., coordinates) or relative to other features (e.g., “north of here”). Place goes beyond location to include the meanings, experiences, and emotional attachments people associate with a space. Territory refers to a bounded area that is claimed, governed, controlled, or contested.&nbsp;</p>
+<p>Location refers to the position of something on the Earth’s surface, either in absolute terms (e.g., coordinates) or relative to other features (e.g., “north of here”). Place goes beyond location to include the meanings, experiences, and emotional attachments people associate with a space. Territory refers to a bounded area that is claimed, governed, controlled, or contested.</p>
 
 
 </section>
