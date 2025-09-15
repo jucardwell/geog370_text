@@ -26,13 +26,13 @@ With raster data (elevation data), there is typically no separate attribute tabl
 
 ## Basic Symbolization
 
-Chances are, the symbolization that is automatically applied when you add your data into QGIS is not going to be sufficient. Symbology choices are some of the most important choices that you will make when creating maps. There are many symbology choices available in QGIS. You should symbolize your elevation and census data. Explore these resources for more information:
+Chances are, the symbolization that is automatically applied when you add your data into QGIS is not going to be sufficient. Symbology choices are some of the most important choices that you will make when creating maps. There are many symbology choices available in QGIS. You should symbolize your elevation and census data. Here are the basics of [changing vector](https://drive.google.com/file/d/1peIgBviXjJ_uX7EArwakNs4wJZrEXhRN/view?usp=sharing) and [raster symbology](https://drive.google.com/file/d/12GRmKnz2n01E2t6M9sDUNxyhAazprJfG/view?usp=sharing)
+
+Explore these resources for more information:
 
 -   [Lesson: Changing Raster Symbology](https://docs.qgis.org/3.40/en/docs/training_manual/rasters/changing_symbology.html)
 
 -   [Lesson: Symbology](https://docs.qgis.org/3.40/en/docs/training_manual/basic_map/symbology.html)
-
-Here are the basics of [changing vector](https://drive.google.com/file/d/1peIgBviXjJ_uX7EArwakNs4wJZrEXhRN/view?usp=sharing) and [raster symbology](https://drive.google.com/file/d/12GRmKnz2n01E2t6M9sDUNxyhAazprJfG/view?usp=sharing)
 
 ## Adding Tabular Data and Executing Table Joins
 

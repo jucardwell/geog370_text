@@ -534,7 +534,7 @@
     "href": "learning_qgis.html#basic-symbolization",
     "title": "10  QGIS Basics",
     "section": "10.5 Basic Symbolization",
-    "text": "10.5 Basic Symbolization\nChances are, the symbolization that is automatically applied when you add your data into QGIS is not going to be sufficient. Symbology choices are some of the most important choices that you will make when creating maps. There are many symbology choices available in QGIS. You should symbolize your elevation and census data. Explore these resources for more information:\n\nLesson: Changing Raster Symbology\nLesson: Symbology\n\nHere are the basics of changing vector and raster symbology",
+    "text": "10.5 Basic Symbolization\nChances are, the symbolization that is automatically applied when you add your data into QGIS is not going to be sufficient. Symbology choices are some of the most important choices that you will make when creating maps. There are many symbology choices available in QGIS. You should symbolize your elevation and census data. Here are the basics of changing vector and raster symbology\nExplore these resources for more information:\n\nLesson: Changing Raster Symbology\nLesson: Symbology",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS Basics</span>"
     ]
