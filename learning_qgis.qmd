@@ -6,7 +6,7 @@ Before any sort of analysis and visualization can take place, you must be extrem
 
 Every time you begin a new lab or analysis, you’ll create a new QGIS project file. This .qgz file stores the structure of your work: which layers you loaded, how you symbolized them, and what your map looked like when you last saved it. It’s like a snapshot of your workspace.QGIS projects do not store the data itself—they store file paths. If you move, rename, or delete your data after you’ve added it to a project, QGIS won’t be able to find it anymore. Always keep your data organized in a consistent folder structure (introduced in Chapter 8).
 
-## [Adding a Basemap](https://drive.google.com/file/d/1anULPv8C_2ShLyzhYE6sbzLzj4AR6SpP/view?usp=sharing)
+## [Adding a Basemap](https://drive.google.com/file/d/1w3kbjCpVcSj2dyCP--ZxsTicsYPT_qLd/view?usp=sharing)
 
 Once you’ve created a project, you typically want to add a basemap. **A basemap is a foundational map that provides geographic context for other data**. It is often a satellite image, topographic map, or streetmap. QGIS comes built in with two basemaps, which can be accessed in the XYZ Tiles in your Browser window. You can also add additional basemaps using the QMS plug-in (plug-ins add additional functionality to QGIS)
 
