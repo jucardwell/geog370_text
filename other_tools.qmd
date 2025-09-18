@@ -60,7 +60,7 @@ Example: You want to identify areas where two proposed zoning plans disagree. Yo
 
 ### Spatial Join
 
-A spatial join transfers attributes from one dataset to another based on spatial relationships. Unlike a traditional table join, which relies on matching attribute values, a spatial join links records based on location.
+A spatial join transfers attributes from one dataset to another based on spatial relationships. Unlike a traditional table join, which relies on matching attribute values, a spatial join links records based on location (intersection or distance)
 
 Example: You have a layer of apartment buildings and a layer of census tracts with income data. You use spatial join to assign each apartment building the average income of the census tract it falls within.
 
@@ -81,6 +81,12 @@ Example: You have a zip code boundary dataset and health information (tabular) a
 This tool creates polygons around a set of points so that each polygon contains all locations closest to its corresponding point. The resulting polygons divide space based on distance to the nearest input point.
 
 Example: You are analyzing access to hospitals across a region. You create a Voronoi diagram around hospital locations to define the area closest to each hospital, helping visualize their service areas.
+
+### Interpolation
+
+This tool creates a raster surface by estimating values at unsampled locations based on nearby known data points. Different methods (e.g., Inverse Distance Weighting, Kriging, Spline) use the values of surrounding points to predict continuous variation across space. The result is a smooth surface that represents a gradual change in the variable of interest.
+
+Example: You have air quality monitors spread across a city. By interpolating their measurements, you can generate a continuous surface showing estimated pollution levels everywhere in the city, even in places without sensors.
 
 ## Raster Tools
 
