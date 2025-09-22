@@ -38,11 +38,13 @@ To analyze this research question, we will use the following steps:
 
 The polluting facilities data starts as a tabular file (rows and columns), so we will need to turn that into a spatial dataset using the latitude and longitude fields.
 
-We’ll also need to add our processed census data, which we table joined in Lab #1. Remember to start a new project for this research question and save it to "lab_2/air_quality/"
+We’ll also need to add our processed census data, which we table joined in Lab #1. To add this data, you will need to navigate to where you saved your table joined file from Lab #1 and add this file to your new project. 
+
+Remember to save your new project to "lab_2/air_quality/"
 
 ### [Select by Attribute](https://drive.google.com/file/d/1MZ1XbNwJqT6rJr-_8XU5hQzPgZENZWsB/view?usp=sharing)
 
-We will then filter the census block group data so that we can identify only those that fulfill our low-income classification (median household income \< 4500). Export this selection as a new file into your "lab_2/air_quality/processed_data" folder.
+We will then filter the census block group data so that we can identify only those that fulfill our low-income classification (median household income \< 45000). Export this selection as a new file into your "lab_2/air_quality/processed_data" folder.
 
 ### [Reproject](https://drive.google.com/file/d/1bHRpNRgo0Vj08QbHajc2pKoCYAe3jyQl/view?usp=sharing)
 
@@ -93,6 +95,7 @@ To analyze this research question, we will use the following steps:
 -   Address points from [Orange County GIS](https://www.orangecountync.gov/2057/Download-GIS-Data)
 -   Parks from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
 -   Chapel Hill boundaries from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
+-   Isochrones (for service area analysis)
 
 ### Add Data
 
@@ -106,9 +109,9 @@ As always, we want to make sure that our data shares the same coordinate system 
 
 A clip will allow us to isolate only those addresses in Chapel Hill. Clip the addresses to the Chapel Hill boundary file. Save your output as a new file in your "lab_2/park_access/processed_data" folder.
 
-### [Calculate Service Area](https://drive.google.com/file/d/1FSdIwj-8wy9IkAP2_WfA6c9sBD1rNbiD/view?usp=sharing)
+### Calculate Service Area
 
-A service area represents the geographic region that can be reached from a location within a given travel distance or time, often used to model accessibility. Follow [these instructions](https://www.qgistutorials.com/en/docs/3/service_area_analysis.html) to download the ORS plugin. Then calculate 10 minute isochrones from each park. Note that when you save the data (which is not in EPSG:2264), you can set the PCS of the output so it reprojects when it saves. 
+A service area represents the geographic region that can be reached from a location within a given travel distance or time, often used to model accessibility. I have pre-calculated service areas for you. These isochrones represent a 10-minute walking service area from each park.
 
 ### [Spatial Join](https://drive.google.com/file/d/1f5sC-stNCu5kVeiGtJLp_KcnUFkuTpdR/view?usp=sharing)
 
