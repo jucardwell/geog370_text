@@ -38,7 +38,7 @@ To analyze this research question, we will use the following steps:
 
 The polluting facilities data starts as a tabular file (rows and columns), so we will need to turn that into a spatial dataset using the latitude and longitude fields.
 
-We’ll also need to add our processed census data, which we table joined in Lab #1. To add this data, you will need to navigate to where you saved your table joined file from Lab #1 and add this file to your new project. 
+We’ll also need to add our processed census data, which we table joined in Lab #1. To add this data, you will need to navigate to where you saved your table joined file from Lab #1 and add this file to your new project.
 
 Remember to save your new project to "lab_2/air_quality/"
 

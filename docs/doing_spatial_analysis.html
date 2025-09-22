@@ -310,11 +310,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="add-data" class="level3" data-number="12.2.3">
 <h3 data-number="12.2.3" class="anchored" data-anchor-id="add-data"><span class="header-section-number">12.2.3</span> <a href="https://drive.google.com/file/d/1uFhPu0nxmjZjFK7m39FyeI5ZWNwUKJNO/view?usp=sharing">Add Data</a></h3>
 <p>The polluting facilities data starts as a tabular file (rows and columns), so we will need to turn that into a spatial dataset using the latitude and longitude fields.</p>
-<p>We’ll also need to add our processed census data, which we table joined in Lab #1. Remember to start a new project for this research question and save it to “lab_2/air_quality/”</p>
+<p>We’ll also need to add our processed census data, which we table joined in Lab #1. To add this data, you will need to navigate to where you saved your table joined file from Lab #1 and add this file to your new project.</p>
+<p>Remember to save your new project to “lab_2/air_quality/”</p>
 </section>
 <section id="select-by-attribute" class="level3" data-number="12.2.4">
 <h3 data-number="12.2.4" class="anchored" data-anchor-id="select-by-attribute"><span class="header-section-number">12.2.4</span> <a href="https://drive.google.com/file/d/1MZ1XbNwJqT6rJr-_8XU5hQzPgZENZWsB/view?usp=sharing">Select by Attribute</a></h3>
-<p>We will then filter the census block group data so that we can identify only those that fulfill our low-income classification (median household income &lt; 4500). Export this selection as a new file into your “lab_2/air_quality/processed_data” folder.</p>
+<p>We will then filter the census block group data so that we can identify only those that fulfill our low-income classification (median household income &lt; 45000). Export this selection as a new file into your “lab_2/air_quality/processed_data” folder.</p>
 </section>
 <section id="reproject" class="level3" data-number="12.2.5">
 <h3 data-number="12.2.5" class="anchored" data-anchor-id="reproject"><span class="header-section-number">12.2.5</span> <a href="https://drive.google.com/file/d/1bHRpNRgo0Vj08QbHajc2pKoCYAe3jyQl/view?usp=sharing">Reproject</a></h3>
@@ -369,6 +370,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Address points from <a href="https://www.orangecountync.gov/2057/Download-GIS-Data">Orange County GIS</a></li>
 <li>Parks from <a href="https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks">Chapel Hill Open Data</a></li>
 <li>Chapel Hill boundaries from <a href="https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks">Chapel Hill Open Data</a></li>
+<li>Isochrones (for service area analysis)</li>
 </ul>
 </section>
 <section id="add-data-1" class="level3" data-number="12.3.3">
@@ -384,8 +386,8 @@ ul.task-list li input[type="checkbox"] {
 <p>A clip will allow us to isolate only those addresses in Chapel Hill. Clip the addresses to the Chapel Hill boundary file. Save your output as a new file in your “lab_2/park_access/processed_data” folder.</p>
 </section>
 <section id="calculate-service-area" class="level3" data-number="12.3.6">
-<h3 data-number="12.3.6" class="anchored" data-anchor-id="calculate-service-area"><span class="header-section-number">12.3.6</span> <a href="https://drive.google.com/file/d/1FSdIwj-8wy9IkAP2_WfA6c9sBD1rNbiD/view?usp=sharing">Calculate Service Area</a></h3>
-<p>A service area represents the geographic region that can be reached from a location within a given travel distance or time, often used to model accessibility. Follow <a href="https://www.qgistutorials.com/en/docs/3/service_area_analysis.html">these instructions</a> to download the ORS plugin. Then calculate 10 minute isochrones from each park. Note that when you save the data (which is not in EPSG:2264), you can set the PCS of the output so it reprojects when it saves.&nbsp;</p>
+<h3 data-number="12.3.6" class="anchored" data-anchor-id="calculate-service-area"><span class="header-section-number">12.3.6</span> Calculate Service Area</h3>
+<p>A service area represents the geographic region that can be reached from a location within a given travel distance or time, often used to model accessibility. I have pre-calculated service areas for you. These isochrones represent a 10-minute walking service area from each park.</p>
 </section>
 <section id="spatial-join" class="level3" data-number="12.3.7">
 <h3 data-number="12.3.7" class="anchored" data-anchor-id="spatial-join"><span class="header-section-number">12.3.7</span> <a href="https://drive.google.com/file/d/1f5sC-stNCu5kVeiGtJLp_KcnUFkuTpdR/view?usp=sharing">Spatial Join</a></h3>
