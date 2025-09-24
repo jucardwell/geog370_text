@@ -29,7 +29,7 @@ To analyze this research question, we will use the following steps:
 4.  *Create zones around facilities:* The effects of pollution often extend beyond the boundaries of the facility itself. To identify nearby areas that could also be impacted, we’ll use a **buffer** to create a zone around each facility based on distance. This helps us include surrounding communities in our analysis.
 5.  *Find overlap:* We want to find out which low-income communities are within the air pollution buffer zone. To do this, we will use the **intersect** tool.
 
-### [Download Data](https://drive.google.com/drive/folders/1AiEDyWe4eEemWIknTu1ZwtY4uy7U1vs3?usp=sharing)
+### [Download Data](https://drive.google.com/drive/folders/1AiEDyWe4eEemWIknTu1ZwtY4uy7U1vs3?usp=sharing) 
 
 -   2010 Census Block Group Median Household Income (from 2013 American Community Survey)
 -   Current (June 2025) Major Air permits from [EPA Geospatial Data](https://www.epa.gov/frs/epa-frs-facilities-state-single-file-csv-download)
@@ -87,7 +87,7 @@ To analyze this research question, we will use the following steps:
 
 1.  *Download, add, and prepare the data*: We'll load datasets for parks, addresses, and Chapel Hill boundaries. We'll then **reproject** the parks layer to match the others.
 2.  *Limit the area of focus:* The address dataset includes all addresses in Orange County. To isolate only the addresses that fall within Chapel Hill we will use the **clip** tool
-3.  *Measure access to parks:* We will use a plug-in to create a **service area** around each park. This will show which areas are within a 10-minute walk from the park
+3.  *Measure access to parks:* I have pre-processed a **service area** around each park. This will show which areas are within a 10-minute walk from the park
 4.  *Count addresses within each park's service area*: We will use a **spatial join** to summarize how many addresses fall inside each service area.
 
 ### [Download Data](https://drive.google.com/drive/folders/1ZPdJ9a26eqOSYpm3PIzZOcrgtWFaqJrB?usp=sharing)
