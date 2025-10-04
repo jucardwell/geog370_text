@@ -4,7 +4,9 @@ QGIS is a GIS software that is free and open-source. It is true that Esri produc
 
 We will be using the current Long Term Release version of QGIS (QGIS 3.40 Bratislava), which can be downloaded [here](https://qgis.org/download/).
 
-In the following chapters, I will provide video tutorials for some of the most common QGIS tasks. However, the best way to learn QGIS is through a lot of practice and troubleshooting, beyond what the videos prepare you for. The videos are simply meant as an aid to get you up and running in QGIS, not to solve every problem you might encounter or demonstrate every task.  There is a plethora of excellent online material for learning QGIS. For additional assistance, you can explore the following sources:
+## Other Resources
+
+In the following chapters, I will provide more specific video tutorials for some of the most common QGIS tasks. However, the best way to learn QGIS is through a lot of practice and troubleshooting, beyond what the videos prepare you for. The videos are simply meant as an aid to get you up and running in QGIS, not to solve every problem you might encounter or demonstrate every task. There is a plethora of excellent online material for learning QGIS. For additional assistance, you can explore the following sources:
 
 -   [A Gentle Introduction to GIS](https://docs.qgis.org/3.40/en/docs/gentle_gis_introduction/index.html)
 

@@ -492,61 +492,61 @@
   {
     "objectID": "learning_qgis.html",
     "href": "learning_qgis.html",
-    "title": "10  QGIS Basics",
+    "title": "10  QGIS 101",
     "section": "",
-    "text": "10.1 Starting a Project\nBefore any sort of analysis and visualization can take place, you must be extremely comfortable with creating projects, opening files, working with attributes, loading basemaps, and basic symbolization. Think of this chapter as your hands-on introduction to the essential building blocks of working with spatial data in QGIS. The sample data used in this chapter can be found here. Download the folder, unzip it, and add the contents to your GEOG370/lab/lab_1/raw_data folder.\nEvery time you begin a new lab or analysis, you’ll create a new QGIS project file. This .qgz file stores the structure of your work: which layers you loaded, how you symbolized them, and what your map looked like when you last saved it. It’s like a snapshot of your workspace.QGIS projects do not store the data itself—they store file paths. If you move, rename, or delete your data after you’ve added it to a project, QGIS won’t be able to find it anymore. Always keep your data organized in a consistent folder structure (introduced in Chapter 8).",
+    "text": "11 QGIS Basics\nThese videos introduce you to the basic tasks in QGIS. You can pair these with the more specific videos below\nQGIS Interface 101\nAdding Data 101\nSymbology 101\nAttributes 101\nCRS 101\nSaving 101\nPrint Layout 101\nBefore any sort of analysis and visualization can take place, you must be extremely comfortable with creating projects, opening files, working with attributes, loading basemaps, and basic symbolization. Think of this chapter as your hands-on introduction to the essential building blocks of working with spatial data in QGIS. The sample data used in this chapter can be found here. Download the folder, unzip it, and add the contents to your GEOG370/lab/lab_1/raw_data folder.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS Basics</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS 101</span>"
     ]
   },
   {
     "objectID": "learning_qgis.html#adding-a-basemap",
     "href": "learning_qgis.html#adding-a-basemap",
-    "title": "10  QGIS Basics",
-    "section": "10.2 Adding a Basemap",
-    "text": "10.2 Adding a Basemap\nOnce you’ve created a project, you typically want to add a basemap. A basemap is a foundational map that provides geographic context for other data. It is often a satellite image, topographic map, or streetmap. QGIS comes built in with two basemaps, which can be accessed in the XYZ Tiles in your Browser window. You can also add additional basemaps using the QMS plug-in (plug-ins add additional functionality to QGIS)",
+    "title": "10  QGIS 101",
+    "section": "11.2 Adding a Basemap",
+    "text": "11.2 Adding a Basemap\nOnce you’ve created a project, you typically want to add a basemap. A basemap is a foundational map that provides geographic context for other data. It is often a satellite image, topographic map, or streetmap. QGIS comes built in with two basemaps, which can be accessed in the XYZ Tiles in your Browser window. You can also add additional basemaps using the QMS plug-in (plug-ins add additional functionality to QGIS)",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS Basics</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS 101</span>"
     ]
   },
   {
     "objectID": "learning_qgis.html#adding-raster-or-vector-data",
     "href": "learning_qgis.html#adding-raster-or-vector-data",
-    "title": "10  QGIS Basics",
-    "section": "10.3 Adding Raster or Vector Data",
-    "text": "10.3 Adding Raster or Vector Data\nNow that you have your project set up, you are ready to add some vector and raster data. You will add two datasets: a raster representing elevation in Orange County, and a vector representing census block groups across North Carolina. There are multiple ways to add data, but the simplest way is to use the Browser panel. If you are missing your panels, watch this video. \nNote on coordinate systems: In the “Adding Data” video, you may have noticed a pop-up asking you to “Select Transformation.” This happens when the Coordinate Reference System (CRS) of the map canvas is different from the CRS of the data you’re adding. For example, in the video, the bottom right corner shows that the map canvas is using EPSG:3857 (your project might use a different one). This is because the basemap I added at the start of the project is in EPSG:3857. This is NOT reprojecting the data and it is NOT changing the CRS of the base data. We will cover that later on. In general, I just select the first transformation option.",
+    "title": "10  QGIS 101",
+    "section": "11.3 Adding Raster or Vector Data",
+    "text": "11.3 Adding Raster or Vector Data\nNow that you have your project set up, you are ready to add some vector and raster data. You will add two datasets: a raster representing elevation in Orange County, and a vector representing census block groups across North Carolina. There are multiple ways to add data, but the simplest way is to use the Browser panel. If you are missing your panels, watch this video. \nNote on coordinate systems: In the “Adding Data” video, you may have noticed a pop-up asking you to “Select Transformation.” This happens when the Coordinate Reference System (CRS) of the map canvas is different from the CRS of the data you’re adding. For example, in the video, the bottom right corner shows that the map canvas is using EPSG:3857 (your project might use a different one). This is because the basemap I added at the start of the project is in EPSG:3857. This is NOT reprojecting the data and it is NOT changing the CRS of the base data. We will cover that later on. In general, I just select the first transformation option.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS Basics</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS 101</span>"
     ]
   },
   {
     "objectID": "learning_qgis.html#working-with-attributes",
     "href": "learning_qgis.html#working-with-attributes",
-    "title": "10  QGIS Basics",
-    "section": "10.4 Working with Attributes ",
-    "text": "10.4 Working with Attributes \nWhen you read in vector data (census block groups), one of the first things that you should do is explore the properties of the data, including looking at the data type of each of the fields and exploring the attribute table (including looking at selected features). One of the most powerful parts of GIS is connecting spatial features to tabular data. In vector files, each feature (a polygon, for example) is linked to a row in an attribute table that provides additional (non-spatial) information about the geographical feature.\nYou can add additional attributes in QGIS using the field calculator. For this lab, you should to add a field representing the population (in thousands) using the field calculator (note that you must always save edits and toggle editing off when done).\nWith raster data (elevation data), there is typically no separate attribute table. To explore values, you will typically use symbology or the information tab (note that the layer must be selected in the browser for the information tab to select the correct feature).",
+    "title": "10  QGIS 101",
+    "section": "11.4 Working with Attributes ",
+    "text": "11.4 Working with Attributes \nWhen you read in vector data (census block groups), one of the first things that you should do is explore the properties of the data, including looking at the data type of each of the fields and exploring the attribute table (including looking at selected features). One of the most powerful parts of GIS is connecting spatial features to tabular data. In vector files, each feature (a polygon, for example) is linked to a row in an attribute table that provides additional (non-spatial) information about the geographical feature.\nYou can add additional attributes in QGIS using the field calculator. For this lab, you should to add a field representing the population (in thousands) using the field calculator (note that you must always save edits and toggle editing off when done).\nWith raster data (elevation data), there is typically no separate attribute table. To explore values, you will typically use symbology or the information tab (note that the layer must be selected in the browser for the information tab to select the correct feature).",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS Basics</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS 101</span>"
     ]
   },
   {
     "objectID": "learning_qgis.html#basic-symbolization",
     "href": "learning_qgis.html#basic-symbolization",
-    "title": "10  QGIS Basics",
-    "section": "10.5 Basic Symbolization",
-    "text": "10.5 Basic Symbolization\nChances are, the symbolization that is automatically applied when you add your data into QGIS is not going to be sufficient. Symbology choices are some of the most important choices that you will make when creating maps. There are many symbology choices available in QGIS. You should symbolize your elevation and census data. Here are the basics of changing vector and raster symbology\nExplore these resources for more information:\n\nLesson: Changing Raster Symbology\nLesson: Symbology",
+    "title": "10  QGIS 101",
+    "section": "11.5 Basic Symbolization",
+    "text": "11.5 Basic Symbolization\nChances are, the symbolization that is automatically applied when you add your data into QGIS is not going to be sufficient. Symbology choices are some of the most important choices that you will make when creating maps. There are many symbology choices available in QGIS. You should symbolize your elevation and census data. Here are the basics of changing vector and raster symbology\nExplore these resources for more information:\n\nLesson: Changing Raster Symbology\nLesson: Symbology",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS Basics</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS 101</span>"
     ]
   },
   {
     "objectID": "learning_qgis.html#adding-tabular-data-and-executing-table-joins",
     "href": "learning_qgis.html#adding-tabular-data-and-executing-table-joins",
-    "title": "10  QGIS Basics",
-    "section": "10.6 Adding Tabular Data and Executing Table Joins",
-    "text": "10.6 Adding Tabular Data and Executing Table Joins\nAs discussed in Chapter 6, sometimes geospatial data comes in a tabular format. This means that the file is not already in a spatial format (usually it is a .csv), but you can add it into QGIS in a spatial format by pointing QGIS to the fields in the data that represent latitude and longitude and providing QGIS with the correct CRS of the data (this would be found in the metadata. In this case, I provide you with the correct CRS, which is EPSG:4326). Using a CRS that does not match the latitude/longitude values means that your data will not be in the correct location. You can easily add tabular data that has a lat, lon fields by using the Data Source Manager. For this project, you will add in tabular data representing the maximum temperature at North Carolina ASOS stations (weather stations) during a June 2024 heatwave.\nFinally, table joins are an absolutely essential pre-processing step for many spatial analyses. A table join involves joining tabular data and spatial data based on a matching key. For instance, you might have data about geographical locations (for instance, census block groups) but the data doesn’t actually have the geometry information. In this case, you could match census data to the census block group boundary file using a shared key (GEOID). For this to work in QGIS, it is required that the matching keys are exactly the same (which is often a problem) and are set as the same data type in QGIS. For this project, you will add census block group data that represents median income and join this to your census block group boundary file.",
+    "title": "10  QGIS 101",
+    "section": "11.6 Adding Tabular Data and Executing Table Joins",
+    "text": "11.6 Adding Tabular Data and Executing Table Joins\nAs discussed in Chapter 6, sometimes geospatial data comes in a tabular format. This means that the file is not already in a spatial format (usually it is a .csv), but you can add it into QGIS in a spatial format by pointing QGIS to the fields in the data that represent latitude and longitude and providing QGIS with the correct CRS of the data (this would be found in the metadata. In this case, I provide you with the correct CRS, which is EPSG:4326). Using a CRS that does not match the latitude/longitude values means that your data will not be in the correct location. You can easily add tabular data that has a lat, lon fields by using the Data Source Manager. For this project, you will add in tabular data representing the maximum temperature at North Carolina ASOS stations (weather stations) during a June 2024 heatwave.\nFinally, table joins are an absolutely essential pre-processing step for many spatial analyses. A table join involves joining tabular data and spatial data based on a matching key. For instance, you might have data about geographical locations (for instance, census block groups) but the data doesn’t actually have the geometry information. In this case, you could match census data to the census block group boundary file using a shared key (GEOID). For this to work in QGIS, it is required that the matching keys are exactly the same (which is often a problem) and are set as the same data type in QGIS. For this project, you will add census block group data that represents median income and join this to your census block group boundary file.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS Basics</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS 101</span>"
     ]
   },
   {
@@ -797,6 +797,16 @@
     "text": "7.3 Case Studies: Why Does Accuracy and Precision Matter\n\n7.3.1 Warming trends in the Southeast US\nEvidence generally points to warming in the Southeast US. Researchers are using long-term temperature records from a network of weather stations to analyze trends. However, the stations vary in how often their sensors are calibrated, the precision of their measurements, and the completeness of their historical records. Consider the following questions\n\nWhich issues here relate to accuracy? Which relate to precision?\nImagine a research question where the dataset limits here might not be a problem. What would that question look like?\nImagine a research question where the same limits might cause a problem. What would that question look like?\n\n\n\n7.3.2 Landslide Risk\nYou are tasked with assessing landslide risk for a mountainous county: Your available data includes:\n\nA digital elevation model\nA soil type map\nRainfall records from a local station network\n\nConsider the following questions:\n\nWhich parts of the dataset could lead to positional error, attribute error, or conceptual error?\nImagine a research question where the dataset limits here might not be a problem. What would that question look like?\nImagine a research question where the same dataset limits might cause a problem. What would that question look like?",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Accuracy, Error, and Precision</span>"
+    ]
+  },
+  {
+    "objectID": "learning_qgis.html#starting-a-project",
+    "href": "learning_qgis.html#starting-a-project",
+    "title": "10  QGIS 101",
+    "section": "11.1 Starting a Project",
+    "text": "11.1 Starting a Project\nEvery time you begin a new lab or analysis, you’ll create a new QGIS project file. This .qgz file stores the structure of your work: which layers you loaded, how you symbolized them, and what your map looked like when you last saved it. It’s like a snapshot of your workspace.QGIS projects do not store the data itself—they store file paths. If you move, rename, or delete your data after you’ve added it to a project, QGIS won’t be able to find it anymore. Always keep your data organized in a consistent folder structure (introduced in Chapter 8).",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>QGIS 101</span>"
     ]
   }
 ]

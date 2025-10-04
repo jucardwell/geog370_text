@@ -1,3 +1,21 @@
+# QGIS 101
+
+These videos introduce you to the basic tasks in QGIS. You can pair these with the more specific videos below
+
+[QGIS Interface 101](https://drive.google.com/file/d/13Mx6sHg2dcK4bRNluGdWaXijAvll1D3C/view?usp=drive_link)
+
+[Adding Data 101](https://drive.google.com/file/d/1qw1uVrfXBEctCqhFOAfIssKzSSidXSGl/view?usp=drive_link)
+
+[Symbology 101](https://drive.google.com/file/d/11qON-7N0iBLX1E1fAtoalWSrV7Zdh057/view?usp=drive_link)
+
+[Attributes 101](https://drive.google.com/file/d/1e7MO-Gh6ar0359k5P8U9tH2dapmDL_vZ/view?usp=drive_link)
+
+[CRS 101](https://drive.google.com/file/d/1nHMEkLnqSPVCxMOuUqjVNJAaEgkodTxU/view?usp=drive_link)
+
+[Saving 101](https://drive.google.com/file/d/1BMF8qc9WMJph3YmMTvMNwaHoFhlSLoOy/view?usp=drive_link)
+
+[Print Layout 101](https://drive.google.com/file/d/1o_Fy_XgrJg1G3ahgo4shCtLc5x02amt2/view?usp=drive_link)
+
 # QGIS Basics
 
 Before any sort of analysis and visualization can take place, you must be extremely comfortable with creating projects, opening files, working with attributes, loading basemaps, and basic symbolization. Think of this chapter as your hands-on introduction to the essential building blocks of working with spatial data in QGIS. The sample data used in this chapter can be found [here](https://drive.google.com/drive/folders/16dvmblS9W8Hi0iaui6jw1vr5OGcWNUiR?usp=sharing). Download the folder, unzip it, and add the contents to your GEOG370/lab/lab_1/raw_data folder.
