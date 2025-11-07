@@ -84,7 +84,6 @@ The following factors will guide the cartographic design process:
 -   Most important features should stand out (figure-ground).
     -   Background elements should be subtle to avoid distraction.
     -   Contrast and transparency help differentiate primary and secondary elements.
-    -   Transparency is required on aerial features if they cover the basemap
 -   Ensure a proper zoom level. Key information should not be cut off or too close to the edge.
     -   Center important features for focus.
     -   White space should be well distributed—avoid overcrowding.
