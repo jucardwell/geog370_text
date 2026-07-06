@@ -1,19 +1,6 @@
 # Understanding Attributes
 
-Spatial data generally includes two components:
-
--   Locations – where on Earth features are located
--   Attributes – what additional information we have about each feature
-
-For vector datasets, attribute information is stored in the attribute table (for instance, the .dbf in a shapefile). An attribute table is a tabular dataset, meaning it’s made up of rows and columns. Each row corresponds to a feature and every feature gets exactly one row. Each column contains information (an attribute) about that feature.
-
-Let’s look at an example of vector data showing pharmacies in North Carolina. In QGIS, you’d see the location of each pharmacy displayed on the map- that’s how we know where they are. But if you open the attribute table, you’ll see all the other information we have about these locations. These attributes might include the name of the pharmacy, its hours, services offered, or other descriptive details.
-
-![Hospital Locations, Credit: Author, Basemap:OSM](images/hosp.png)
-
-![Hospital Attributes, Credit: Author](images/attributes.png)
-
-For vector data, each feature is assigned a unique ID by the GIS software. This identifier helps keep the dataset organized and is essential for tasks like joining tables, running queries, or performing spatial analysis.
+Remember that both of our spatial data models include both the object (location) and attributes associated with the location. The attributes represent the additional information that we have about each feature.
 
 Attributes can take many forms- some are numbers, some are words, some might be dates. Understanding how this data is represented is essential for doing analysis correctly.
 
@@ -24,7 +11,7 @@ Each attribute has:
 
 ## Field Types
 
-When you open a dataset, QGIS automatically detects the field type. Common types include:
+Every attribute field in a table has a *field type*, which determines what kind of data can be stored in that column. The field type affects how QGIS stores, displays, sorts, calculates, and analyzes the data. When you open a dataset, QGIS automatically detects the field type for each field. Common field types include:
 
 -   Boolean – Yes/No, True/False, 1/0, etc.
 -   Whole Number (Integer)
@@ -37,7 +24,7 @@ When you open a dataset, QGIS automatically detects the field type. Common types
 
 ## Levels of Measurement
 
-This describes how the data can be used or interpreted:
+A field type tells QGIS how data are stored. A level of measurement tells you what the values mean and what kinds of analysis make sense:
 
 -   Nominal - Categories that can't be ranked (e.g., pharmacy name)
 -   Ordinal - Categories that can be ranked (e.g., small/medium/large)
@@ -61,8 +48,40 @@ Other times, the field type allows operations that don’t make sense. Categoric
 
 That’s why it’s essential to check both how the data is stored and what the data represents.
 
-## Raster Attributes
+## Attributes in Vector Datasets
 
-For raster data, each pixel represents one or more values that correspond to an attribute or measurement for that location. Most raster data is single-band, meaning each pixel stores a single value representing an attribute. However, some raster datasets, particularly those from remote sensing, are multiband, which means each pixel stores multiple values corresponding to a different spectral band (e.g., red, green, blue, near-infrared).
+In vector datasets, attribute information is stored in the **attribute table.** An attribute table is a tabular dataset, meaning that it is made up of rows and columns. Each row corresponds to a feature (and each feature gets only one row). Each column contains information about that feature.
 
-Raster attributes can be stored as either integers or floating-point numbers. Even rasters representing categorical data (for instance, land cover) are encoded using numeric values. In these cases, you need a legend or a value lookup table to interpret what each pixel value represents. This is another good example of categorical data being stored as numeric values, reinforcing the importance of knowing your level of measurement as well as your data type. 
+Let’s look at an example of vector data showing medical facilities in Carrboro and Chapel Hill. If you open the file in QGIS, you'll see the location of each pharmacy displayed on the map.
+
+![](images/clipboard-540972391.png){width="347"}
+
+If you open the attribute table, you’ll see all the other information we have about these locations. These attributes include things like the type of facility, the name of the facility, the address, etc.
+
+![](images/clipboard-2173811073.png)
+
+For vector data, each feature is assigned a unique ID by the GIS software. This identifier helps keep the dataset organized and is essential for tasks like joining tables, running queries, or performing spatial analysis.
+
+## Attributes in Raster Datasets
+
+For raster data, each pixel represents one or more values that correspond to an attribute or measurement for that location. Most raster data is single-band, meaning each pixel stores a single value representing an attribute. Raster attributes can be stored as either integers or floating-point numbers. Even rasters representing categorical data (for instance, land cover) are encoded using numeric values. In these cases, you need a legend or a value lookup table to interpret what each pixel value represents. This is another good example of categorical data being stored as numeric values, reinforcing the importance of knowing your level of measurement as well as your data type.
+
+Unlike vector data, rasters **do not** have an attribute table because each cell's location and attribute value are stored together in the grid. Instead, you interact with raster attributes in QGIS by examining pixel values, adjusting symbology, classifying values into categories, and performing raster analyses.
+
+Let's look at an example of raster data representing average summer temperature in Durham, NC
+
+![](images/clipboard-505829367.png)
+
+Using the layer legend, we are able to see general patterns in the attribute. Instead of opening an attribute table, we can use the identify tool in QGIS to see individual pixel values
+
+![](images/clipboard-1738297496.png)
+
+## Manipulating Attributes
+
+Some of the most common tasks in a GIS analysis involve manipulating attributes. Attribute manipulation allows you to explore patterns in your data, identify features that meet specific criteria, combine information from multiple datasets, and create new variables for analysis.
+
+One common operation is a **query**, which selects features based on attribute values. For example, you might select all counties with a population greater than 100,000 or all parks larger than 50 acres. Queries allow you to focus on a subset of features that meet your analytical needs.
+
+Another frequently used operation is a **join**, which combines attributes from two tables based on a shared field. For example, you might join census data to county boundaries using a shared county identifier.
+
+You can also **create new attributes** by calculating values from existing fields. Examples include calculating population density from population and area, computing the percentage of land covered by forest, or creating categories based on continuous values.

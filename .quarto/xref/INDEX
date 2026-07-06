@@ -49,5 +49,11 @@
   },
   "error.qmd": {
     "error.html": "7d224c5a"
+  },
+  "coordinate_systems.qmd": {
+    "coordinate_systems.html": "8dd32563"
+  },
+  "resolution.qmd": {
+    "resolution.html": "75fb61ca"
   }
 }

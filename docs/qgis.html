@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Working with Geographic Data in QGIS – GEOG370</title>
+<title>10&nbsp; Working with Geographic Data in QGIS – GEOG370</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./files.html" rel="next">
-<link href="./error.html" rel="prev">
+<link href="./learning_qgis.html" rel="next">
+<link href="./files.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qgis.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qgis.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,44 +120,44 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./politics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Politics and Potentials of GIS</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./core.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Core Spatial Concepts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Thinking Spatially</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">What is Geographic Data?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What is Geographic Data?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./models.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Data Models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Spatial Data Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./attributes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Understanding Attributes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Attributes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resolution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Resolution in Geographic Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./coordinate_systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Coordinate Systems and Projections</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./error.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Accuracy, Error, and Precision</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./qgis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accuracy, Error, and Precision</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -168,14 +168,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./learning_qgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
+  <a href="./qgis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spatial_analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Spatial Analysis</span></span></a>
+  <a href="./learning_qgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">QGIS 101</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -184,38 +184,26 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./other_tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Analysis Tools</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./making_maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Making Maps</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#other-resources" id="toc-other-resources" class="nav-link active" data-scroll-target="#other-resources"><span class="header-section-number">10.1</span> Other Resources</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></h1>
 </div>
 
 
@@ -233,8 +221,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>QGIS is a GIS software that is free and open-source. It is true that Esri products are often considered the industry standard. I’ve heard concerns from students who worry that they won’t be prepared for a GIS career if they’ve only learned in QGIS. To this, I respond that understanding GIS conceptually– being able to form spatial questions, understanding the limits of data, selecting appropriate analytical tools– is far more important than expertise in a particular software. In reality, although they can look quite different, the most commonly used GIS softwares are extremely similar. Although the initial learning curve is steep, switching from one software to another is easy. Because practicing open science is important to me, I teach in QGIS. However, anything we do in QGIS could be easily translated to ArcGIS Pro. If you want help learning how to do so, I am always available.</p>
-<p>We will be using the current Long Term Release version of QGIS (QGIS 3.40 Bratislava), which can be downloaded <a href="https://qgis.org/download/">here</a>.</p>
-<p>In the following chapters, I will provide video tutorials for some of the most common QGIS tasks. However, the best way to learn QGIS is through a lot of practice and troubleshooting, beyond what the videos prepare you for. The videos are simply meant as an aid to get you up and running in QGIS, not to solve every problem you might encounter or demonstrate every task.&nbsp; There is a plethora of excellent online material for learning QGIS. For additional assistance, you can explore the following sources:</p>
+<p>We will be using the current Long Term Release version of QGIS (3.44.11 ‘Solothurn’), which can be downloaded <a href="https://qgis.org/download/">here</a>.</p>
+<section id="other-resources" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="other-resources"><span class="header-section-number">10.1</span> Other Resources</h2>
+<p>In the following chapters, I will provide more specific video tutorials for some of the most common QGIS tasks. However, the best way to learn QGIS is through a lot of practice and troubleshooting, beyond what the videos prepare you for. The videos are simply meant as an aid to get you up and running in QGIS, not to solve every problem you might encounter or demonstrate every task. There is a plethora of excellent online material for learning QGIS. For additional assistance, you can explore the following sources:</p>
 <ul>
 <li><p><a href="https://docs.qgis.org/3.40/en/docs/gentle_gis_introduction/index.html">A Gentle Introduction to GIS</a></p></li>
 <li><p><a href="https://docs.qgis.org/3.40/en/docs/user_manual/index.html">QGIS 3.4 User Manual</a></p></li>
@@ -243,6 +233,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -664,13 +655,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./error.html" class="pagination-link" aria-label="Accuracy, Error, and Precision">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Accuracy, Error, and Precision</span></span>
+      <a href="./files.html" class="pagination-link" aria-label="Managing Files">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Managing Files</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./files.html" class="pagination-link" aria-label="Managing Files">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Managing Files</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./learning_qgis.html" class="pagination-link" aria-label="QGIS 101">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">QGIS 101</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

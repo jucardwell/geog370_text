@@ -2,7 +2,7 @@
 
 QGIS is a GIS software that is free and open-source. It is true that Esri products are often considered the industry standard. I’ve heard concerns from students who worry that they won’t be prepared for a GIS career if they’ve only learned in QGIS. To this, I respond that understanding GIS conceptually– being able to form spatial questions, understanding the limits of data, selecting appropriate analytical tools– is far more important than expertise in a particular software. In reality, although they can look quite different, the most commonly used GIS softwares are extremely similar. Although the initial learning curve is steep, switching from one software to another is easy. Because practicing open science is important to me, I teach in QGIS. However, anything we do in QGIS could be easily translated to ArcGIS Pro. If you want help learning how to do so, I am always available.
 
-We will be using the current Long Term Release version of QGIS (QGIS 3.40 Bratislava), which can be downloaded [here](https://qgis.org/download/).
+We will be using the current Long Term Release version of QGIS (3.44.11 'Solothurn'), which can be downloaded [here](https://qgis.org/download/).
 
 ## Other Resources
 
