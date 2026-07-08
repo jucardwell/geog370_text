@@ -6,39 +6,39 @@ Attributes can take many forms- some are numbers, some are words, some might be 
 
 Each attribute has:
 
--   A field type (how QGIS is reading the data), and
--   A level of measurement (how we can interpret or analyze the data)
+- A field type (how QGIS is reading the data), and
+- A level of measurement (how we can interpret or analyze the data)
 
 ## Field Types
 
 Every attribute field in a table has a *field type*, which determines what kind of data can be stored in that column. The field type affects how QGIS stores, displays, sorts, calculates, and analyzes the data. When you open a dataset, QGIS automatically detects the field type for each field. Common field types include:
 
--   Boolean – Yes/No, True/False, 1/0, etc.
--   Whole Number (Integer)
--   Whole Number (Integer - 64 bit)
--   Decimal Number – Double precision (i.e., numbers with decimals)
--   Date
--   Time
--   Date and Time
--   Text
+- Boolean – Yes/No, True/False, 1/0, etc.
+- Whole Number (Integer)
+- Whole Number (Integer - 64 bit)
+- Decimal Number – Double precision (i.e., numbers with decimals)
+- Date
+- Time
+- Date and Time
+- Text
 
 ## Levels of Measurement
 
 A field type tells QGIS how data are stored. A level of measurement tells you what the values mean and what kinds of analysis make sense:
 
--   Nominal - Categories that can't be ranked (e.g., pharmacy name)
--   Ordinal - Categories that can be ranked (e.g., small/medium/large)
--   Interval - Numbers with an arbitrary zero (e.g., temperature)
--   Ratio - Numbers with a true zero (e.g., number of employees)
+- Nominal - Categories that can't be ranked (e.g., pharmacy name)
+- Ordinal - Categories that can be ranked (e.g., small/medium/large)
+- Interval - Numbers with an arbitrary zero (e.g., temperature)
+- Ratio - Numbers with a true zero (e.g., number of employees)
 
 Levels of measurement and field types are connected, but they are not the same thing. Confusing them can lead to major problems when analyzing your data. The field type tells QGIS how to store and read the data (as text, numbers, dates, etc.), while the level of measurement tells you how the data should be interpreted and what kinds of analysis are appropriate. 
 
 The level of measurement determines what types of analysis you can do on the data. 
 
--   Nominal- Frequencies, Mode
--   Ordinal- Frequencies, Median, Mode, Ranking
--   Interval- Addition, Subtraction, Mean, Median, Mode, Standard Deviation
--   Ratio- All arithmetic operations, mean, median, mode, percent change, normalization. 
+- Nominal- Frequencies, Mode
+- Ordinal- Frequencies, Median, Mode, Ranking
+- Interval- Addition, Subtraction, Mean, Median, Mode, Standard Deviation
+- Ratio- All arithmetic operations, mean, median, mode, percent change, normalization. 
 
 The field type controls what QGIS can do, but the level of measurement determines what you should do. Sometimes, the two don’t match, which can cause problems.
 

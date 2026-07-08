@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>10&nbsp; Working with Geographic Data in QGIS – GEOG370</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,15 +35,16 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./learning_qgis.html" rel="next">
 <link href="./files.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-626149efe8f5d16e1d391ba177679bf0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -175,13 +179,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./learning_qgis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">QGIS 101</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_spatial_analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Labs</span></span></a>
   </div>
 </li>
     </ul>
@@ -194,7 +204,32 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#other-resources" id="toc-other-resources" class="nav-link active" data-scroll-target="#other-resources"><span class="header-section-number">10.1</span> Other Resources</a></li>
+  <li><a href="#qgis-101" id="toc-qgis-101" class="nav-link active" data-scroll-target="#qgis-101"><span class="header-section-number">11</span> QGIS 101</a>
+  <ul class="collapse">
+  <li><a href="#preparing-data" id="toc-preparing-data" class="nav-link" data-scroll-target="#preparing-data"><span class="header-section-number">11.1</span> Preparing Data</a>
+  <ul class="collapse">
+  <li><a href="#table-join-vector" id="toc-table-join-vector" class="nav-link" data-scroll-target="#table-join-vector"><span class="header-section-number">11.1.1</span> Table Join (Vector)</a></li>
+  <li><a href="#reproject-vectorraster" id="toc-reproject-vectorraster" class="nav-link" data-scroll-target="#reproject-vectorraster"><span class="header-section-number">11.1.2</span> Reproject (Vector/Raster)</a></li>
+  <li><a href="#spatialize-data-vector" id="toc-spatialize-data-vector" class="nav-link" data-scroll-target="#spatialize-data-vector"><span class="header-section-number">11.1.3</span> Spatialize Data (Vector)</a></li>
+  <li><a href="#create-new-field-vector" id="toc-create-new-field-vector" class="nav-link" data-scroll-target="#create-new-field-vector"><span class="header-section-number">11.1.4</span> Create New Field (Vector)</a></li>
+  <li><a href="#clip-vectorraster" id="toc-clip-vectorraster" class="nav-link" data-scroll-target="#clip-vectorraster"><span class="header-section-number">11.1.5</span> Clip (Vector/Raster)</a></li>
+  <li><a href="#aggregate-vector" id="toc-aggregate-vector" class="nav-link" data-scroll-target="#aggregate-vector"><span class="header-section-number">11.1.6</span> Aggregate (Vector)</a></li>
+  </ul></li>
+  <li><a href="#querying" id="toc-querying" class="nav-link" data-scroll-target="#querying"><span class="header-section-number">11.2</span> Querying</a>
+  <ul class="collapse">
+  <li><a href="#select-by-attribute-vector" id="toc-select-by-attribute-vector" class="nav-link" data-scroll-target="#select-by-attribute-vector"><span class="header-section-number">11.2.1</span> Select by Attribute (Vector)</a></li>
+  <li><a href="#select-by-location-vector" id="toc-select-by-location-vector" class="nav-link" data-scroll-target="#select-by-location-vector"><span class="header-section-number">11.2.2</span> Select by Location (Vector)</a></li>
+  </ul></li>
+  <li><a href="#spatial-analysis" id="toc-spatial-analysis" class="nav-link" data-scroll-target="#spatial-analysis"><span class="header-section-number">11.3</span> Spatial Analysis</a>
+  <ul class="collapse">
+  <li><a href="#buffer-vector" id="toc-buffer-vector" class="nav-link" data-scroll-target="#buffer-vector"><span class="header-section-number">11.3.1</span> Buffer (Vector)</a></li>
+  <li><a href="#intersect-vector" id="toc-intersect-vector" class="nav-link" data-scroll-target="#intersect-vector"><span class="header-section-number">11.3.2</span> Intersect (Vector)</a></li>
+  <li><a href="#spatial-join-vector" id="toc-spatial-join-vector" class="nav-link" data-scroll-target="#spatial-join-vector"><span class="header-section-number">11.3.3</span> Spatial Join (Vector)</a></li>
+  <li><a href="#reclassify-raster-raster" id="toc-reclassify-raster-raster" class="nav-link" data-scroll-target="#reclassify-raster-raster"><span class="header-section-number">11.3.4</span> Reclassify Raster (Raster)</a></li>
+  <li><a href="#raster-math-raster" id="toc-raster-math-raster" class="nav-link" data-scroll-target="#raster-math-raster"><span class="header-section-number">11.3.5</span> Raster Math (Raster)</a></li>
+  <li><a href="#zonal-statistics-raster" id="toc-zonal-statistics-raster" class="nav-link" data-scroll-target="#zonal-statistics-raster"><span class="header-section-number">11.3.6</span> Zonal Statistics (Raster)</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -222,251 +257,317 @@ ul.task-list li input[type="checkbox"] {
 
 <p>QGIS is a GIS software that is free and open-source. It is true that Esri products are often considered the industry standard. I’ve heard concerns from students who worry that they won’t be prepared for a GIS career if they’ve only learned in QGIS. To this, I respond that understanding GIS conceptually– being able to form spatial questions, understanding the limits of data, selecting appropriate analytical tools– is far more important than expertise in a particular software. In reality, although they can look quite different, the most commonly used GIS softwares are extremely similar. Although the initial learning curve is steep, switching from one software to another is easy. Because practicing open science is important to me, I teach in QGIS. However, anything we do in QGIS could be easily translated to ArcGIS Pro. If you want help learning how to do so, I am always available.</p>
 <p>We will be using the current Long Term Release version of QGIS (3.44.11 ‘Solothurn’), which can be downloaded <a href="https://qgis.org/download/">here</a>.</p>
-<section id="other-resources" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="other-resources"><span class="header-section-number">10.1</span> Other Resources</h2>
-<p>In the following chapters, I will provide more specific video tutorials for some of the most common QGIS tasks. However, the best way to learn QGIS is through a lot of practice and troubleshooting, beyond what the videos prepare you for. The videos are simply meant as an aid to get you up and running in QGIS, not to solve every problem you might encounter or demonstrate every task. There is a plethora of excellent online material for learning QGIS. For additional assistance, you can explore the following sources:</p>
-<ul>
-<li><p><a href="https://docs.qgis.org/3.40/en/docs/gentle_gis_introduction/index.html">A Gentle Introduction to GIS</a></p></li>
-<li><p><a href="https://docs.qgis.org/3.40/en/docs/user_manual/index.html">QGIS 3.4 User Manual</a></p></li>
-<li><p><a href="https://spatialthoughts.com/courses/introduction-to-qgis/">Spatial Thoughts, Introduction to QGIS</a></p></li>
-<li><p><a href="https://spatialthoughts.com/courses/advanced-qgis/">Spatial Thoughts, Advanced QGIS</a></p></li>
-</ul>
+<section id="qgis-101" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> QGIS 101</h1>
+<p>This class focuses on developing fluency with a relatively small set of common GIS tasks. The videos below demonstrate the complete set of GIS skills you will use throughout the course. In later chapters, you’ll find additional videos that apply these same tasks to specific scenarios for practice, but the videos here serve as your primary reference.</p>
+<section id="preparing-data" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="preparing-data"><span class="header-section-number">11.1</span> Preparing Data</h2>
+<section id="table-join-vector" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="table-join-vector"><span class="header-section-number">11.1.1</span> <a href="https://drive.google.com/file/d/1wDdrr8x0KED4cMuUlS1HXK2ricg2grHX/view?usp=drive_link">Table Join (Vector)</a></h3>
+<p>A table join adds attributes from a non-spatial file to a spatial file based on a common key field between the two datasets.</p>
+</section>
+<section id="reproject-vectorraster" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="reproject-vectorraster"><span class="header-section-number">11.1.2</span> <a href="https://drive.google.com/file/d/1E9rchAaKoqPhxPoT71oSawh2NzbH2czy/view?usp=drive_link">Reproject (Vector/Raster)</a></h3>
+<p>Converts the CRS of a dataset to another CRS</p>
+</section>
+<section id="spatialize-data-vector" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="spatialize-data-vector"><span class="header-section-number">11.1.3</span> <a href="https://drive.google.com/file/d/1rRcAUQ6_pno0pf447JsAOuLJzIHkRaLp/view?usp=drive_link">Spatialize Data (Vector)</a></h3>
+<p>Turns a non-spatial file into a spatial format using latitude/longitude fields in the data</p>
+</section>
+<section id="create-new-field-vector" class="level3" data-number="11.1.4">
+<h3 data-number="11.1.4" class="anchored" data-anchor-id="create-new-field-vector"><span class="header-section-number">11.1.4</span> <a href="https://drive.google.com/file/d/1Ur1GgWSs_KeocuxDAmQ15DMcedjSGy3R/view?usp=drive_link">Create New Field (Vector)</a></h3>
+<p>Calculates a new field in an existing dataset using the Field Calculator</p>
+</section>
+<section id="clip-vectorraster" class="level3" data-number="11.1.5">
+<h3 data-number="11.1.5" class="anchored" data-anchor-id="clip-vectorraster"><span class="header-section-number">11.1.5</span> Clip (<a href="https://drive.google.com/file/d/1dJbfsOMks50s3yf7v3tm5obJSv6T3PPk/view?usp=drive_link">Vector</a>/<a href="https://drive.google.com/file/d/1rZbCcp_qSrwVeZVwT8FhMIa_KJyFlG1S/view?usp=drive_link">Raster</a>)</h3>
+<p>Cuts out an input layer based on a defined boundary (either another layer or an extent)</p>
+</section>
+<section id="aggregate-vector" class="level3" data-number="11.1.6">
+<h3 data-number="11.1.6" class="anchored" data-anchor-id="aggregate-vector"><span class="header-section-number">11.1.6</span> <a href="https://drive.google.com/file/d/1j-pD3ELZr9cIvvXI5IVT6EArnV3kRPiH/view?usp=drive_link">Aggregate (Vector)</a></h3>
+<p>Aggregates features based on an attribute value (can summarize other attributes).</p>
+</section>
+</section>
+<section id="querying" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="querying"><span class="header-section-number">11.2</span> Querying</h2>
+<section id="select-by-attribute-vector" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="select-by-attribute-vector"><span class="header-section-number">11.2.1</span> <a href="https://drive.google.com/file/d/1tsLAsSVz-X7-s3lqBQN-f7nBrV7ptraj/view?usp=drive_link">Select by Attribute (Vector)</a></h3>
+<p>Selects features based on a query of a field or multiple fields</p>
+</section>
+<section id="select-by-location-vector" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="select-by-location-vector"><span class="header-section-number">11.2.2</span> <a href="https://drive.google.com/file/d/15PDXrg1jQJ5lr2LRaneXBHhR2dKyztru/view?usp=drive_link">Select by Location (Vector)</a></h3>
+<p>Selects features based on a spatial query of another layer</p>
+</section>
+</section>
+<section id="spatial-analysis" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="spatial-analysis"><span class="header-section-number">11.3</span> Spatial Analysis</h2>
+<section id="buffer-vector" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="buffer-vector"><span class="header-section-number">11.3.1</span> <a href="https://drive.google.com/file/d/13vrxIFaSRnah1MiBULhefU9jkRItu-IT/view?usp=drive_link">Buffer (Vector)</a></h3>
+<p>Adds a polygon zone at a specified distance around points, lines, or polygons</p>
+</section>
+<section id="intersect-vector" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="intersect-vector"><span class="header-section-number">11.3.2</span> <a href="https://drive.google.com/file/d/1IVsHq5mzMyi8nok4KI8IXX7KHevbDzrt/view?usp=drive_link">Intersect (Vector)</a></h3>
+<p>Calculates the overlap between two or more layers</p>
+</section>
+<section id="spatial-join-vector" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="spatial-join-vector"><span class="header-section-number">11.3.3</span> <a href="https://drive.google.com/file/d/1-JXo6Dq89jd9YHcDLljvYsXNOWKDzm6e/view?usp=drive_link">Spatial Join (Vector)</a></h3>
+<p>Combines attributes of two spatial layers based on their location</p>
+</section>
+<section id="reclassify-raster-raster" class="level3" data-number="11.3.4">
+<h3 data-number="11.3.4" class="anchored" data-anchor-id="reclassify-raster-raster"><span class="header-section-number">11.3.4</span> <a href="https://drive.google.com/file/d/1I-_ueoNOlFVVbMp5Djrjr-lNSPG4AUqA/view?usp=drive_link">Reclassify Raster (Raster)</a></h3>
+<p>Changes raster values to new values based on set rules</p>
+</section>
+<section id="raster-math-raster" class="level3" data-number="11.3.5">
+<h3 data-number="11.3.5" class="anchored" data-anchor-id="raster-math-raster"><span class="header-section-number">11.3.5</span> <a href="https://drive.google.com/file/d/1GYpL4OP2HsYWTwLyYMcKs_MGJbW66xzR/view?usp=drive_link">Raster Math (Raster)</a></h3>
+<p>Performs mathematical operations on two or more raster layers</p>
+</section>
+<section id="zonal-statistics-raster" class="level3" data-number="11.3.6">
+<h3 data-number="11.3.6" class="anchored" data-anchor-id="zonal-statistics-raster"><span class="header-section-number">11.3.6</span> <a href="https://drive.google.com/file/d/1JOZagkkmZNkDn3F-80RPjY941kLa3AkQ/view?usp=drive_link">Zonal Statistics (Raster)</a></h3>
+<p>Calculate summary statistics for raster dataset cells that fall within specific vector zones</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -474,185 +575,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./files.html" class="pagination-link" aria-label="Managing Files">
@@ -660,8 +737,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./learning_qgis.html" class="pagination-link" aria-label="QGIS 101">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">QGIS 101</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./learning_qgis.html" class="pagination-link" aria-label="QGIS Basics">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

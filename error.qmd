@@ -1,182 +1,33 @@
-# Accuracy, Error, and Precision
+# Abstraction, Accuracy, Error, and Precision
 
-So far, we have discussed many different data-related limitations to using geographic information for spatial analysis, such as resolution, abstraction (and other limits of the layer model), data bias, and the impacts of "cooked" data.
+## Abstraction
 
-We also need to examine how the processes of measurement and representation introduce accuracy issues, errors, and varying levels of precision into our datasets.
-
-The layer approach necessarily relies on abstraction: the process of simplifying complex real-world features into layer representations that GIS software can manage and analyze. Trying to represent every feature with complete accuracy is impossible from a data storage, collection, and analysis perspective
+GIS organizes geographic information into layers, where each layer represents a particular type of geographic feature (such as roads, rivers, or hospitals). The layer approach necessarily relies on abstraction: the process of simplifying complex real-world features into representations that GIS software can store, visualize, and analyze. Representing every aspect of every real-world feature is impractical because of limitations in data collection, storage, processing, and analysis.
 
 Abstraction always involves decisions, and those decisions will impact the outcome of any GIS analysis using the data. Abstraction is guided by the original purpose of the dataset. The purpose allows data creators to determine what aspects of the real-life feature are important (and therefore should be collected and represented with high accuracy) and which aspects are less important (and can be generalized or omitted). A mismatch between your purpose for using the data and the abstraction decisions made in the data creation process can be a serious issue for the reliability of your results.
 
 Consider the following example of different uses for the same dataset- hospitals in North Carolina:
 
--   An engineer assessing flood risk at hospitals in North Carolina
--   A public health analyst investigating disease outbreaks across hospitals in North Carolina
+- An engineer assessing flood risk at hospitals in North Carolina
+- A public health analyst investigating disease outbreaks across hospitals in North Carolina
 
 What is considered important to these two users differ greatly. The engineer may require detailed building footprints to evaluate structural exposure. The public health analyst may want detailed information on the number of beds and the infectious disease protocols, but just need a rough location for the hospital. If these users were creating the datasets themselves, they would likely look very different. However, most of the time, users aren’t collecting or creating the data themselves, they’re working with data that already exists. As a result, it’s crucial for users to critically evaluate the dataset’s underlying abstraction decisions regarding:
 
--   Selection - What features are included or excluded?
--   Classification - How are features grouped?
--   Simplification - How much detail of the original feature is retained?
--   Resolution- What is the smallest feature the data can meaningfully represent? 
-
-Furthermore, all spatial data comes with some degree of uncertainty and error
-
--   Errors include positional inaccuracies, attribute inaccuracies, or conceptual inaccuracies
--   Uncertainty refers more broadly to the limits of our knowledge about the data. This might include incomplete data, ambiguous classifications, unknown data sources, or the inability to verify how a measurement was taken. 
-
-What ultimately matters is not whether the data is perfect, but whether the level and type of abstraction, error, and uncertainty are acceptable enough for the analysis you are doing.
-
-MAUP
-
-## Case Studies
-
-### Floodplain Management in Chapel Hill
-
-The Town of Chapel Hill is interested in analyzing flood risk to buildings across town. They produce two different interactive maps to present to the town council. Look at the maps below and answer the following questions:
-
--   These maps both show buildings across town as well as the floodplain (flood risk areas). How do the maps differ?
--   How would these differences impact the outcome of an analysis of building flood risk?
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library(leaflet)
-library(sf)
-library(htmltools)
-
-# Load spatial data
-fp_detailed <- st_read("data/floodplain.geojson", quiet = TRUE)
-fp_simple <- st_read("data/simplified_floodplain.geojson", quiet = TRUE)
-bldg_polys <- st_read("data/building_footprints.geojson", quiet = TRUE)
-bldg_pts <- st_read("data/building_centroids.geojson", quiet = TRUE)
-
-# Map 1a: Detailed
-map1_right <- leaflet() |>
-  addProviderTiles("CartoDB.Positron") |>
-  addPolygons(data = fp_detailed, color = "blue", weight = 1.5, fillOpacity = 0.3) |>
-  addPolygons(data = bldg_polys, color = "black", weight = 0.5) |>
-  setView(lng = -79.05, lat = 35.91, zoom = 14)
-
-# Map 1b: Simplified
-map1_left <- leaflet() |>
-  addProviderTiles("CartoDB.Positron") |>
-  addPolygons(data = fp_simple, color = "blue", weight = 1.5, fillOpacity = 0.3) |>
-  addCircleMarkers(data = bldg_pts, radius = 1, color = "black", stroke = FALSE) |>
-  setView(lng = -79.05, lat = 35.91, zoom = 14)
-
-library(leafsync)
-browsable(sync(map1_left, map1_right, sync.cursor = TRUE))
-
-```
-
-### Building Age
-
-The North Carolina Department of Environmental Quality is considering doing outreach for the Energy Saver NC program. They want to target areas in Orange County that may have aging infrastructure and have data on the average year that homes were built in different census enumeration units. Explore the maps below and ask yourself the following questions:
-
--   These maps both show maximum heat. How do the maps differ?
--   How would these differences impact the outcome of an analysis of average home age?
--   What key geographic concept is this case study displaying?
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-# Read and prep data
-bg <- st_read("data/bg_building_age.geojson", quiet = TRUE)
-tract <- st_read("data/tract_building_age.geojson", quiet = TRUE)
-
-bg$SE_A10057_ <- as.numeric(bg$SE_A10057_)
-tract$SE_A10057_ <- as.numeric(tract$SE_A10057_)
-
-# Shared color scale
-pal <- colorNumeric("YlOrRd", domain = c(1950, 2015), na.color = "#cccccc")
-
-# Map 2a: Block Group
-map2_left <- leaflet() |>
-  addProviderTiles("CartoDB.Positron") |>
-  addPolygons(
-    data = bg,
-    fillColor = ~pal(SE_A10057_),
-    fillOpacity = 0.6,
-    color = "#444", weight = 0.5,
-    label = ~paste("BG Year:", SE_A10057_)
-  ) |>
-  addLegend(pal = pal, values = bg$SE_A10057_, title = "Avg. Year Built") |>
-  setView(lng = -79.05, lat = 35.91, zoom = 12)
-
-# Map 2b: Tract
-map2_right <- leaflet() |>
-  addProviderTiles("CartoDB.Positron") |>
-  addPolygons(
-    data = tract,
-    fillColor = ~pal(SE_A10057_),
-    fillOpacity = 0.6,
-    color = "#444", weight = 0.5,
-    label = ~paste("Tract Year:", SE_A10057_)
-  ) |>
-  addLegend(pal = pal, values = tract$SE_A10057_, title = "Avg. Year Built") |>
-  setView(lng = -79.05, lat = 35.91, zoom = 12)
-
-# Display synced maps
-browsable(sync(map2_left, map2_right, sync.cursor = TRUE))
-
-```
-
-### July Heat Wave
-
-In July 2025 there was a heat wave across the southeast US. A nonprofit group that is focused on planting trees in areas impacted by the urban heat island affect is given two raster datasets that display maximum land surface temperature (LST) on the hottest day of the heatwave. The nonprofit plans to use this data to identify specific streets across Orange County where more trees should be planted. Explore the maps below and ask yourself the following questions
-
--   These maps both show maximum heat. How do the maps differ?
--   How would these differences impact the outcome of an analysis identifying tree planting priority areas?
-
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library(terra)
-
-library(leaflet)
-library(terra)
-library(leafsync)
-library(htmltools)
-
-# Load rasters
-high_res <- rast("data/high_res_temp.tif")
-low_res <- rast("data/low_res_temp.tif")
-
-# Force min/max calculation
-high_range <- range(values(high_res), na.rm = TRUE)
-low_range <- range(values(low_res), na.rm = TRUE)
-
-# Use combined range for color palette
-combined_range <- range(c(high_range, low_range))
-
-pal <- colorNumeric(
-  palette = "inferno",  # requires viridisLite
-  domain = combined_range,
-  na.color = "transparent"
-)
-
-# Map 3a: High-res
-map3_left <- leaflet() |>
-  addProviderTiles("CartoDB.Positron") |>
-  addRasterImage(high_res, colors = pal, opacity = 0.6, project = TRUE) |>
-  addLegend(pal = pal, values = high_range, title = "Temperature") |>
-  setView(lng = -79.05, lat = 35.91, zoom = 9)
-
-# Map 3b: Low-res
-map3_right <- leaflet() |>
-  addProviderTiles("CartoDB.Positron") |>
-  addRasterImage(low_res, colors = pal, opacity = 0.6, project = TRUE) |>
-  addLegend(pal = pal, values = low_range, title = "Temperature") |>
-  setView(lng = -79.05, lat = 35.91, zoom = 9)
-
-browsable(sync(map3_left, map3_right, sync.cursor = TRUE))
-
-```
+- Selection - What features are included or excluded?
+- Classification - How are features grouped?
+- Simplification - How much detail of the original feature is retained?
+- Resolution- What is the smallest feature or level of detail that the dataset can meaningfully represent?
 
 ## Accuracy and Precision
 
-Accuracy can be defined as the degree to which our data matches "true" values. Precision refers to the level of measurement and exactness of our data. A dataset can be:
+We also need to examine how the processes of measurement and representation introduce accuracy issues, errors, and varying levels of precision into our datasets.
 
--   Accurate but not precise- the measurements are close to the "true" value, but recorded at coarse increments
+Accuracy is the degree to which a measured or recorded value matches the true value. Precision refers to the level of detail or consistency with which measurements are recorded. A dataset can be:
 
--   Precise but not accurate- the measurements are highly detailed but consistently off from the true value.
+- Accurate but not precise- the measurements are close to the "true" value, but recorded at coarse increments
+- Precise but not accurate- the measurements are highly detailed but consistently off from the true value.
 
-For example, let's consider temperature data collected at the RDU ASOS station. In this dataset, accuracy would be defined by how close the value measured at the station is to the actual temperature outside. Precision would be, essentially, how many decimal places there are. For instance, is the station measuring to the degree, the half degree, the tenth of a degree?
+For example, let's consider temperature data collected at the RDU ASOS station. In this dataset, accuracy would be defined by how close the value measured at the station is to the actual temperature outside. Precision would be, essentially, how many decimal places there are. For example, recording temperature to the nearest whole degree is less precise than recording it to the nearest tenth of a degree.
 
 ## Data Quality and Error
 
@@ -184,21 +35,20 @@ Accuracy and precision then inform data quality– which is the relative accurac
 
 Error in a geographic dataset can take several different forms:
 
--   **Positional error**- inaccuracies or imprecision in location. Can be caused by:
-    -   Measurement limitations- GPS inaccuracy, sensor resolution limits, survey instrument errors
-    -   Map scale- smaller scales generalize more, reducing positional detail
-    -   Projection and transformation- coordinate system changed introduce displacement
-    -   Topological errors
--   **Attribute error**- inaccuracies or imprecision in the non-spatial data associated with features. Can be caused by:
-    -   Data entry or transcription mistakes
-    -   Outdated data- attributes no longer represent current conditions
-    -   Sensor/device errors- faulty readings from measurement device
-    -   Sensor/device limitations- precision or range of measurement is inherently restricted
--   **Conceptual error**- Mismatches between the data's abstraction and the actual characteristics of what it represents. Can be caused by:
-    -   Inappropriate classification- categories too broad or narrow
-    -   Overgeneralization- simplifying complex features beyond what's appropriate for analysis
-    -   Temporal mismatch- datasets from different dates are combined
-    -   Modeling assumptions
+- **Positional error**- inaccuracies or imprecision in location. Can be caused by:
+  - Measurement limitations- GPS inaccuracy, sensor resolution limits, survey instrument errors
+  - Map scale- smaller scales generalize more, reducing positional detail
+  - Projection and transformation – converting data between coordinate systems can introduce distortions or small positional shifts if inappropriate projections or transformations are used.
+- **Attribute error**- inaccuracies or imprecision in the non-spatial data associated with features. Can be caused by:
+  - Data entry or transcription mistakes
+  - Outdated data- attributes no longer represent current conditions
+  - Sensor/device errors- faulty readings from measurement device
+  - Instrument limitations – the precision or measurement range of the instrument is inherently limited.
+- **Conceptual error**- Mismatches between the data's abstraction and the actual characteristics of what it represents. Can be caused by:
+  - Inappropriate classification- categories too broad or narrow
+  - Overgeneralization- simplifying complex features beyond what's appropriate for analysis
+  - Temporal mismatch- datasets from different dates are combined
+  - Modeling assumptions—for example, representing a floodplain as having fixed boundaries even though it changes over time.
 
 ### When do issues become errors:
 
@@ -206,8 +56,8 @@ Some problems are always errors– for example, a malfunctioning GPS unit or bro
 
 Other potential issues only become errors in certain contexts. For instance:
 
--   Imprecise data is not inherently "wrong", but if your analysis requires high precision, that imprecision becomes an error
--   Low resolution is not automatically an error, it just limits the detail of the data. However, if your research question demands final spatial detail, low resolution would be a source of error.
+- Imprecise data is not inherently "wrong", but if your analysis requires high precision, that imprecision becomes an error
+- Low resolution is not automatically an error, it just limits the detail of the data. However, if your research question demands final spatial detail, low resolution would be a source of error.
 
 These are examples of context-dependent error, which are situations where the data's characteristics (precision, resolution, scale) are mismatched with the requirements of the analysis and, therefore, become error.
 
@@ -223,24 +73,20 @@ Uncertainty describes the estimated amount of error that might be present in a d
 
 [Evidence](https://www.southernclimate.org/wp-content/uploads/NCA5_Ch22_Southeast.pdf) generally points to warming in the Southeast US. Researchers are using long-term temperature records from a network of weather stations to analyze trends. However, the stations vary in how often their sensors are calibrated, the precision of their measurements, and the completeness of their historical records. Consider the following questions
 
--   Which issues here relate to accuracy? Which relate to precision?
-
--   Imagine a research question where the dataset limits here **might not** be a problem. What would that question look like?
-
--   Imagine a research question where the same limits **might** cause a problem. What would that question look like?
+- Which issues here relate to accuracy? Which relate to precision?
+- Imagine a research question where the dataset limits here **might not** be a problem. What would that question look like?
+- Imagine a research question where the same limits **might** cause a problem. What would that question look like?
 
 ### Landslide Risk
 
 You are tasked with assessing landslide risk for a mountainous county: Your available data includes:
 
--   A digital elevation model
--   A soil type map
--   Rainfall records from a local station network
+- A digital elevation model
+- A soil type map
+- Rainfall records from a local station network
 
 Consider the following questions:
 
--   Which parts of the dataset could lead to positional error, attribute error, or conceptual error?
-
--   Imagine a research question where the dataset limits here **might not** be a problem. What would that question look like?
-
--   Imagine a research question where the same dataset limits **might** cause a problem. What would that question look like?
+- Which parts of the dataset could lead to positional error, attribute error, or conceptual error?
+- Imagine a research question where the dataset limits here **might not** be a problem. What would that question look like?
+- Imagine a research question where the same dataset limits **might** cause a problem. What would that question look like?

@@ -20,8 +20,8 @@ book:
     - qgis.qmd
     - learning_qgis.qmd
     - doing_spatial_analysis.qmd
+    - labs.qmd
 
-bibliography: references.bib
 
 format:
   html:

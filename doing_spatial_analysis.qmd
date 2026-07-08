@@ -31,8 +31,8 @@ To analyze this research question, we will use the following steps:
 
 ### [Download Data](https://drive.google.com/drive/folders/1AiEDyWe4eEemWIknTu1ZwtY4uy7U1vs3?usp=sharing)
 
--   2010 Census Block Group Median Household Income (from 2013 American Community Survey)
--   Current (June 2025) Major Air permits from [EPA Geospatial Data](https://www.epa.gov/frs/epa-frs-facilities-state-single-file-csv-download)
+- 2010 Census Block Group Median Household Income (from 2013 American Community Survey)
+- Current (June 2025) Major Air permits from [EPA Geospatial Data](https://www.epa.gov/frs/epa-frs-facilities-state-single-file-csv-download)
 
 ### [Add Data](https://drive.google.com/file/d/1uFhPu0nxmjZjFK7m39FyeI5ZWNwUKJNO/view?usp=sharing)
 
@@ -62,18 +62,18 @@ To find the intersection between vulnerable populations and areas proximate to h
 
 Now that you’ve completed the spatial analysis, take time to explore what your map shows.
 
--   What patterns do you see in the overlap between low-income areas and major air-polluting facilities?
--   Are there clusters, gaps, or surprises?
--   How did the spatial analysis tools you used help reveal those patterns?
--   Would you have been able to see the same information just by looking at the original data?
+- What patterns do you see in the overlap between low-income areas and major air-polluting facilities?
+- Are there clusters, gaps, or surprises?
+- How did the spatial analysis tools you used help reveal those patterns?
+- Would you have been able to see the same information just by looking at the original data?
 
 #### Critical Questions to Ask about the Data and Methods:
 
--   What assumptions are embedded in defining "vulnerable populations" based solely on median household income?
--   Why do we choose a 1-mile buffer, and what are the implications of this distance?
--   What is the source of the EPA permit data, and what might be missing?
--   This analysis uses 2010 block group data from the 2013 American Community Survey. What are the risks of using outdated demographic data for present-day decision-making?
--   What are the implications of using the census block group as the unit of analysis?
+- What assumptions are embedded in defining "vulnerable populations" based solely on median household income?
+- Why do we choose a 1-mile buffer, and what are the implications of this distance?
+- What is the source of the EPA permit data, and what might be missing?
+- This analysis uses 2010 block group data from the 2013 American Community Survey. What are the risks of using outdated demographic data for present-day decision-making?
+- What are the implications of using the census block group as the unit of analysis?
 
 ## Research Question 2
 
@@ -92,10 +92,10 @@ To analyze this research question, we will use the following steps:
 
 ### [Download Data](https://drive.google.com/drive/folders/1ZPdJ9a26eqOSYpm3PIzZOcrgtWFaqJrB?usp=sharing)
 
--   Address points from [Orange County GIS](https://www.orangecountync.gov/2057/Download-GIS-Data)
--   Parks from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
--   Chapel Hill boundaries from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
--   Isochrones (for service area analysis)
+- Address points from [Orange County GIS](https://www.orangecountync.gov/2057/Download-GIS-Data)
+- Parks from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
+- Chapel Hill boundaries from [Chapel Hill Open Data](https://opendata-townofchapelhill.hub.arcgis.com/search?q=parks)
+- Isochrones (for service area analysis)
 
 ### Add Data
 
@@ -121,16 +121,16 @@ There is not a common “key” field between the service areas and our address 
 
 Now that you’ve completed the spatial analysis, take time to explore what your map shows.
 
--   Which parks across Chapel Hill are serving the most people?
--   Are there any surprises?
--   How did the spatial analysis tools you used help reveal those patterns?
--   Would you have been able to see the same information just by looking at the original data?
+- Which parks across Chapel Hill are serving the most people?
+- Are there any surprises?
+- How did the spatial analysis tools you used help reveal those patterns?
+- Would you have been able to see the same information just by looking at the original data?
 
 #### Critical Questions to Ask about the Data and Methods:
 
--   What assumptions are we making when we define 'served' as being within a 10-minute isochrone from a park?
--   Are addresses a good stand-in for people?
--   Does a 10-minute walk on a map mean that it’s safe, comfortable, or desirable to walk there in real life?
+- What assumptions are we making when we define 'served' as being within a 10-minute isochrone from a park?
+- Are addresses a good stand-in for people?
+- Does a 10-minute walk on a map mean that it’s safe, comfortable, or desirable to walk there in real life?
 
 ## Research Question 3
 
@@ -148,9 +148,9 @@ To analyze this research question, we will use the following steps:
 
 ### [Download Data](https://drive.google.com/drive/folders/1rwdyyd9IdyjMN0AHoRJJuywjxFafNMOL?usp=sharing)
 
--   2023 National Land Cover Database [MLRC](https://www.mrlc.gov/data)
+- 2023 National Land Cover Database [MLRC](https://www.mrlc.gov/data)
 
--   Buncombe County Zip Codes from [Buncombe County Open Data](https://data.buncombecounty.org/datasets/buncombe-county-zip-codes)
+- Buncombe County Zip Codes from [Buncombe County Open Data](https://data.buncombecounty.org/datasets/buncombe-county-zip-codes)
 
 ### Add Data
 
@@ -225,13 +225,13 @@ To summarize wildfire risk by ZIP code, we will use zonal statistics, which summ
 
 Now that you’ve completed the spatial analysis, take time to explore what your map shows.
 
--   Which zip codes across Buncombe County have the highest land cover risk?
--   Are there any surprises?
--   How did the spatial analysis tools you used help reveal those patterns?
--   Would you have been able to see the same information just by looking at the original data?
+- Which zip codes across Buncombe County have the highest land cover risk?
+- Are there any surprises?
+- How did the spatial analysis tools you used help reveal those patterns?
+- Would you have been able to see the same information just by looking at the original data?
 
 #### Critical Questions to Ask about the Data and Methods:
 
--   How does the choice of administrative unit (ZIP codes) shape our understanding of vulnerability?
--   What important variables are missing from this model of wildfire vulnerability?
--   What are the limitations of using a strictly physical model for a hazard with complex social consequences?
+- How does the choice of administrative unit (ZIP codes) shape our understanding of vulnerability?
+- What important variables are missing from this model of wildfire vulnerability?
+- What are the limitations of using a strictly physical model for a hazard with complex social consequences?

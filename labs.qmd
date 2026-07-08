@@ -1,0 +1,190 @@
+# Labs
+
+## Lab 1
+
+### Overview
+
+In this lab you will complete the QGIS Basics chapter and create well-designed maps for each of the three datasets introduced in the chapter.
+
+### Instructions
+
+You should submit a set of three maps. Each map should display **ONLY** the dataset of interest with appropriate symbology. Each map should follow all guidance in the Cartography Basics section. **Map 1** should display the population density values of high population density tracts in the Triangle region of North Carolina (Orange, Durham, Wake counties). **Map 2** should display the elevation across Orange County. **Map 3** should display maximum temperature at weather stations across North Carolina during the June 2024 heatwave.
+
+### Rubric
+
+| Specification | Points |
+|----|----|
+| Data is symbolized using an appropriate visual variable | 3 points (1 per map) |
+| Map includes all required components | 3 points (1 per map) |
+| Map design follows guidance in Cartography Basics section | 3 points (1 per map) |
+
+## Lab 2
+
+### Overview
+
+In this lab you will complete the Doing Spatial Analysis chaper and create well-designed maps for each of the research questions.
+
+### Instructions
+
+You should submit a set of three maps. Each map should display the output of each question. Each map should follow all guidance in the Cartography Basics section. **Map 1** should display overlap of low-income communities and major air-polluting facilities in an area of interest in North Carolina (do not try to display the whole state). **Map 2** should display how many addresses each park serves across Chapel Hill. **Map 3** should display wildfire risk value across Buncombe County zip codes.
+
+### Rubric
+
+| Specification | Points |
+|----|----|
+| Spatial analysis output is correct | 6 points (2 per map) |
+| Map design follows guidance in Cartography Basics section (including appropriate symbology, required components, etc.) | 6 points (2 per map) |
+
+## Lab 3
+
+### Overview
+
+In this lab, you will use Census Bureau’s American Community Survey data for Carrboro to select, map, and explore two different definitions of vulnerable/underserved/historically disadvantaged populations.
+
+Many GIS analyses are built around analyzing spatial patterns in underserved or disadvantaged communities. However, these categories are often vague, socially constructed, and context-dependent. Researchers and planners frequently rely on demographic variables such as income level, race and ethnicity, educational attainment, disability status, age, and English language proficiency to approximate vulnerability. These variables are often selected based on assumptions about who lacks access to resources or faces structural barriers.
+
+How we define what “counts” as underserved or disadvantaged has a major influence on the outcomes of a spatial analysis. The choice of variables, and how we identify thresholds, can dramatically change which areas are identified as “vulnerable.” Even within a single demographic variable there are multiple ways to represent inequality, for instance, using median income vs. poverty rate, or percent without a high school diploma vs. overall educational attainment. **The goal of this lab is to display how different definitions of underserved results in different spatial patterns in Carrboro.**
+
+### Instructions
+
+#### [Download Data](https://drive.google.com/drive/folders/1wNiZHmVOStcevwqWfZnwhcapUJg5mBko?usp=sharing)
+
+1.  Review the [Carrboro Comprehensive Plan Introduction](https://www.townofcarrboro.org/DocumentCenter/View/12200/1-Introduction?bidId=) and [Land Use Policy Summary](https://hdp-us-prod-app-carr-engage-files.s3.us-west-2.amazonaws.com/9917/4113/4228/Carrboro_Connects_Land_Use_Policy_Summary.pdf) from the Carrboro Connects Comprehensive Plan. Identify references to populations described as "marginalized," "underserved," "historically disadvantaged," or similar terms and identify any specific demographic/socioeconomic characteristics associated with these categories (e.g., race, income, education level, age, disability status, etc.)
+
+2.  Using the documents above and the variables available in the ACS data (see ACS_QGIS_Field_Names.csv), define **two different, meaningful sets of criteria** for identifying marginalized census tracts in Carrboro. \*\**You will not find explicit values to use in the plans. You should model your criteria off existing thresholds from other sources ([example](https://www.fhfa.gov/data/underserved-areas))*
+
+3.  Add the project data to a new QGIS project. Execute a table join between the census block group boundaries and the census data.
+
+4.  Use a query **(select by attributes)** to identify block groups that meet each of your selected criteria. Create two new layers with only the selections for each criteria.
+
+5.  Design two maps that display the outcome of each of your criteria. Each map should follow all guidance in the Cartography Basics section.
+
+6.  Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies your criteria definitions, and considers the Modifiable Areal Unit Problem (MAUP) by explaining how your results might change if the analysis were done at a different geographical scale.
+
+### Rubric
+
+| Specification | Points |
+|----|----|
+| Selects two appropriate definitions | 2 points |
+| Correctly uses queries to identify qualifying block groups and creates new layers of selections | 4 points (2 each) |
+| Map design follows guidance in Cartography Basics section (including appropriate symbology, required components, etc.) | 4 points (2 per map) |
+| Write-up displays meaningful engagement with the prompts | 2 points |
+
+## Lab 4
+
+### Overview
+
+In this lab, you will calculate and map sidewalk density for areas within a 10 minute walk (service areas) of important location types across Carrboro (parks, schools, or grocery stores) using OpenStreetMap data. You will then use your results to propose a location for a new sidewalk.
+
+*\*\*"Sidewalk density" refers to the total length of sidewalk per unit area (e.g., feet per square mile). This provides a standardized metric for sidewalk access within each service area*
+
+**Connection to Carrboro Connects Comprehensive Plan**
+
+- TM2: Continue to expand the transportation system to provide at least one non-automobile option (walking, biking, and transit) for every neighborhood to be usable for a variety of trip purposes.
+
+### Instructions
+
+#### [Download Data](https://drive.google.com/drive/folders/1ciwGeUJ5FgsH38QqJnFkp33UIrddljf0?usp=sharing)
+
+1.  Add Carrboro sidewalk data and the service areas for your location type of interest (parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.
+
+2.  Calculate the length (in feet) of each sidewalk segment by using the **Field Calculator** to create a new field. Use the expression: length(\$geometry)
+
+3.  Calculate the area of each service area (in sq. ft) by using the **Field Calculator** to create a new field. Use the expression: area(\$geometry).
+
+4.  Use **Join Attributes by Location (Summary)** to execute a spatial join between service areas and sidewalks. Set the service areas as the “Join to features in” and the sidewalks as “Comparing to”. Use Intersects as the geometric predicate, and sum the length field you just calculated.
+
+5.  Use the **Field Calculator** on your service area summary data to calculate feet of sidewalk per square mile using the formula: \*YOUR_LENGTH_FIELD\* / (\*YOUR AREA FIELD\* / 27878400)
+
+6.  Identify the service area with the lowest sidewalk density. Examine the sidewalk locations in that service area and choose a logical location for a new sidewalk that would contribute to connecting existing sidewalks.
+
+7.  Design an map that displays the sidewalk density for your selected service area **AND** includes an inset map that identifies your proposed sidewalk location (you can annotate the proposed location in the print layout).
+
+8.  Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies the location of your new sidewalk, and identifies potential issues with the method that we used to identify sidewalk access.
+
+### Rubric
+
+| Specification | Points |
+|----|----|
+| Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk | 5 points |
+| Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.) | 5 points |
+| Write-up displays meaningful engagement with the prompts | 2 points |
+
+## Lab 5
+
+### Overview
+
+In this lab, you will explore non-motorist crash risk in Carrboro. Non-motorist crashes are incidents involving at least one road user who is not in a vehicle (e.g., pedestrians or bicyclists). You will use crash data, along with roadway data, to analyze patterns of safety risk and propose where Carrboro should prioritize safe streets improvements.
+
+**Connection to Carrboro Connects Comprehensive Plan**
+
+- Transportation & Mobility (T2.3, T3.1): Improve roadway safety for pedestrians and cyclists; target high-crash locations for improvements.
+- Climate Action: Promote biking and walking as safe alternatives to driving.
+
+The data for this lab was originally downloaded from NCOneMap, North Carolina’s open geospatial data portal. The non-motorist crash data represents crashes from 2007-2023 within Carrboro boundaries and only represents recorded crashes (police involvement).
+
+### Instructions
+
+#### [Download Data](https://drive.google.com/drive/folders/1lqSgcpeyjFvXn_KjuaMCufGR_4O7rWiO?usp=sharing)
+
+1.  Add Carrboro sidewalk data and the service areas for your location type of interest (parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.
+
+2.  Calculate the length (in feet) of each sidewalk segment by using the **Field Calculator** to create a new field. Use the expression: length(\$geometry)
+
+3.  Calculate the area of each service area (in sq. ft) by using the **Field Calculator** to create a new field. Use the expression: area(\$geometry).
+
+4.  Use **Join Attributes by Location (Summary)** to execute a spatial join between service areas and sidewalks. Set the service areas as the “Join to features in” and the sidewalks as “Comparing to”. Use Intersects as the geometric predicate, and sum the length field you just calculated.
+
+5.  Use the **Field Calculator** on your service area summary data to calculate feet of sidewalk per square mile using the formula: \*YOUR_LENGTH_FIELD\* / (\*YOUR AREA FIELD\* / 27878400)
+
+6.  Identify the service area with the lowest sidewalk density. Examine the sidewalk locations in that service area and choose a logical location for a new sidewalk that would contribute to connecting existing sidewalks.
+
+7.  Design an map that displays the sidewalk density for your selected service areas **AND** includes an inset map that identifies your proposed sidewalk location (you can annotate the proposed location in the print layout).
+
+8.  Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies the location of your new sidewalk, and identifies potential issues with the method that we used to identify sidewalk access.
+
+### Rubric
+
+| Specification | Points |
+|----|----|
+| Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk | 5 points |
+| Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.) | 5 points |
+| Write-up displays meaningful engagement with the prompts | 2 points |
+
+## Lab 6
+
+### Overview
+
+In this lab, you will explore patterns of urban heat in Carrboro near roadways in Carrboro using remotely sensed Land Surface Temperature from Landsat 8. You will then use your results to identify high-heat corridors and propose a new tree planting location that aligns with the goals of the Carrboro Connects Comprehensive Plan.
+
+**Connection to Carrboro Connects Comprehensive Plan**
+
+GSI2: Plant and maintain the tree canopy along identified roads.
+
+### Instructions
+
+#### [Download Data](https://drive.google.com/drive/folders/1Rqh343kY2MujM0My39k60NDo6fg2HbSv?usp=drive_link)
+
+1.  Determine and apply an appropriate buffer size for the roadways. The goal is the buffer should be wide enough to capture areas close to the roads so you can analyze patterns of urban heat near transportation corridors.
+
+2.  Use the Zonal Statistics tool to summarize LST values within each buffered roadway area.
+
+3.  Integrating at least one additional criteria, which can be from a previous lab (for example, demographic data from Lab 3 or service area from Lab 4), identify a priority area for tree planting that has both high LST and satisfies an additional criteria.
+
+4.  Within your priority area, identify at least two specific locations for new trees with the help of satellite imagery. These locations should meet the following conditions:
+
+    - Pedestrian friendly: Do not select major highways or high-speed roads where pedestrians are unlikely to walk
+    - Low existing tree coverage: Choose areas where there are few or no trees visible along the roadway in the satellite imagery
+    - Has areas suitable for planting trees: Choose places where you can see grass or bare soil next to the street– like a strip between the road and sidewalk, a median, or a wide shoulder. Avoid streets where pavement runs right up to buildings or fences.
+
+5.  Design an map that displays the LST around roadways in Carrboro and includes two inset maps that identify your tree planting locations.
+
+6.  Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies your proposed planting locations, and identifies potential issues with the method that we used to identify high-heat corridors.
+
+### Rubric
+
+| Specification | Points |
+|----|----|
+| Correctly executes geoprocessing tasks and selects appropriate locations for tree planting | 5 points |
+| Map design follows guidance in Cartography Basics section and includes inset maps with proposed locations (including appropriate symbology, required components, etc.) | 5 points |
+| Write-up displays meaningful engagement with the prompts | 2 points |

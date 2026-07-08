@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13&nbsp; Labs – GEOG370</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./doing_spatial_analysis.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./labs.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Labs</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">GEOG370</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./core.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Thinking Spatially</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">What is Geographic Data?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Spatial Data Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./attributes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Attributes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resolution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Resolution in Geographic Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./coordinate_systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Coordinate Systems and Projections</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./error.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accuracy, Error, and Precision</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Managing Files</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./qgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Working with Geographic Data in QGIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./learning_qgis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">QGIS Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./doing_spatial_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Labs</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lab-1" id="toc-lab-1" class="nav-link active" data-scroll-target="#lab-1"><span class="header-section-number">13.1</span> Lab 1</a>
+  <ul class="collapse">
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">13.1.1</span> Overview</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">13.1.2</span> Instructions</a></li>
+  <li><a href="#rubric" id="toc-rubric" class="nav-link" data-scroll-target="#rubric"><span class="header-section-number">13.1.3</span> Rubric</a></li>
+  </ul></li>
+  <li><a href="#lab-2" id="toc-lab-2" class="nav-link" data-scroll-target="#lab-2"><span class="header-section-number">13.2</span> Lab 2</a>
+  <ul class="collapse">
+  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1"><span class="header-section-number">13.2.1</span> Overview</a></li>
+  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">13.2.2</span> Instructions</a></li>
+  <li><a href="#rubric-1" id="toc-rubric-1" class="nav-link" data-scroll-target="#rubric-1"><span class="header-section-number">13.2.3</span> Rubric</a></li>
+  </ul></li>
+  <li><a href="#lab-3" id="toc-lab-3" class="nav-link" data-scroll-target="#lab-3"><span class="header-section-number">13.3</span> Lab 3</a>
+  <ul class="collapse">
+  <li><a href="#overview-2" id="toc-overview-2" class="nav-link" data-scroll-target="#overview-2"><span class="header-section-number">13.3.1</span> Overview</a></li>
+  <li><a href="#instructions-2" id="toc-instructions-2" class="nav-link" data-scroll-target="#instructions-2"><span class="header-section-number">13.3.2</span> Instructions</a></li>
+  <li><a href="#rubric-2" id="toc-rubric-2" class="nav-link" data-scroll-target="#rubric-2"><span class="header-section-number">13.3.3</span> Rubric</a></li>
+  </ul></li>
+  <li><a href="#lab-4" id="toc-lab-4" class="nav-link" data-scroll-target="#lab-4"><span class="header-section-number">13.4</span> Lab 4</a>
+  <ul class="collapse">
+  <li><a href="#overview-3" id="toc-overview-3" class="nav-link" data-scroll-target="#overview-3"><span class="header-section-number">13.4.1</span> Overview</a></li>
+  <li><a href="#instructions-3" id="toc-instructions-3" class="nav-link" data-scroll-target="#instructions-3"><span class="header-section-number">13.4.2</span> Instructions</a></li>
+  <li><a href="#rubric-3" id="toc-rubric-3" class="nav-link" data-scroll-target="#rubric-3"><span class="header-section-number">13.4.3</span> Rubric</a></li>
+  </ul></li>
+  <li><a href="#lab-5" id="toc-lab-5" class="nav-link" data-scroll-target="#lab-5"><span class="header-section-number">13.5</span> Lab 5</a>
+  <ul class="collapse">
+  <li><a href="#overview-4" id="toc-overview-4" class="nav-link" data-scroll-target="#overview-4"><span class="header-section-number">13.5.1</span> Overview</a></li>
+  <li><a href="#instructions-4" id="toc-instructions-4" class="nav-link" data-scroll-target="#instructions-4"><span class="header-section-number">13.5.2</span> Instructions</a></li>
+  <li><a href="#rubric-4" id="toc-rubric-4" class="nav-link" data-scroll-target="#rubric-4"><span class="header-section-number">13.5.3</span> Rubric</a></li>
+  </ul></li>
+  <li><a href="#lab-6" id="toc-lab-6" class="nav-link" data-scroll-target="#lab-6"><span class="header-section-number">13.6</span> Lab 6</a>
+  <ul class="collapse">
+  <li><a href="#overview-5" id="toc-overview-5" class="nav-link" data-scroll-target="#overview-5"><span class="header-section-number">13.6.1</span> Overview</a></li>
+  <li><a href="#instructions-5" id="toc-instructions-5" class="nav-link" data-scroll-target="#instructions-5"><span class="header-section-number">13.6.2</span> Instructions</a></li>
+  <li><a href="#rubric-5" id="toc-rubric-5" class="nav-link" data-scroll-target="#rubric-5"><span class="header-section-number">13.6.3</span> Rubric</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Labs</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="lab-1" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="lab-1"><span class="header-section-number">13.1</span> Lab 1</h2>
+<section id="overview" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">13.1.1</span> Overview</h3>
+<p>In this lab you will complete the QGIS Basics chapter and create well-designed maps for each of the three datasets introduced in the chapter.</p>
+</section>
+<section id="instructions" class="level3" data-number="13.1.2">
+<h3 data-number="13.1.2" class="anchored" data-anchor-id="instructions"><span class="header-section-number">13.1.2</span> Instructions</h3>
+<p>You should submit a set of three maps. Each map should display <strong>ONLY</strong> the dataset of interest with appropriate symbology. Each map should follow all guidance in the Cartography Basics section. <strong>Map 1</strong> should display the population density values of high population density tracts in the Triangle region of North Carolina (Orange, Durham, Wake counties). <strong>Map 2</strong> should display the elevation across Orange County. <strong>Map 3</strong> should display maximum temperature at weather stations across North Carolina during the June 2024 heatwave.</p>
+</section>
+<section id="rubric" class="level3" data-number="13.1.3">
+<h3 data-number="13.1.3" class="anchored" data-anchor-id="rubric"><span class="header-section-number">13.1.3</span> Rubric</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data is symbolized using an appropriate visual variable</td>
+<td>3 points (1 per map)</td>
+</tr>
+<tr class="even">
+<td>Map includes all required components</td>
+<td>3 points (1 per map)</td>
+</tr>
+<tr class="odd">
+<td>Map design follows guidance in Cartography Basics section</td>
+<td>3 points (1 per map)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="lab-2" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="lab-2"><span class="header-section-number">13.2</span> Lab 2</h2>
+<section id="overview-1" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="overview-1"><span class="header-section-number">13.2.1</span> Overview</h3>
+<p>In this lab you will complete the Doing Spatial Analysis chaper and create well-designed maps for each of the research questions.</p>
+</section>
+<section id="instructions-1" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">13.2.2</span> Instructions</h3>
+<p>You should submit a set of three maps. Each map should display the output of each question. Each map should follow all guidance in the Cartography Basics section. <strong>Map 1</strong> should display overlap of low-income communities and major air-polluting facilities in an area of interest in North Carolina (do not try to display the whole state). <strong>Map 2</strong> should display how many addresses each park serves across Chapel Hill. <strong>Map 3</strong> should display wildfire risk value across Buncombe County zip codes.</p>
+</section>
+<section id="rubric-1" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="rubric-1"><span class="header-section-number">13.2.3</span> Rubric</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Spatial analysis output is correct</td>
+<td>6 points (2 per map)</td>
+</tr>
+<tr class="even">
+<td>Map design follows guidance in Cartography Basics section (including appropriate symbology, required components, etc.)</td>
+<td>6 points (2 per map)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="lab-3" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="lab-3"><span class="header-section-number">13.3</span> Lab 3</h2>
+<section id="overview-2" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="overview-2"><span class="header-section-number">13.3.1</span> Overview</h3>
+<p>In this lab, you will use Census Bureau’s American Community Survey data for Carrboro to select, map, and explore two different definitions of vulnerable/underserved/historically disadvantaged populations.</p>
+<p>Many GIS analyses are built around analyzing spatial patterns in underserved or disadvantaged communities. However, these categories are often vague, socially constructed, and context-dependent. Researchers and planners frequently rely on demographic variables such as income level, race and ethnicity, educational attainment, disability status, age, and English language proficiency to approximate vulnerability. These variables are often selected based on assumptions about who lacks access to resources or faces structural barriers.</p>
+<p>How we define what “counts” as underserved or disadvantaged has a major influence on the outcomes of a spatial analysis. The choice of variables, and how we identify thresholds, can dramatically change which areas are identified as “vulnerable.” Even within a single demographic variable there are multiple ways to represent inequality, for instance, using median income vs.&nbsp;poverty rate, or percent without a high school diploma vs.&nbsp;overall educational attainment. <strong>The goal of this lab is to display how different definitions of underserved results in different spatial patterns in Carrboro.</strong></p>
+</section>
+<section id="instructions-2" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="instructions-2"><span class="header-section-number">13.3.2</span> Instructions</h3>
+<section id="download-data" class="level4" data-number="13.3.2.1">
+<h4 data-number="13.3.2.1" class="anchored" data-anchor-id="download-data"><span class="header-section-number">13.3.2.1</span> <a href="https://drive.google.com/drive/folders/1wNiZHmVOStcevwqWfZnwhcapUJg5mBko?usp=sharing">Download Data</a></h4>
+<ol type="1">
+<li><p>Review the <a href="https://www.townofcarrboro.org/DocumentCenter/View/12200/1-Introduction?bidId=">Carrboro Comprehensive Plan Introduction</a> and <a href="https://hdp-us-prod-app-carr-engage-files.s3.us-west-2.amazonaws.com/9917/4113/4228/Carrboro_Connects_Land_Use_Policy_Summary.pdf">Land Use Policy Summary</a> from the Carrboro Connects Comprehensive Plan. Identify references to populations described as “marginalized,” “underserved,” “historically disadvantaged,” or similar terms and identify any specific demographic/socioeconomic characteristics associated with these categories (e.g., race, income, education level, age, disability status, etc.)</p></li>
+<li><p>Using the documents above and the variables available in the ACS data (see ACS_QGIS_Field_Names.csv), define <strong>two different, meaningful sets of criteria</strong> for identifying marginalized census tracts in Carrboro. **<em>You will not find explicit values to use in the plans. You should model your criteria off existing thresholds from other sources (<a href="https://www.fhfa.gov/data/underserved-areas">example</a>)</em></p></li>
+<li><p>Add the project data to a new QGIS project. Execute a table join between the census block group boundaries and the census data.</p></li>
+<li><p>Use a query <strong>(select by attributes)</strong> to identify block groups that meet each of your selected criteria. Create two new layers with only the selections for each criteria.</p></li>
+<li><p>Design two maps that display the outcome of each of your criteria. Each map should follow all guidance in the Cartography Basics section.</p></li>
+<li><p>Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies your criteria definitions, and considers the Modifiable Areal Unit Problem (MAUP) by explaining how your results might change if the analysis were done at a different geographical scale.</p></li>
+</ol>
+</section>
+</section>
+<section id="rubric-2" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="rubric-2"><span class="header-section-number">13.3.3</span> Rubric</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Selects two appropriate definitions</td>
+<td>2 points</td>
+</tr>
+<tr class="even">
+<td>Correctly uses queries to identify qualifying block groups and creates new layers of selections</td>
+<td>4 points (2 each)</td>
+</tr>
+<tr class="odd">
+<td>Map design follows guidance in Cartography Basics section (including appropriate symbology, required components, etc.)</td>
+<td>4 points (2 per map)</td>
+</tr>
+<tr class="even">
+<td>Write-up displays meaningful engagement with the prompts</td>
+<td>2 points</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="lab-4" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="lab-4"><span class="header-section-number">13.4</span> Lab 4</h2>
+<section id="overview-3" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="overview-3"><span class="header-section-number">13.4.1</span> Overview</h3>
+<p>In this lab, you will calculate and map sidewalk density for areas within a 10 minute walk (service areas) of important location types across Carrboro (parks, schools, or grocery stores) using OpenStreetMap data. You will then use your results to propose a location for a new sidewalk.</p>
+<p><em>**“Sidewalk density” refers to the total length of sidewalk per unit area (e.g., feet per square mile). This provides a standardized metric for sidewalk access within each service area</em></p>
+<p><strong>Connection to Carrboro Connects Comprehensive Plan</strong></p>
+<ul>
+<li>TM2: Continue to expand the transportation system to provide at least one non-automobile option (walking, biking, and transit) for every neighborhood to be usable for a variety of trip purposes.</li>
+</ul>
+</section>
+<section id="instructions-3" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="instructions-3"><span class="header-section-number">13.4.2</span> Instructions</h3>
+<section id="download-data-1" class="level4" data-number="13.4.2.1">
+<h4 data-number="13.4.2.1" class="anchored" data-anchor-id="download-data-1"><span class="header-section-number">13.4.2.1</span> <a href="https://drive.google.com/drive/folders/1ciwGeUJ5FgsH38QqJnFkp33UIrddljf0?usp=sharing">Download Data</a></h4>
+<ol type="1">
+<li><p>Add Carrboro sidewalk data and the service areas for your location type of interest (parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.</p></li>
+<li><p>Calculate the length (in feet) of each sidewalk segment by using the <strong>Field Calculator</strong> to create a new field. Use the expression: length($geometry)</p></li>
+<li><p>Calculate the area of each service area (in sq. ft) by using the <strong>Field Calculator</strong> to create a new field. Use the expression: area($geometry).</p></li>
+<li><p>Use <strong>Join Attributes by Location (Summary)</strong> to execute a spatial join between service areas and sidewalks. Set the service areas as the “Join to features in” and the sidewalks as “Comparing to”. Use Intersects as the geometric predicate, and sum the length field you just calculated.</p></li>
+<li><p>Use the <strong>Field Calculator</strong> on your service area summary data to calculate feet of sidewalk per square mile using the formula: *YOUR_LENGTH_FIELD* / (*YOUR AREA FIELD* / 27878400)</p></li>
+<li><p>Identify the service area with the lowest sidewalk density. Examine the sidewalk locations in that service area and choose a logical location for a new sidewalk that would contribute to connecting existing sidewalks.</p></li>
+<li><p>Design an map that displays the sidewalk density for your selected service area <strong>AND</strong> includes an inset map that identifies your proposed sidewalk location (you can annotate the proposed location in the print layout).</p></li>
+<li><p>Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies the location of your new sidewalk, and identifies potential issues with the method that we used to identify sidewalk access.</p></li>
+</ol>
+</section>
+</section>
+<section id="rubric-3" class="level3" data-number="13.4.3">
+<h3 data-number="13.4.3" class="anchored" data-anchor-id="rubric-3"><span class="header-section-number">13.4.3</span> Rubric</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk</td>
+<td>5 points</td>
+</tr>
+<tr class="even">
+<td>Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.)</td>
+<td>5 points</td>
+</tr>
+<tr class="odd">
+<td>Write-up displays meaningful engagement with the prompts</td>
+<td>2 points</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="lab-5" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="lab-5"><span class="header-section-number">13.5</span> Lab 5</h2>
+<section id="overview-4" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="overview-4"><span class="header-section-number">13.5.1</span> Overview</h3>
+<p>In this lab, you will explore non-motorist crash risk in Carrboro. Non-motorist crashes are incidents involving at least one road user who is not in a vehicle (e.g., pedestrians or bicyclists). You will use crash data, along with roadway data, to analyze patterns of safety risk and propose where Carrboro should prioritize safe streets improvements.</p>
+<p><strong>Connection to Carrboro Connects Comprehensive Plan</strong></p>
+<ul>
+<li>Transportation &amp; Mobility (T2.3, T3.1): Improve roadway safety for pedestrians and cyclists; target high-crash locations for improvements.</li>
+<li>Climate Action: Promote biking and walking as safe alternatives to driving.</li>
+</ul>
+<p>The data for this lab was originally downloaded from NCOneMap, North Carolina’s open geospatial data portal. The non-motorist crash data represents crashes from 2007-2023 within Carrboro boundaries and only represents recorded crashes (police involvement).</p>
+</section>
+<section id="instructions-4" class="level3" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="instructions-4"><span class="header-section-number">13.5.2</span> Instructions</h3>
+<section id="download-data-2" class="level4" data-number="13.5.2.1">
+<h4 data-number="13.5.2.1" class="anchored" data-anchor-id="download-data-2"><span class="header-section-number">13.5.2.1</span> <a href="https://drive.google.com/drive/folders/1lqSgcpeyjFvXn_KjuaMCufGR_4O7rWiO?usp=sharing">Download Data</a></h4>
+<ol type="1">
+<li><p>Add Carrboro sidewalk data and the service areas for your location type of interest (parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.</p></li>
+<li><p>Calculate the length (in feet) of each sidewalk segment by using the <strong>Field Calculator</strong> to create a new field. Use the expression: length($geometry)</p></li>
+<li><p>Calculate the area of each service area (in sq. ft) by using the <strong>Field Calculator</strong> to create a new field. Use the expression: area($geometry).</p></li>
+<li><p>Use <strong>Join Attributes by Location (Summary)</strong> to execute a spatial join between service areas and sidewalks. Set the service areas as the “Join to features in” and the sidewalks as “Comparing to”. Use Intersects as the geometric predicate, and sum the length field you just calculated.</p></li>
+<li><p>Use the <strong>Field Calculator</strong> on your service area summary data to calculate feet of sidewalk per square mile using the formula: *YOUR_LENGTH_FIELD* / (*YOUR AREA FIELD* / 27878400)</p></li>
+<li><p>Identify the service area with the lowest sidewalk density. Examine the sidewalk locations in that service area and choose a logical location for a new sidewalk that would contribute to connecting existing sidewalks.</p></li>
+<li><p>Design an map that displays the sidewalk density for your selected service areas <strong>AND</strong> includes an inset map that identifies your proposed sidewalk location (you can annotate the proposed location in the print layout).</p></li>
+<li><p>Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies the location of your new sidewalk, and identifies potential issues with the method that we used to identify sidewalk access.</p></li>
+</ol>
+</section>
+</section>
+<section id="rubric-4" class="level3" data-number="13.5.3">
+<h3 data-number="13.5.3" class="anchored" data-anchor-id="rubric-4"><span class="header-section-number">13.5.3</span> Rubric</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk</td>
+<td>5 points</td>
+</tr>
+<tr class="even">
+<td>Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.)</td>
+<td>5 points</td>
+</tr>
+<tr class="odd">
+<td>Write-up displays meaningful engagement with the prompts</td>
+<td>2 points</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="lab-6" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="lab-6"><span class="header-section-number">13.6</span> Lab 6</h2>
+<section id="overview-5" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="overview-5"><span class="header-section-number">13.6.1</span> Overview</h3>
+<p>In this lab, you will explore patterns of urban heat in Carrboro near roadways in Carrboro using remotely sensed Land Surface Temperature from Landsat 8. You will then use your results to identify high-heat corridors and propose a new tree planting location that aligns with the goals of the Carrboro Connects Comprehensive Plan.</p>
+<p><strong>Connection to Carrboro Connects Comprehensive Plan</strong></p>
+<p>GSI2: Plant and maintain the tree canopy along identified roads.</p>
+</section>
+<section id="instructions-5" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="instructions-5"><span class="header-section-number">13.6.2</span> Instructions</h3>
+<section id="download-data-3" class="level4" data-number="13.6.2.1">
+<h4 data-number="13.6.2.1" class="anchored" data-anchor-id="download-data-3"><span class="header-section-number">13.6.2.1</span> <a href="https://drive.google.com/drive/folders/1Rqh343kY2MujM0My39k60NDo6fg2HbSv?usp=drive_link">Download Data</a></h4>
+<ol type="1">
+<li><p>Determine and apply an appropriate buffer size for the roadways. The goal is the buffer should be wide enough to capture areas close to the roads so you can analyze patterns of urban heat near transportation corridors.</p></li>
+<li><p>Use the Zonal Statistics tool to summarize LST values within each buffered roadway area.</p></li>
+<li><p>Integrating at least one additional criteria, which can be from a previous lab (for example, demographic data from Lab 3 or service area from Lab 4), identify a priority area for tree planting that has both high LST and satisfies an additional criteria.</p></li>
+<li><p>Within your priority area, identify at least two specific locations for new trees with the help of satellite imagery. These locations should meet the following conditions:</p>
+<ul>
+<li>Pedestrian friendly: Do not select major highways or high-speed roads where pedestrians are unlikely to walk</li>
+<li>Low existing tree coverage: Choose areas where there are few or no trees visible along the roadway in the satellite imagery</li>
+<li>Has areas suitable for planting trees: Choose places where you can see grass or bare soil next to the street– like a strip between the road and sidewalk, a median, or a wide shoulder. Avoid streets where pavement runs right up to buildings or fences.</li>
+</ul></li>
+<li><p>Design an map that displays the LST around roadways in Carrboro and includes two inset maps that identify your tree planting locations.</p></li>
+<li><p>Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies your proposed planting locations, and identifies potential issues with the method that we used to identify high-heat corridors.</p></li>
+</ol>
+</section>
+</section>
+<section id="rubric-5" class="level3" data-number="13.6.3">
+<h3 data-number="13.6.3" class="anchored" data-anchor-id="rubric-5"><span class="header-section-number">13.6.3</span> Rubric</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Specification</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Correctly executes geoprocessing tasks and selects appropriate locations for tree planting</td>
+<td>5 points</td>
+</tr>
+<tr class="even">
+<td>Map design follows guidance in Cartography Basics section and includes inset maps with proposed locations (including appropriate symbology, required components, etc.)</td>
+<td>5 points</td>
+</tr>
+<tr class="odd">
+<td>Write-up displays meaningful engagement with the prompts</td>
+<td>2 points</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./doing_spatial_analysis.html" class="pagination-link" aria-label="Doing Spatial Analysis in QGIS">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Doing Spatial Analysis in QGIS</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

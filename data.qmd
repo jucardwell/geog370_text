@@ -14,30 +14,30 @@ Historically, geospatial data was collected almost exclusively by state institut
 
 Some of the common sources of “authoritative” spatial data include: 
 
--   US Census Bureau
-    -   Population counts and demographics (e.g., race, age, income)
-    -   Housing and economic data
-    -   Geographic boundaries (e.g., census tracts, block groups, ZIP code tabulation areas)
--   US Geological Survey (USGS) 
-    -   Topographic maps
-    -   Elevation and terrain (e.g., DEMs)
-    -   Land cover and land use (e.g., NLCD)
-    -   Hydrography (rivers, lakes, watersheds)
-    -   Geologic and seismic data
--   NASA
-    -   Weather and climate data
-    -   Coastal and marine mapping (e.g., nautical charts, sea surface temperature)
-    -   Flood zones and storm surge models
-    -   Fisheries and oceanographic data
--   State and Local Governments
-    -   Parcel and zoning data
-    -   Transportation networks (roads, transit routes)
-    -   Utilities and infrastructure (e.g., water lines, sewer systems)
-    -   Land use plans and municipal boundaries
--   EPA
-    -   Air and water quality data
-    -   Environmental justice mapping (e.g., EJScreen)
-    -   Regulated facility locations
+- US Census Bureau
+  - Population counts and demographics (e.g., race, age, income)
+  - Housing and economic data
+  - Geographic boundaries (e.g., census tracts, block groups, ZIP code tabulation areas)
+- US Geological Survey (USGS) 
+  - Topographic maps
+  - Elevation and terrain (e.g., DEMs)
+  - Land cover and land use (e.g., NLCD)
+  - Hydrography (rivers, lakes, watersheds)
+  - Geologic and seismic data
+- NASA
+  - Weather and climate data
+  - Coastal and marine mapping (e.g., nautical charts, sea surface temperature)
+  - Flood zones and storm surge models
+  - Fisheries and oceanographic data
+- State and Local Governments
+  - Parcel and zoning data
+  - Transportation networks (roads, transit routes)
+  - Utilities and infrastructure (e.g., water lines, sewer systems)
+  - Land use plans and municipal boundaries
+- EPA
+  - Air and water quality data
+  - Environmental justice mapping (e.g., EJScreen)
+  - Regulated facility locations
 
 ## How is geographic data collected?
 
@@ -95,10 +95,10 @@ Collecting geospatial data is now easier than ever. Almost every smartphone has 
 
 Some well-known examples include:
 
--   OpenStreetMap: A free, crowdsourced map of the world built by millions of contributors, widely used in humanitarian efforts and mapping underserved areas.
--   Mapillary: A platform where users upload street-level imagery to support navigation, urban development, and computer vision training.
--   eBird: A citizen science project where birdwatchers record sightings, contributing to biodiversity monitoring and conservation.
--   iNaturalist: A platform where people document observations of plants and animals, helping scientists track species distribution and ecological change.
+- OpenStreetMap: A free, crowdsourced map of the world built by millions of contributors, widely used in humanitarian efforts and mapping underserved areas.
+- Mapillary: A platform where users upload street-level imagery to support navigation, urban development, and computer vision training.
+- eBird: A citizen science project where birdwatchers record sightings, contributing to biodiversity monitoring and conservation.
+- iNaturalist: A platform where people document observations of plants and animals, helping scientists track species distribution and ecological change.
 
 Crowdsourced or community-collected geospatial data has become an increasingly important way to capture information that is intentionally or unintentionally missed by “authoritative” sources. These grassroots efforts often seek to fill data gaps that disproportionately affect marginalized communities. However, the rise of crowdsourced data has also created tension between official and unofficial sources, which has raised questions about what kinds of data are considered legitimate and who is qualified to collect them. 
 
@@ -113,14 +113,14 @@ However, in May 2023, Louisiana passed legislation banning the use of community-
 
 Metadata adds context to a geographic dataset by providing information on how, why, when, and by whom geographic data were collected. Understanding this context is essential for determining whether a dataset can/should be used in a certain analysis. In particular, metadata should answer the following questions:
 
--   What is this data about?
--   Where did it come from?
--   When was it gathered?
--   How is it organized?
--   How is it located on earth? 
--   What features does this data describe and in how much detail?
--   What kind of features does this data set describe and in how much detail?
--   Who documented the data? 
+- What is this data about?
+- Where did it come from?
+- When was it gathered?
+- How is it organized?
+- How is it located on earth? 
+- What features does this data describe and in how much detail?
+- What kind of features does this data set describe and in how much detail?
+- Who documented the data? 
 
 Geospatial metadata is often stored using standardized formats that are structured in XML. There are different metadata standards- such as FGDC (Federal Geographic Data Committee) or ISO 19115- which define consistent ways to create metadata. Metadata is typically embedded within the data file itself (like in a GeoTIFF), stored alongside it as an auxiliary XML file, or managed in a separate metadata catalog or database.
 
@@ -138,13 +138,13 @@ For critical GIS work, this shift is especially significant. Open data initiativ
 
 As @D-Ignazio2023-aj write in Data Feminism, “data are not neutral or objective. They are the products of unequal social relations.” Contrary to the “god-trick”, which @Haraway2013-oy argues assumes that knowledge can be produced by “seeing everywhere from nowhere”, data is shaped by human decisions. There is no such thing as “raw” data, and recognizing that data is “cooked” means recognizing that data is shaped by the tools, priorities, and power structures of its creators. Data Feminism outlines seven principles for rethinking data practices through a lens of justice and equity. These principles offer a framework for critically engaging with geospatial data:
 
--   Examine power: Consider who has the power to produce data and what data is considered useful/useable
--   Challenge power: Use data to confront and dismantle unjust systems, not reinforce them
--   Elevate emotion and embodiment: Value lived experience and emotional knowledge
--   Rethink binaries and hierarchies: Question categorical simplifications (like male/female, urban/rural)
--   Embrace pluralism: Include diverse voices, community knowledge, and multiple ways of knowing
--   Consider context: Understand that data never exists outside of the context in which it was created
--   Make labor visible: Acknowledge the work that goes into data collection, cleaning, analysis, and maintenance.
+- Examine power: Consider who has the power to produce data and what data is considered useful/useable
+- Challenge power: Use data to confront and dismantle unjust systems, not reinforce them
+- Elevate emotion and embodiment: Value lived experience and emotional knowledge
+- Rethink binaries and hierarchies: Question categorical simplifications (like male/female, urban/rural)
+- Embrace pluralism: Include diverse voices, community knowledge, and multiple ways of knowing
+- Consider context: Understand that data never exists outside of the context in which it was created
+- Make labor visible: Acknowledge the work that goes into data collection, cleaning, analysis, and maintenance.
 
 As we’ll see in the examples below, spatial data (and data generally) often carries embedded assumptions that should be foregrounded in analyses using that data.  
 
@@ -174,12 +174,12 @@ In the era of big data, privacy concerns have deepened. Vast quantities of locat
 
 ## Critical questions to ask about your data
 
--   Who/what is missing from this data?
--   Who decided what to measure and how to measure it?
--   How were the data collected?
--   What assumptions are built into the data structure?
--   What is the purpose of this data- and who benefits?
--   What impacts might my use of the data have?
+- Who/what is missing from this data?
+- Who decided what to measure and how to measure it?
+- How were the data collected?
+- What assumptions are built into the data structure?
+- What is the purpose of this data- and who benefits?
+- What impacts might my use of the data have?
 
 ## Data Exploration Exercise
 
@@ -193,10 +193,10 @@ Finding, downloading, and cleaning spatial data accounts for the most time and e
 
 Visit each of the following data providers and use the prompt to find appropriate spatial data. When you have found a dataset, answer the following questions:
 
--   Is this authoritative data? How can I tell?
--   Can I easily download the data? What file type does it download as? 
--   Is there metadata associated with this dataset? What information does the metadata give me that I wouldn’t know otherwise? 
--   What [critical questions](https://jucardwell.github.io/geog370_text/data.html#critical-questions-to-ask-about-your-data) can I answer about this data? 
+- Is this authoritative data? How can I tell?
+- Can I easily download the data? What file type does it download as? 
+- Is there metadata associated with this dataset? What information does the metadata give me that I wouldn’t know otherwise? 
+- What [critical questions](https://jucardwell.github.io/geog370_text/data.html#critical-questions-to-ask-about-your-data) can I answer about this data? 
 
 \
 [NC OneMap](https://www.nconemap.gov/)
