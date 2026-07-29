@@ -42,11 +42,11 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction",
+    "title": "1  Course Information",
     "section": "",
-    "text": "This text introduces the foundations of Geographic Information Science (GIScience), the study of geographic information and the methods used to collect, represent, analyze, and communicate it. It has been designed for GEOG370: Geographic Information Science at the University of North Carolina\nGeographic information is information tied to a location on the Earth’s surface. It includes data about people, environments, infrastructure, and human activities. Today, geographic information is collected from a wide variety of sources, including satellites, drones, GPS devices, environmental sensors, government agencies, and citizen scientists.\nThe increasing availability of geographic data has transformed how we understand the world. Governments use geographic information to plan transportation systems and manage natural resources. Public health officials use it to track disease outbreaks. Businesses use it to select locations and understand customers. Scientists use it to study environmental change. In each case, location plays an important role in understanding the problem.\nThis course introduces the core concepts that underlie geographic information, explores major sources of spatial data, and develops practical skills for working with geographic information systems (GIS). Throughout the course, we will focus on a central question:\nHow can geographic data help us understand spatial patterns and answer spatial questions?",
+    "text": "1.1 How This Course Works",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Information</span>"
     ]
   },
   {
@@ -1267,6 +1267,26 @@
     "text": "8.1 Reprojecting vs. Assigning a Coordinate System\nOne of the most common sources of confusion for new GIS users is the difference between reprojecting a dataset and assigning a coordinate system.\nReprojecting transforms a dataset from one coordinate system into another. During this process, the coordinates are recalculated and a new dataset is created. Reproject a layer when you want to perform analysis in a different coordinate system or ensure that all datasets use the same coordinate system.\nAssigning (or defining) a coordinate system does not change the coordinates stored in the dataset. Instead, it tells QGIS how to interpret the existing coordinates. You should only assign a coordinate system when you know the dataset was created in that coordinate system but the coordinate system information is missing or incorrect.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Coordinate Systems and Projections</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#course-schedule",
+    "href": "intro.html#course-schedule",
+    "title": "1  Course Information",
+    "section": "1.2 Course Schedule",
+    "text": "1.2 Course Schedule",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Information</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#class-workshops",
+    "href": "intro.html#class-workshops",
+    "title": "1  Course Information",
+    "section": "1.3 Class Workshops",
+    "text": "1.3 Class Workshops",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Information</span>"
     ]
   }
 ]

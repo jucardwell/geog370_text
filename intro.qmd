@@ -1,11 +1,7 @@
-# Introduction
+# Course Information
 
-This text introduces the foundations of Geographic Information Science (GIScience), the study of geographic information and the methods used to collect, represent, analyze, and communicate it. It has been designed for **GEOG370:** **Geographic Information Science** at the University of North Carolina
+## [How This Course Works](https://docs.google.com/document/d/1EK4ruTHYOVNIB48FL9IF8gmLJcaL7i4l-FgFWwjeqG4/edit?usp=sharing)
 
-Geographic information is information tied to a location on the Earth's surface. It includes data about people, environments, infrastructure, and human activities. Today, geographic information is collected from a wide variety of sources, including satellites, drones, GPS devices, environmental sensors, government agencies, and citizen scientists.
+## [Course Schedule](https://docs.google.com/spreadsheets/d/1mFTJkLbvVq4Ej9mZohbmB58npXH1YfrEVcdjjjs5P7I/edit?usp=sharing)
 
-The increasing availability of geographic data has transformed how we understand the world. Governments use geographic information to plan transportation systems and manage natural resources. Public health officials use it to track disease outbreaks. Businesses use it to select locations and understand customers. Scientists use it to study environmental change. In each case, location plays an important role in understanding the problem.
-
-This course introduces the core concepts that underlie geographic information, explores major sources of spatial data, and develops practical skills for working with geographic information systems (GIS). Throughout the course, we will focus on a central question:
-
-**How can geographic data help us understand spatial patterns and answer spatial questions?**
+## [Class Workshops](https://drive.google.com/drive/folders/1oAWcIUwJ7I2pJh9v6M4dv87xwYCs1puh?usp=sharing)

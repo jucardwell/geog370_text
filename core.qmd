@@ -18,7 +18,7 @@ The goal of Geographic Information Science is to develop methods for answering t
 One common method for exploring spatial questions (using geographic data) is a Geographic Information System (GIS). A GIS is an integrated framework for exploring spatial questions. It is built around combining hardware, software, data, people, and methodologies to analyze space. In this course, we’ll use GIS as a tool to help us examine geographic data, but the focus is not on learning GIS software in depth. Rather, we’ll use it to support broader learning about geographic information and spatial thinking.
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | Component | Description |
 | Hardware | Physical infrastructure used for GIS. This includes local computers, servers, data collection devices, etc. |
 | Software | Applications and platforms used to analyze, visualize, and manage geographic data.  |

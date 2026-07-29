@@ -7,7 +7,7 @@ A coordinate system is a framework for describing the location of features on th
 GIS uses two major types of coordinate systems:
 
 - Geographic Coordinate Systems (GCS) describe locations on the Earth's curved surface using latitude and longitude.
--  Projected Coordinate Systems (PCS) describe locations on a flat plane using X and Y coordinates measured in linear units such as meters or feet.
+- Projected Coordinate Systems (PCS) describe locations on a flat plane using X and Y coordinates measured in linear units such as meters or feet.
 
 ## What are Geographic Coordinate Systems?
 
