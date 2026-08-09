@@ -1283,8 +1283,18 @@
     "objectID": "intro.html#class-workshops",
     "href": "intro.html#class-workshops",
     "title": "1  Course Information",
-    "section": "1.3 Class Workshops",
-    "text": "1.3 Class Workshops",
+    "section": "1.4 Class Workshops",
+    "text": "1.4 Class Workshops",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Information</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#course-slides",
+    "href": "intro.html#course-slides",
+    "title": "1  Course Information",
+    "section": "1.3 Course Slides",
+    "text": "1.3 Course Slides",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Course Information</span>"
     ]
