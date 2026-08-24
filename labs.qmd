@@ -8,12 +8,12 @@ In this lab you will complete the QGIS Basics chapter and create well-designed m
 
 ### Instructions
 
-You should submit a set of three maps. Each map should display **ONLY** the dataset of interest with appropriate symbology. Each map should follow all guidance in the Cartography Basics section. **Map 1** should display the population density values of high population density tracts in the Triangle region of North Carolina (Orange, Durham, Wake counties). **Map 2** should display the elevation across Orange County. **Map 3** should display maximum temperature at weather stations across North Carolina during the June 2024 heatwave.
+You should submit a set of three maps. Each map should display **ONLY** the dataset of interest with appropriate symbology. Each map should follow all guidance in the Cartography Basics section. **Map 1** should display the median household income values of only high population density tracts in the Triangle region of North Carolina (**Hint:** this will require either a new spatial join or a new selection). **Map 2** should display the elevation across Orange County. **Map 3** should display maximum temperature at weather stations across North Carolina during the June 2024 heatwave.
 
 ### Rubric
 
 | Specification | Points |
-|----|----|
+|------------------------------------|------------------------------------|
 | Data is symbolized using an appropriate visual variable | 3 points (1 per map) |
 | Map includes all required components | 3 points (1 per map) |
 | Map design follows guidance in Cartography Basics section | 3 points (1 per map) |
@@ -31,7 +31,7 @@ You should submit a set of three maps. Each map should display the output of eac
 ### Rubric
 
 | Specification | Points |
-|----|----|
+|------------------------------------|------------------------------------|
 | Spatial analysis output is correct | 6 points (2 per map) |
 | Map design follows guidance in Cartography Basics section (including appropriate symbology, required components, etc.) | 6 points (2 per map) |
 
@@ -64,7 +64,7 @@ How we define what “counts” as underserved or disadvantaged has a major infl
 ### Rubric
 
 | Specification | Points |
-|----|----|
+|------------------------------------|------------------------------------|
 | Selects two appropriate definitions | 2 points |
 | Correctly uses queries to identify qualifying block groups and creates new layers of selections | 4 points (2 each) |
 | Map design follows guidance in Cartography Basics section (including appropriate symbology, required components, etc.) | 4 points (2 per map) |
@@ -105,7 +105,7 @@ In this lab, you will calculate and map sidewalk density for areas within a 10 m
 ### Rubric
 
 | Specification | Points |
-|----|----|
+|------------------------------------|------------------------------------|
 | Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk | 5 points |
 | Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.) | 5 points |
 | Write-up displays meaningful engagement with the prompts | 2 points |
@@ -146,7 +146,7 @@ The data for this lab was originally downloaded from NCOneMap, North Carolina’
 ### Rubric
 
 | Specification | Points |
-|----|----|
+|------------------------------------|------------------------------------|
 | Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk | 5 points |
 | Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.) | 5 points |
 | Write-up displays meaningful engagement with the prompts | 2 points |
@@ -184,7 +184,7 @@ GSI2: Plant and maintain the tree canopy along identified roads.
 ### Rubric
 
 | Specification | Points |
-|----|----|
+|------------------------------------|------------------------------------|
 | Correctly executes geoprocessing tasks and selects appropriate locations for tree planting | 5 points |
 | Map design follows guidance in Cartography Basics section and includes inset maps with proposed locations (including appropriate symbology, required components, etc.) | 5 points |
 | Write-up displays meaningful engagement with the prompts | 2 points |
