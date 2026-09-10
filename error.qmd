@@ -67,16 +67,16 @@ Uncertainty describes the estimated amount of error that might be present in a d
 
 **Example:** If a GPS is accurate within ±5 m, that’s uncertainty you can plan for. If the GPS occasionally drifts 30 m without warning, that’s unknown error.
 
-## 8.4 Case studies
+## Case Studies
 
-### 8.4.1 Warming trends in the Southeast US
+### Warming trends in the Southeast US
 
 [Evidence](https://www.southernclimate.org/wp-content/uploads/NCA5_Ch22_Southeast.pdf) generally points to warming in the Southeast US. Researchers are using long-term temperature records from a network of weather stations to analyze trends.
 
 Imagine the network includes the four stations below.
 
 | Station | Years of record | How temperature was written down | Sensor checked against a reference thermometer? | Days with no reading | Other notes |
-|----|----|----|----|----|----|
+|------------|------------|------------|------------|------------|------------|
 | A | 1895 to today | nearest whole degree until 1985, then to the nearest tenth of a degree | every year until 1985, not since | 3% | the sensor was moved 200 meters downhill in 1962 |
 | B | 1948 to today | nearest tenth of a degree since 1990 | every 5 years | 0.5% | the field around the station was paved over for parking in the 1970s |
 | C | 1955 to today | nearest whole degree the whole time | no record of it ever being checked | 12%, mostly in winter | a volunteer read the thermometer at 5pm until 1998, and at 7am after that |
@@ -93,7 +93,7 @@ Consider the following questions:
   - Has the number of days per year above 95 degrees risen since 1955?
 - Now write your own research question that these data could answer well, and one they could not.
 
-### 8.4.2 Landslide risk
+### Landslide risk
 
 You are advising a county government on which neighborhoods should be required to get a geotechnical review before new houses can be built on steep slopes. Landslides in this county are usually shallow slides on steep hillsides, triggered by heavy rain, and they often start in narrow gullies. Your available data are:
 
