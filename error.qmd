@@ -67,26 +67,47 @@ Uncertainty describes the estimated amount of error that might be present in a d
 
 **Example:** If a GPS is accurate within ±5 m, that’s uncertainty you can plan for. If the GPS occasionally drifts 30 m without warning, that’s unknown error.
 
-## Case Studies: Why Does Accuracy and Precision Matter
+## 8.4 Case studies
 
-### Warming trends in the Southeast US
+### 8.4.1 Warming trends in the Southeast US
 
-[Evidence](https://www.southernclimate.org/wp-content/uploads/NCA5_Ch22_Southeast.pdf) generally points to warming in the Southeast US. Researchers are using long-term temperature records from a network of weather stations to analyze trends. However, the stations vary in how often their sensors are calibrated, the precision of their measurements, and the completeness of their historical records. Consider the following questions
+[Evidence](https://www.southernclimate.org/wp-content/uploads/NCA5_Ch22_Southeast.pdf) generally points to warming in the Southeast US. Researchers are using long-term temperature records from a network of weather stations to analyze trends.
 
-- Which issues here relate to accuracy? Which relate to precision?
-- Imagine a research question where the dataset limits here **might not** be a problem. What would that question look like?
-- Imagine a research question where the same limits **might** cause a problem. What would that question look like?
+Imagine the network includes the four stations below.
 
-### Landslide Risk
-
-You are tasked with assessing landslide risk for a mountainous county: Your available data includes:
-
-- A digital elevation model
-- A soil type map
-- Rainfall records from a local station network
+| Station | Years of record | How temperature was written down | Sensor checked against a reference thermometer? | Days with no reading | Other notes |
+|----|----|----|----|----|----|
+| A | 1895 to today | nearest whole degree until 1985, then to the nearest tenth of a degree | every year until 1985, not since | 3% | the sensor was moved 200 meters downhill in 1962 |
+| B | 1948 to today | nearest tenth of a degree since 1990 | every 5 years | 0.5% | the field around the station was paved over for parking in the 1970s |
+| C | 1955 to today | nearest whole degree the whole time | no record of it ever being checked | 12%, mostly in winter | a volunteer read the thermometer at 5pm until 1998, and at 7am after that |
+| D | 2005 to today | nearest hundredth of a degree | every 3 months | none | the only station in the mountains, all others are in the lowlands |
 
 Consider the following questions:
 
-- Which parts of the dataset could lead to positional error, attribute error, or conceptual error?
-- Imagine a research question where the dataset limits here **might not** be a problem. What would that question look like?
-- Imagine a research question where the same dataset limits **might** cause a problem. What would that question look like?
+- Which issues in this table relate to accuracy? Which relate to precision?
+- Station D records temperature to the hundredth of a degree. Does that make it the most accurate station in the network? Why or why not?
+- Some of the issues in this table are neither accuracy nor precision problems. Which ones, and what do they limit instead?
+- What would you want to know about these stations that the table does not tell you?
+- Below are two possible research questions. Which one can this network answer well, and which one does it answer poorly? Explain what specifically causes the problem.
+  - Has the average annual temperature across this region risen since 1955?
+  - Has the number of days per year above 95 degrees risen since 1955?
+- Now write your own research question that these data could answer well, and one they could not.
+
+### 8.4.2 Landslide risk
+
+You are advising a county government on which neighborhoods should be required to get a geotechnical review before new houses can be built on steep slopes. Landslides in this county are usually shallow slides on steep hillsides, triggered by heavy rain, and they often start in narrow gullies. Your available data are:
+
+- **An elevation model.** It stores one elevation value for every 10 meter by 10 meter square of the county. It was made from aerial photographs taken in 1998. A highway was cut into the east side of the county in 2019, and a quarry was expanded in 2015.
+- **A soil map.** County soil scientists walked the area in the early 1980s, dug sample pits, and drew boundaries between areas with different soils. Each area on the map is labeled with the single soil type that is most common inside it, even though other soils are mixed in. The smallest area they mapped is about the size of two football fields.
+- **Rainfall records.** Four rain gauges report how much rain fell each hour. All four sit in valley bottoms near towns. The county also includes mountains that rise about 1,000 meters higher than any gauge. One gauge was broken for two years. All four are known to collect less rain than actually falls when it is very windy.
+
+Consider the following questions:
+
+- Which parts of these data could lead to positional error? Which to attribute error? Which to conceptual error? Some issues may fit more than one category, and if so, explain why.
+- The elevation model gives one value per 10 meter square. Landslides here often start in gullies only a few meters wide. What does that mismatch mean for your advice to the county?
+- The soil map labels each area with its most common soil. What assumption are you making if you use that label for a specific building lot?
+- What would you want to know about these data that the descriptions above do not tell you?
+- Below are two possible research questions. Which one can these data answer well, and which one does it answer poorly? Explain what specifically causes the problem.
+  - Which parts of the county have generally steeper, wetter, landslide-prone terrain than others?
+  - Which individual parcels in this subdivision need a geotechnical review?
+- Now write your own research question that these data could answer well, and one they could not.
