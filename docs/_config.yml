@@ -1,0 +1,26 @@
+theme: jekyll-theme-primer
+exclude:
+  - .DS_Store
+  - images/attributes.png
+  - images/autocorr.png
+  - images/hosp.png
+  - images/raster_multiple_resolutions.png
+  - images/tobler.jpg
+  - images/zone.png
+  - site_libs/Leaflet.Sync-0.0.5
+  - site_libs/Leaflet.glify-3.2.0
+  - site_libs/Proj4Leaflet-1.0.1
+  - site_libs/htmltools-fill-0.5.8.1
+  - site_libs/htmltools-fill-0.5.9
+  - site_libs/htmlwidgets-1.6.4
+  - site_libs/jquery-3.6.0
+  - site_libs/leaflet-1.3.1
+  - site_libs/leaflet-binding-2.2.2
+  - site_libs/leaflet-binding-2.2.3
+  - site_libs/leaflet-providers-2.0.0
+  - site_libs/leaflet-providers-3.0.0
+  - site_libs/leaflet-providers-plugin-2.2.2
+  - site_libs/leaflet-providers-plugin-2.2.3
+  - site_libs/leafletfix-1.0.0
+  - site_libs/proj4-2.6.2
+  - site_libs/rstudio_leaflet-1.3.1
