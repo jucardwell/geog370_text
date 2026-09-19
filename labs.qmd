@@ -28,7 +28,7 @@ In this lab you will complete the Doing Spatial Analysis chaper and create well-
 
 ### Instructions
 
-You should submit a set of three maps. Each map should display the output of each question. Each map should follow all guidance in the Cartography Basics section. **Map 1** should display overlap of low-income communities and major air-polluting facilities in an area of interest in North Carolina (do not try to display the whole state). **Map 2** should display how many addresses each park serves across Chapel Hill. **Map 3** should display wildfire risk value across Buncombe County zip codes.
+You should submit a set of three maps. You must export your maps as images for submission (i.e. not .qgz files). Each map should display the output of each question. Each map should follow all guidance in the Cartography Basics section. **Map 1** should display overlap of low-income communities and major air-polluting facilities in an area of interest in North Carolina (do not try to display the whole state). **Map 2** should display how many addresses each park serves across Chapel Hill. **Map 3** should display wildfire risk value across Buncombe County zip codes.
 
 ### Rubric
 
