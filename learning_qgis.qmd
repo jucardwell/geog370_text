@@ -105,10 +105,8 @@ We will practice cartography basics by creating a well-designed map of high popu
   - Use **different hues** to represent different categories (e.g., land cover types).
   - Avoid colors that imply unintended meaning (e.g., red = danger).
 - If you use a basemap, important basemap features **MUST** be visible under the features
-  - **Basemaps are not required.** Only include a basemap if it provides useful geographic context or helps readers interpret the map.
-
+  - **Basemaps are not required.** Only include a basemap if it provides useful geographic context or helps readers interpret the map. If you do not use a basemap you MUST use labeling to add geographic context.
   - **Choose a basemap that supports the map's purpose.** For example, use a street basemap to show roads and place names, or a satellite basemap when land cover or imagery is important.
-
   - If you are displaying areal data and using a VersaTiles basemap only the labels will appear over the features. If the labels aren't sufficient, add transparency to your features
 - The map must be appropriately zoomed and centered on the features
 - There should be a small amount of white space on the edges of the map, and the map should have a frameline
