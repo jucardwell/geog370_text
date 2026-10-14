@@ -88,7 +88,7 @@ In this lab, you will calculate and map sidewalk density for areas within a 10 m
 
 #### [Download Data](https://drive.google.com/drive/folders/1ciwGeUJ5FgsH38QqJnFkp33UIrddljf0?usp=sharing)
 
-1.  Add Carrboro sidewalk data and the service areas for your location type of interest (parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.
+1.  Add Carrboro sidewalk data and the service areas for your location type of interest (**pick one**: parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.
 
 2.  Calculate the length (in feet) of each sidewalk segment by using the **Field Calculator** to create a new field. Use the expression: length(\$geometry)
 

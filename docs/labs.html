@@ -413,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="download-data-1" class="level4" data-number="13.4.2.1">
 <h4 data-number="13.4.2.1" class="anchored" data-anchor-id="download-data-1"><span class="header-section-number">13.4.2.1</span> <a href="https://drive.google.com/drive/folders/1ciwGeUJ5FgsH38QqJnFkp33UIrddljf0?usp=sharing">Download Data</a></h4>
 <ol type="1">
-<li><p>Add Carrboro sidewalk data and the service areas for your location type of interest (parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.</p></li>
+<li><p>Add Carrboro sidewalk data and the service areas for your location type of interest (<strong>pick one</strong>: parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.</p></li>
 <li><p>Calculate the length (in feet) of each sidewalk segment by using the <strong>Field Calculator</strong> to create a new field. Use the expression: length($geometry)</p></li>
 <li><p>Calculate the area of each service area (in sq. ft) by using the <strong>Field Calculator</strong> to create a new field. Use the expression: area($geometry).</p></li>
 <li><p>Use <strong>Join Attributes by Location (Summary)</strong> to execute a spatial join between service areas and sidewalks. Set the service areas as the “Join to features in” and the sidewalks as “Comparing to”. Use Intersects as the geometric predicate, and sum the length field you just calculated.</p></li>
