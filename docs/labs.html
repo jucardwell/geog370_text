@@ -439,7 +439,7 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk</td>
+<td>Correctly executes geoprocessing tasks to assess crash risk and selects an appropriate priority segment</td>
 <td>5 points</td>
 </tr>
 <tr class="even">
@@ -471,14 +471,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="download-data-2" class="level4" data-number="13.5.2.1">
 <h4 data-number="13.5.2.1" class="anchored" data-anchor-id="download-data-2"><span class="header-section-number">13.5.2.1</span> <a href="https://drive.google.com/drive/folders/1lqSgcpeyjFvXn_KjuaMCufGR_4O7rWiO?usp=sharing">Download Data</a></h4>
 <ol type="1">
-<li><p>Add Carrboro sidewalk data and the service areas for your location type of interest (parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.</p></li>
-<li><p>Calculate the length (in feet) of each sidewalk segment by using the <strong>Field Calculator</strong> to create a new field. Use the expression: length($geometry)</p></li>
-<li><p>Calculate the area of each service area (in sq. ft) by using the <strong>Field Calculator</strong> to create a new field. Use the expression: area($geometry).</p></li>
-<li><p>Use <strong>Join Attributes by Location (Summary)</strong> to execute a spatial join between service areas and sidewalks. Set the service areas as the “Join to features in” and the sidewalks as “Comparing to”. Use Intersects as the geometric predicate, and sum the length field you just calculated.</p></li>
-<li><p>Use the <strong>Field Calculator</strong> on your service area summary data to calculate feet of sidewalk per square mile using the formula: *YOUR_LENGTH_FIELD* / (*YOUR AREA FIELD* / 27878400)</p></li>
-<li><p>Identify the service area with the lowest sidewalk density. Examine the sidewalk locations in that service area and choose a logical location for a new sidewalk that would contribute to connecting existing sidewalks.</p></li>
-<li><p>Design an map that displays the sidewalk density for your selected service areas <strong>AND</strong> includes an inset map that identifies your proposed sidewalk location (you can annotate the proposed location in the print layout).</p></li>
-<li><p>Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies the location of your new sidewalk, and identifies potential issues with the method that we used to identify sidewalk access.</p></li>
+<li><p>Develop an analysis process that uses at least 2 different processing tools to identify priority road segments for safe street improvements. This process should <strong>QUANTIFY</strong> road risk (i.e.&nbsp;each road segment should have a numeric indicator of risk, risk should not be determined by visually looking at crashes).</p></li>
+<li><p>Identify one priority road segment based on the methodology you chose.</p></li>
+<li><p>Create a print layout of your results using the <a href="https://jucardwell.github.io/geog370_text/making_maps.html">Cartographic Design Guide</a>. Your print layout should be centered on your priority road segment but give enough context to compare your selected road segment to surrounding roads. Do not try to make a map of the entirety of Carrboro. You should indicate your identified road segment by annotating it in the print layout.</p></li>
+<li><p>Complete a brief write-up (3-4 paragraphs) that explains and justifies your analysis process (how is your methodology useful for identifying dangerous road segments?), describes overall patterns of crash risk across Carrboro, identifies your priority segment and how you selected it, and recommends a <a href="https://highways.dot.gov/safety/proven-safety-countermeasures">safe street improvement</a> for that roadway. To choose an improvement, use satellite imagery to explore conditions on your selected roadway: what type of road it is, its estimated traffic volume, whether sidewalks and crosswalks already exist, and the characteristics of crashes that occur there.</p></li>
 </ol>
 </section>
 </section>
@@ -501,7 +497,7 @@ ul.task-list li input[type="checkbox"] {
 <td>5 points</td>
 </tr>
 <tr class="even">
-<td>Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.)</td>
+<td>Map design follows guidance in Cartography Basics section</td>
 <td>5 points</td>
 </tr>
 <tr class="odd">

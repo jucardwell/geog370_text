@@ -108,7 +108,7 @@ In this lab, you will calculate and map sidewalk density for areas within a 10 m
 
 | Specification | Points |
 |------------------------------------|------------------------------------|
-| Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk | 5 points |
+| Correctly executes geoprocessing tasks to assess crash risk and selects an appropriate priority segment | 5 points |
 | Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.) | 5 points |
 | Write-up displays meaningful engagement with the prompts | 2 points |
 
@@ -129,28 +129,20 @@ The data for this lab was originally downloaded from NCOneMap, North Carolina’
 
 #### [Download Data](https://drive.google.com/drive/folders/1lqSgcpeyjFvXn_KjuaMCufGR_4O7rWiO?usp=sharing)
 
-1.  Add Carrboro sidewalk data and the service areas for your location type of interest (parks, schools, or grocery stores). Check the CRS of the datasets to identify distance units.
+1.  Develop an analysis process that uses at least 2 different processing tools to identify priority road segments for safe street improvements. This process should **QUANTIFY** road risk (i.e. each road segment should have a numeric indicator of risk, risk should not be determined by visually looking at crashes).
 
-2.  Calculate the length (in feet) of each sidewalk segment by using the **Field Calculator** to create a new field. Use the expression: length(\$geometry)
+2.  Identify one priority road segment based on the methodology you chose.
 
-3.  Calculate the area of each service area (in sq. ft) by using the **Field Calculator** to create a new field. Use the expression: area(\$geometry).
+3.  Create a print layout of your results using the [Cartographic Design Guide](https://jucardwell.github.io/geog370_text/making_maps.html). Your print layout should be centered on your priority road segment but give enough context to compare your selected road segment to surrounding roads. Do not try to make a map of the entirety of Carrboro. You should indicate your identified road segment by annotating it in the print layout.
 
-4.  Use **Join Attributes by Location (Summary)** to execute a spatial join between service areas and sidewalks. Set the service areas as the “Join to features in” and the sidewalks as “Comparing to”. Use Intersects as the geometric predicate, and sum the length field you just calculated.
-
-5.  Use the **Field Calculator** on your service area summary data to calculate feet of sidewalk per square mile using the formula: \*YOUR_LENGTH_FIELD\* / (\*YOUR AREA FIELD\* / 27878400)
-
-6.  Identify the service area with the lowest sidewalk density. Examine the sidewalk locations in that service area and choose a logical location for a new sidewalk that would contribute to connecting existing sidewalks.
-
-7.  Design an map that displays the sidewalk density for your selected service areas **AND** includes an inset map that identifies your proposed sidewalk location (you can annotate the proposed location in the print layout).
-
-8.  Complete a brief write-up (2-3 paragraphs) that interprets your results (what spatial patterns across Carrboro can you identify), justifies the location of your new sidewalk, and identifies potential issues with the method that we used to identify sidewalk access.
+4.  Complete a brief write-up (3-4 paragraphs) that explains and justifies your analysis process (how is your methodology useful for identifying dangerous road segments?), describes overall patterns of crash risk across Carrboro, identifies your priority segment and how you selected it, and recommends a [safe street improvement](https://highways.dot.gov/safety/proven-safety-countermeasures) for that roadway. To choose an improvement, use satellite imagery to explore conditions on your selected roadway: what type of road it is, its estimated traffic volume, whether sidewalks and crosswalks already exist, and the characteristics of crashes that occur there.
 
 ### Rubric
 
 | Specification | Points |
 |------------------------------------|------------------------------------|
 | Correctly executes geoprocessing tasks and selects appropriate location for proposed sidewalk | 5 points |
-| Map design follows guidance in Cartography Basics section and includes an inset map with proposed sidewalk location (including appropriate symbology, required components, etc.) | 5 points |
+| Map design follows guidance in Cartography Basics section | 5 points |
 | Write-up displays meaningful engagement with the prompts | 2 points |
 
 ## Lab 6
